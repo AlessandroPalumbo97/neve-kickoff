@@ -1,0 +1,593 @@
+{
+  "site": {
+    "name": "Linecheck 2025",
+    "baseUrl": "https://www.linecheck.it",
+    "theme": "linecheck2025-theme"
+  },
+  "header": {
+    "cta": {
+      "label": "Tickets",
+      "url": "https://www.linecheck.it/tickets/"
+    },
+    "logo": {
+      "ariaLabel": "Linecheck",
+      "svgUrl": "https://www.linecheck.it/wp-content/themes/linecheck2025-theme/assets/i/linecheck-animated.svg"
+    },
+    "menu": [
+      {
+        "label": "News",
+        "url": "https://www.linecheck.it/news/"
+      },
+      {
+        "label": "Tickets",
+        "url": "https://www.linecheck.it/tickets/"
+      },
+      {
+        "label": "Meeting&Festival",
+        "children": [
+          {
+            "label": "Festival",
+            "url": "https://www.linecheck.it/festival/",
+            "children": [
+              {
+                "label": "Program",
+                "url": "https://www.linecheck.it/festival/program/"
+              },
+              {
+                "label": "Artists",
+                "url": "https://www.linecheck.it/festival/artists/"
+              }
+            ]
+          },
+          {
+            "label": "Meeting",
+            "url": "https://www.linecheck.it/meeting/",
+            "children": [
+              {
+                "label": "Program",
+                "url": "https://www.linecheck.it/meeting/program/"
+              },
+              {
+                "label": "Area Pro",
+                "url": "#",
+                "disabled": true
+              }
+            ]
+          },
+          {
+            "label": "Partners",
+            "url": "https://www.linecheck.it/partners/"
+          },
+          {
+            "label": "Venues",
+            "url": "https://www.linecheck.it/venues/"
+          }
+        ]
+      },
+      {
+        "label": "Info",
+        "children": [
+          {
+            "label": "About",
+            "url": "https://www.linecheck.it/about/"
+          },
+          {
+            "label": "F.A.Q.",
+            "url": "https://www.linecheck.it/faq/"
+          },
+          {
+            "label": "Contact",
+            "url": "https://www.linecheck.it/contact/"
+          },
+          {
+            "label": "Past editions",
+            "url": "https://www.linecheck.it/past-editions/"
+          }
+        ]
+      }
+    ]
+  },
+  "hero": {
+    "title": "a beautiful presence",
+    "subtitle": "17–22 . 11 . 2025",
+    "images": {
+      "desktop": {
+        "src": "https://www.linecheck.it/wp-content/uploads/linecheck-2025-coming-soon-desktop-2560x1440.webp",
+        "srcset": [
+          "https://www.linecheck.it/wp-content/uploads/linecheck-2025-coming-soon-desktop-2560x1440.webp 2560w",
+          "https://www.linecheck.it/wp-content/uploads/linecheck-2025-coming-soon-desktop-1920x1080.webp 1920w",
+          "https://www.linecheck.it/wp-content/uploads/linecheck-2025-coming-soon-desktop-1440x810.webp 1440w",
+          "https://www.linecheck.it/wp-content/uploads/linecheck-2025-coming-soon-desktop-1280x720.webp 1280w",
+          "https://www.linecheck.it/wp-content/uploads/linecheck-2025-coming-soon-desktop-1024x576.webp 1024w",
+          "https://www.linecheck.it/wp-content/uploads/linecheck-2025-coming-soon-desktop-800x450.webp 800w",
+          "https://www.linecheck.it/wp-content/uploads/linecheck-2025-coming-soon-desktop-640x360.webp 640w",
+          "https://www.linecheck.it/wp-content/uploads/linecheck-2025-coming-soon-desktop-480x270.webp 480w",
+          "https://www.linecheck.it/wp-content/uploads/linecheck-2025-coming-soon-desktop-320x180.webp 320w"
+        ]
+      },
+      "mobile": {
+        "srcset": [
+          "https://www.linecheck.it/wp-content/uploads/linecheck-2025-coming-soon-mobile.webp 1620w",
+          "https://www.linecheck.it/wp-content/uploads/linecheck-2025-coming-soon-mobile-1440x2560.webp 1440w",
+          "https://www.linecheck.it/wp-content/uploads/linecheck-2025-coming-soon-mobile-1280x2276.webp 1280w",
+          "https://www.linecheck.it/wp-content/uploads/linecheck-2025-coming-soon-mobile-1024x1820.webp 1024w",
+          "https://www.linecheck.it/wp-content/uploads/linecheck-2025-coming-soon-mobile-800x1422.webp 800w",
+          "https://www.linecheck.it/wp-content/uploads/linecheck-2025-coming-soon-mobile-640x1138.webp 640w",
+          "https://www.linecheck.it/wp-content/uploads/linecheck-2025-coming-soon-mobile-480x853.webp 480w",
+          "https://www.linecheck.it/wp-content/uploads/linecheck-2025-coming-soon-mobile-320x569.webp 320w"
+        ]
+      }
+    }
+  },
+  "welcome": {
+    "title": "Welcome to Linecheck 2025",
+    "richText": "At the heart of Linecheck 2025 lies a powerful, transformative force: music. Not just as sound, but as a presence — a living, breathing force that shapes and changes us. This year, Linecheck expands into the wider realm of performing arts, inviting you to listen more deeply, feel more fully, and discover beauty in unexpected forms. From November 17 to 22, the festival returns to Milan and Bologna with a programme that unfolds as both a meeting for the music industry and a stage for sonic exploration — a space where new voices, bold ideas and shared experiences come to life.",
+    "ctas": [
+      {
+        "label": "Get tickets",
+        "style": "primary",
+        "url": "https://www.linecheck.it/tickets/"
+      },
+      {
+        "label": "Festival",
+        "style": "secondary",
+        "url": "https://www.linecheck.it/festival/"
+      },
+      {
+        "label": "Meeting",
+        "style": "tertiary",
+        "url": "https://www.linecheck.it/meeting/"
+      }
+    ]
+  },
+  "gallery": {
+    "items": [
+      {
+        "thumb": "https://www.linecheck.it/wp-content/uploads/Linecheck_DAY3_FabianaAmato-154-1280x853.jpg.webp",
+        "full": "https://www.linecheck.it/wp-content/uploads/Linecheck_DAY3_FabianaAmato-154-1920x1280.jpg",
+        "srcset": [
+          "https://www.linecheck.it/wp-content/uploads/Linecheck_DAY3_FabianaAmato-154-2560x1707.jpg.webp 2560w",
+          "https://www.linecheck.it/wp-content/uploads/Linecheck_DAY3_FabianaAmato-154-1920x1280.jpg.webp 1920w",
+          "https://www.linecheck.it/wp-content/uploads/Linecheck_DAY3_FabianaAmato-154-1440x960.jpg.webp 1440w",
+          "https://www.linecheck.it/wp-content/uploads/Linecheck_DAY3_FabianaAmato-154-1280x853.jpg.webp 1280w",
+          "https://www.linecheck.it/wp-content/uploads/Linecheck_DAY3_FabianaAmato-154-1024x683.jpg.webp 1024w",
+          "https://www.linecheck.it/wp-content/uploads/Linecheck_DAY3_FabianaAmato-154-800x533.jpg.webp 800w",
+          "https://www.linecheck.it/wp-content/uploads/Linecheck_DAY3_FabianaAmato-154-640x427.jpg.webp 640w",
+          "https://www.linecheck.it/wp-content/uploads/Linecheck_DAY3_FabianaAmato-154-480x320.jpg.webp 480w",
+          "https://www.linecheck.it/wp-content/uploads/Linecheck_DAY3_FabianaAmato-154-320x213.jpg.webp 320w"
+        ],
+        "caption": ""
+      },
+      {
+        "thumb": "https://www.linecheck.it/wp-content/uploads/AlessandroBremec_20241120-0477-1280x854.jpg.webp",
+        "full": "https://www.linecheck.it/wp-content/uploads/AlessandroBremec_20241120-0477-1920x1281.jpg",
+        "srcset": [
+          "https://www.linecheck.it/wp-content/uploads/AlessandroBremec_20241120-0477-2560x1708.jpg.webp 2560w",
+          "https://www.linecheck.it/wp-content/uploads/AlessandroBremec_20241120-0477-1920x1281.jpg.webp 1920w",
+          "https://www.linecheck.it/wp-content/uploads/AlessandroBremec_20241120-0477-1440x960.jpg.webp 1440w",
+          "https://www.linecheck.it/wp-content/uploads/AlessandroBremec_20241120-0477-1280x854.jpg.webp 1280w",
+          "https://www.linecheck.it/wp-content/uploads/AlessandroBremec_20241120-0477-1024x683.jpg.webp 1024w",
+          "https://www.linecheck.it/wp-content/uploads/AlessandroBremec_20241120-0477-800x534.jpg.webp 800w",
+          "https://www.linecheck.it/wp-content/uploads/AlessandroBremec_20241120-0477-640x427.jpg.webp 640w",
+          "https://www.linecheck.it/wp-content/uploads/AlessandroBremec_20241120-0477-480x320.jpg.webp 480w",
+          "https://www.linecheck.it/wp-content/uploads/AlessandroBremec_20241120-0477-320x213.jpg.webp 320w"
+        ],
+        "caption": ""
+      },
+      {
+        "thumb": "https://www.linecheck.it/wp-content/uploads/%C2%A9elenadivincenzo-20241122-06520-1280x853.jpg",
+        "full": "https://www.linecheck.it/wp-content/uploads/©elenadivincenzo-20241122-06520-1920x1280.jpg",
+        "srcset": [
+          "https://www.linecheck.it/wp-content/uploads/©elenadivincenzo-20241122-06520-2560x1707.jpg.webp 2560w",
+          "https://www.linecheck.it/wp-content/uploads/©elenadivincenzo-20241122-06520-1920x1280.jpg.webp 1920w",
+          "https://www.linecheck.it/wp-content/uploads/©elenadivincenzo-20241122-06520-1440x960.jpg.webp 1440w",
+          "https://www.linecheck.it/wp-content/uploads/©elenadivincenzo-20241122-06520-1280x853.jpg.webp 1280w",
+          "https://www.linecheck.it/wp-content/uploads/©elenadivincenzo-20241122-06520-1024x683.jpg.webp 1024w",
+          "https://www.linecheck.it/wp-content/uploads/©elenadivincenzo-20241122-06520-800x533.jpg.webp 800w",
+          "https://www.linecheck.it/wp-content/uploads/©elenadivincenzo-20241122-06520-640x427.jpg.webp 640w",
+          "https://www.linecheck.it/wp-content/uploads/©elenadivincenzo-20241122-06520-480x320.jpg.webp 480w",
+          "https://www.linecheck.it/wp-content/uploads/©elenadivincenzo-20241122-06520-320x213.jpg.webp 320w"
+        ],
+        "caption": ""
+      },
+      {
+        "thumb": "https://www.linecheck.it/wp-content/uploads/Linecheck_DAY1_FabianaAmato-109-1280x853.jpg.webp",
+        "full": "https://www.linecheck.it/wp-content/uploads/Linecheck_DAY1_FabianaAmato-109-1920x1280.jpg",
+        "srcset": [
+          "https://www.linecheck.it/wp-content/uploads/Linecheck_DAY1_FabianaAmato-109-2560x1707.jpg.webp 2560w",
+          "https://www.linecheck.it/wp-content/uploads/Linecheck_DAY1_FabianaAmato-109-1920x1280.jpg.webp 1920w",
+          "https://www.linecheck.it/wp-content/uploads/Linecheck_DAY1_FabianaAmato-109-1440x960.jpg.webp 1440w",
+          "https://www.linecheck.it/wp-content/uploads/Linecheck_DAY1_FabianaAmato-109-1280x853.jpg.webp 1280w",
+          "https://www.linecheck.it/wp-content/uploads/Linecheck_DAY1_FabianaAmato-109-1024x683.jpg.webp 1024w",
+          "https://www.linecheck.it/wp-content/uploads/Linecheck_DAY1_FabianaAmato-109-800x533.jpg.webp 800w",
+          "https://www.linecheck.it/wp-content/uploads/Linecheck_DAY1_FabianaAmato-109-640x427.jpg.webp 640w",
+          "https://www.linecheck.it/wp-content/uploads/Linecheck_DAY1_FabianaAmato-109-480x320.jpg.webp 480w",
+          "https://www.linecheck.it/wp-content/uploads/Linecheck_DAY1_FabianaAmato-109-320x213.jpg.webp 320w"
+        ],
+        "caption": ""
+      },
+      {
+        "thumb": "https://www.linecheck.it/wp-content/uploads/ikka_mirabelli_20241121_IMG_2215-1280x853.jpg.webp",
+        "full": "https://www.linecheck.it/wp-content/uploads/ikka_mirabelli_20241121_IMG_2215-1920x1280.jpg",
+        "srcset": [
+          "https://www.linecheck.it/wp-content/uploads/ikka_mirabelli_20241121_IMG_2215-2560x1707.jpg.webp 2560w",
+          "https://www.linecheck.it/wp-content/uploads/ikka_mirabelli_20241121_IMG_2215-1920x1280.jpg.webp 1920w",
+          "https://www.linecheck.it/wp-content/uploads/ikka_mirabelli_20241121_IMG_2215-1440x960.jpg.webp 1440w",
+          "https://www.linecheck.it/wp-content/uploads/ikka_mirabelli_20241121_IMG_2215-1280x853.jpg.webp 1280w",
+          "https://www.linecheck.it/wp-content/uploads/ikka_mirabelli_20241121_IMG_2215-1024x683.jpg.webp 1024w",
+          "https://www.linecheck.it/wp-content/uploads/ikka_mirabelli_20241121_IMG_2215-800x533.jpg.webp 800w",
+          "https://www.linecheck.it/wp-content/uploads/ikka_mirabelli_20241121_IMG_2215-640x427.jpg.webp 640w",
+          "https://www.linecheck.it/wp-content/uploads/ikka_mirabelli_20241121_IMG_2215-480x320.jpg.webp 480w",
+          "https://www.linecheck.it/wp-content/uploads/ikka_mirabelli_20241121_IMG_2215-320x213.jpg.webp 320w"
+        ],
+        "caption": ""
+      }
+    ]
+  },
+  "crosslinks": [
+    {
+      "label": "Discover the lineup",
+      "title": "Festival",
+      "url": "https://www.linecheck.it/festival/"
+    },
+    {
+      "label": "Get to know us",
+      "title": "About",
+      "url": "https://www.linecheck.it/about/"
+    },
+    {
+      "label": "Read the Latest",
+      "title": "News",
+      "url": "https://www.linecheck.it/news/"
+    },
+    {
+      "label": "Secure your Spot",
+      "title": "Tickets",
+      "url": "https://www.linecheck.it/tickets/",
+      "style": "alt"
+    }
+  ],
+  "newsHighlights": {
+    "title": "NEWS Highlights",
+    "description": "Discover all the latest from Linecheck — from upcoming Music Meeting and Festival highlights to fresh news, trends, buzz, and the voices shaping the music ecosystem.",
+    "cta": {
+      "label": "All news",
+      "url": "https://www.linecheck.it/news/"
+    },
+    "items": [
+      {
+        "dateLabel": "15 Jul",
+        "categories": ["Festival", "Linecheck", "Updates"],
+        "title": "Lineup expands as Single Night Tickets go on sale",
+        "url": "https://www.linecheck.it/news/lineup-expands-as-single-night-tickets-go-on-sale/",
+        "image": "https://www.linecheck.it/wp-content/uploads/linecheck-second-wave-artist-2025-640x360.webp"
+      },
+      {
+        "dateLabel": "05 Jun",
+        "categories": ["Festival", "Linecheck", "Updates"],
+        "title": "A renewed collaboration with Inner_Spaces brings Lucy Railton to Linecheck 2025",
+        "url": "https://www.linecheck.it/news/lucy-railton-inner-spaces-linecheck/",
+        "image": "https://www.linecheck.it/wp-content/uploads/Progetto-senza-titolo-59-640x360.png.webp",
+        "imageAlt": "lucy railton"
+      },
+      {
+        "dateLabel": "07 Jun",
+        "categories": ["Linecheck", "Updates"],
+        "title": "a beautiful presence: introducing the Linecheck 2025 manifesto",
+        "url": "https://www.linecheck.it/news/linecheck-manifesto/",
+        "image": "https://www.linecheck.it/wp-content/uploads/Group-4-640x360.png.webp"
+      },
+      {
+        "dateLabel": "08 Aug",
+        "categories": ["Linecheck", "Updates"],
+        "title": "ASCOLTO launches its first festival edition in Bari",
+        "url": "https://www.linecheck.it/news/ascolto-launches-its-first-festival-edition/",
+        "image": "https://www.linecheck.it/wp-content/uploads/Progetto-senza-titolo-93-640x360.webp"
+      },
+      {
+        "dateLabel": "20 Jun",
+        "categories": ["Linecheck"],
+        "title": "Linecheck joins Music Moves Europe Dialogue at Music Week Poland from June 26 to 29",
+        "url": "https://www.linecheck.it/news/linecheck-music-moves-europe-dialogue/",
+        "image": "https://www.linecheck.it/wp-content/uploads/Progetto-senza-titolo-69-1-640x384.webp"
+      },
+      {
+        "dateLabel": "03 Jun",
+        "categories": ["Festival", "Linecheck", "Updates"],
+        "title": "Unveiling the first wave of artists for Linecheck 2025",
+        "url": "https://www.linecheck.it/news/first-wave-artists-lineup-linecheck-2025/",
+        "image": "https://www.linecheck.it/wp-content/uploads/Progetto-senza-titolo-68-1-640x362.webp"
+      }
+    ]
+  },
+  "manifesto": {
+    "image": {
+      "src": "https://www.linecheck.it/wp-content/uploads/a-beautiful-presence-meeting-presentation-1280x720.png.webp",
+      "srcset": [
+        "https://www.linecheck.it/wp-content/uploads/a-beautiful-presence-meeting-presentation-1440x810.png.webp 1440w",
+        "https://www.linecheck.it/wp-content/uploads/a-beautiful-presence-meeting-presentation-1024x576.png.webp 1024w",
+        "https://www.linecheck.it/wp-content/uploads/a-beautiful-presence-meeting-presentation-800x450.png.webp 800w",
+        "https://www.linecheck.it/wp-content/uploads/a-beautiful-presence-meeting-presentation-640x360.png.webp 640w",
+        "https://www.linecheck.it/wp-content/uploads/a-beautiful-presence-meeting-presentation-480x270.png.webp 480w",
+        "https://www.linecheck.it/wp-content/uploads/a-beautiful-presence-meeting-presentation-320x180.png.webp 320w",
+        "https://www.linecheck.it/wp-content/uploads/a-beautiful-presence-meeting-presentation.png.webp 1920w"
+      ]
+    },
+    "title": "a beautiful presence: Introducing the Linecheck 2025 Manifesto",
+    "excerpt": "At the heart of Linecheck 2025 lies a powerful, transformative force: music. Not just as sound, but as a presence—a living, breathing force that shapes and changes us. This year, the festival expands to explore the larger spectrum of performing arts, extending an invitation to listen, feel, and experience beauty in all its forms.",
+    "cta": {
+      "label": "Read the full manifesto",
+      "url": "https://www.linecheck.it/news/linecheck-manifesto/"
+    }
+  },
+  "tickets": {
+    "title": "Secure Your Spot",
+    "description": "Ready to join us? Discover all available ticket types and passes now on sale. Take advantage of the best release deals and experience both the conference and the festival at the most convenient price.",
+    "items": [
+      {
+        "venue": "BASE Milano",
+        "date": "2025-11-19",
+        "title": "BASE Full Pass",
+        "tooltip": "The BASE FULL PASS includes access to all daytime and nighttime events at BASE Milano, from November 19 to November 22.",
+        "prices": [
+          {
+            "release": "Super Early Bird",
+            "price": 60,
+            "currency": "EUR",
+            "soldOut": true
+          },
+          {
+            "release": "Early Bird",
+            "price": 70,
+            "currency": "EUR",
+            "soldOut": false
+          }
+        ],
+        "buyUrl": "https://feverup.com/m/386181?utm_source=landing&utm_medium=partner_landing_biglietti&utm_campaign=386181_mxp&utm_term=39459"
+      },
+      {
+        "venue": "Auditorium San Fedele",
+        "date": "2025-11-17",
+        "title": "Linecheck & Inner_Spaces w/ Lucy Railton",
+        "tooltip": "Linecheck joins forces with INNER_SPACES for a special event featuring British cellist and composer Lucy Railton, known for her bold explorations of sound between classical tradition and electronic experimentation. Tickets from €19,00",
+        "prices": [
+          {
+            "release": "Standard",
+            "price": 19,
+            "currency": "EUR",
+            "soldOut": false
+          }
+        ],
+        "buyUrl": "https://dice.fm/event/3o5dnv-innerspaces-lucy-railton-special-guest-17th-nov-auditorium-san-fedele-milano-tickets"
+      },
+      {
+        "venue": "Auditorium di Milano",
+        "date": "2025-11-18",
+        "title": "Auditorium Tuesday Night w/ Rita Payés, Tarta Relena,  Sissi Rada",
+        "tooltip": "A night of Mediterranean experimentation at the Auditorium di Milano, featuring three groundbreaking artists: Rita Payés, Tarta Relena and Sissi Rada. Early Bird Tickets from €24.40",
+        "prices": [
+          {
+            "release": "Early Bird",
+            "price": 24.4,
+            "currency": "EUR",
+            "soldOut": false
+          }
+        ],
+        "buyUrl": "https://feverup.com/m/398898?utm_source=landing&utm_medium=partner_landing_biglietti&utm_campaign=398898_mxp&utm_term=39459"
+      },
+      {
+        "venue": "BASE Milano",
+        "date": "2025-11-20",
+        "title": "BASE Thursday Night",
+        "tooltip": "The BASE Thursday Night Ticket grants access to the evening concerts and DJ sets at BASE Milano on 20.11.2025. Lineup: Camaleoni, Cosmic Bride, Crème Solaire, Delicatoni, Evita Polidoro, Le Feste Antonacci, Mortòri, Msaki.",
+        "prices": [
+          {
+            "release": "Early bird",
+            "price": 24.6,
+            "currency": "EUR",
+            "soldOut": false
+          }
+        ],
+        "buyUrl": "https://feverup.com/m/386181?utm_source=landing&utm_medium=partner_landing_biglietti&utm_campaign=386181_mxp&utm_term=39459"
+      },
+      {
+        "venue": "BASE Milano",
+        "date": "2025-11-21",
+        "title": "BASE Friday Night",
+        "tooltip": "The BASE Friday Night Ticket grants access to the evening concerts and DJ sets at BASE Milano on 21.11.2025. Lineup: James K, Julek Ploski, Kompromat, Meritxell De Soto, Meuko! Meuko! & Vvxxii Present —— 遞嬗 Dì Shàn (Italian Première), NAVA, Night Tapes (Italian Debut).",
+        "prices": [
+          {
+            "release": "Early bird",
+            "price": 24.6,
+            "currency": "EUR",
+            "soldOut": false
+          }
+        ],
+        "buyUrl": "https://feverup.com/m/386181?utm_source=landing&utm_medium=partner_landing_biglietti&utm_campaign=386181_mxp&utm_term=39459"
+      },
+      {
+        "venue": "BASE Milano",
+        "date": "2025-11-22",
+        "title": "BASE Saturday Night",
+        "tooltip": "The BASE Saturday Night Ticket grants access to the evening concerts and DJ sets at BASE Milano on 22.11.2025. Lineup: Agenda Dei Buoni Propositi, Babymorocco, Grove (Dj Set), Kaitlyn Aurelia Smith, Luzai, Sega Bodega (Dj Set), Taahliah (Live).",
+        "prices": [
+          {
+            "release": "Early bird",
+            "price": 24.6,
+            "currency": "EUR",
+            "soldOut": false
+          }
+        ],
+        "buyUrl": "https://feverup.com/m/386181?utm_source=landing&utm_medium=partner_landing_biglietti&utm_campaign=386181_mxp&utm_term=39459"
+      },
+      {
+        "venue": "BASE Milano",
+        "dateRange": ["2025-11-21", "2025-11-22"],
+        "title": "BASE Weekend Night Pass",
+        "tooltip": "The BASE Weekend Night Pass gives discounted access to the evening concerts and DJ sets at BASE Milano on November 21 and 22. Lineup includes: Agenda Dei Buoni Propositi, Babymorocco, Grove (Dj Set), James K, Julek Ploski, Kaitlyn Aurelia Smith, Kompromat, Luzai, Meritxell De Soto, Meuko! Meuko! & Vvxxii Present —— 遞嬗 Dì Shàn (Italian Première), NAVA, Sega Bodega (Dj Set), Taahliah (Live), Night Tapes (Italian Debut).",
+        "prices": [
+          {
+            "release": "Early bird",
+            "price": 43,
+            "currency": "EUR",
+            "soldOut": false
+          }
+        ],
+        "buyUrl": "https://feverup.com/m/386181?utm_source=landing&utm_medium=partner_landing_biglietti&utm_campaign=386181_mxp&utm_term=39459"
+      }
+    ]
+  },
+  "footer": {
+    "newsletter": {
+      "label": "Join our newsletter",
+      "cta": "Get the latest on Linecheck",
+      "url": "https://74cb3b65.sibforms.com/serve/MUIFAO1lLYQy6v4SbquJgZ9vszLbY5CDiYJtUg91AFAayFXXt-qFuJmvC7MrQzQhxF7AKI83T-2wJq8Z8QlusNEIraPHlo7hEv-WQCUi6MTNZM4IxBumeuWidCQMuzitl6-F6LpCaXRmpb-v6574R0RoKAZfvDbZgn2-JmBlHY9BzwBeqbT3xQT02ElBeRV1C5DJYsbZuV3AOwWV"
+    },
+    "menus": {
+      "primary": [
+        {
+          "label": "Homepage",
+          "url": "https://www.linecheck.it/"
+        },
+        {
+          "label": "News",
+          "url": "https://www.linecheck.it/news/"
+        },
+        {
+          "label": "Tickets",
+          "url": "#",
+          "disabled": true
+        }
+      ],
+      "meetingFestival": {
+        "label": "meeting&festival",
+        "items": [
+          {
+            "label": "Festival",
+            "url": "https://www.linecheck.it/festival/",
+            "children": [
+              {
+                "label": "Program",
+                "url": "https://www.linecheck.it/festival/program/"
+              },
+              {
+                "label": "Artists",
+                "url": "https://www.linecheck.it/festival/artists/"
+              }
+            ]
+          },
+          {
+            "label": "Meeting",
+            "url": "https://www.linecheck.it/meeting/",
+            "children": [
+              {
+                "label": "Program",
+                "url": "https://www.linecheck.it/meeting/program/"
+              },
+              {
+                "label": "Area Pro",
+                "url": "#",
+                "disabled": true
+              }
+            ]
+          },
+          {
+            "label": "Partners",
+            "url": "https://www.linecheck.it/partners/"
+          },
+          {
+            "label": "Venues",
+            "url": "https://www.linecheck.it/venues/"
+          },
+          {
+            "label": "Past editions",
+            "url": "https://www.linecheck.it/past-editions/"
+          }
+        ]
+      },
+      "info": {
+        "label": "info",
+        "items": [
+          {
+            "label": "About",
+            "url": "https://www.linecheck.it/about/"
+          },
+          {
+            "label": "F.A.Q.",
+            "url": "https://www.linecheck.it/faq/"
+          },
+          {
+            "label": "Contact",
+            "url": "https://www.linecheck.it/contact/"
+          }
+        ]
+      },
+      "legal": {
+        "label": "legal",
+        "items": [
+          {
+            "label": "Privacy policy",
+            "url": "https://www.iubenda.com/privacy-policy/91746591",
+            "target": "_blank"
+          },
+          {
+            "label": "Cookie policy",
+            "url": "https://www.iubenda.com/privacy-policy/91746591/cookie-policy",
+            "target": "_blank"
+          },
+          {
+            "label": "Your Privacy Choices",
+            "url": "#!"
+          },
+          {
+            "label": "Disclaimer",
+            "url": "#",
+            "disabled": true
+          }
+        ]
+      }
+    },
+    "social": [
+      {
+        "label": "Facebook",
+        "url": "https://www.facebook.com/linecheckit"
+      },
+      {
+        "label": "Instagram",
+        "url": "https://www.instagram.com/linecheck_it/"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/company/linecheck"
+      },
+      {
+        "label": "TikTok",
+        "url": "https://www.tiktok.com/@linecheck_it"
+      }
+    ],
+    "credits": {
+      "copyright": "Linecheck - Music Meeting & Festival © 2025",
+      "byline": "by Music Innovation Hub Spa - Impresa Sociale",
+      "bylineUrl": "https://musicinnovationhub.org/",
+      "design": {
+        "label": "Design by Matteo Verrani",
+        "url": "https://matteoverrani.com/"
+      },
+      "code": [
+        {
+          "label": "MH srl",
+          "url": "https://www.mhsrl.it/"
+        },
+        {
+          "label": "Pyet.ro",
+          "url": "https://pyet.ro/"
+        }
+      ]
+    },
+    "partnersLogo": {
+      "label": "A project by",
+      "url": "https://musicinnovationhub.org/",
+      "logoSvg": "https://www.linecheck.it/wp-content/themes/linecheck2025-theme/assets/i/logo-mih.svg"
+    }
+  }
+}
