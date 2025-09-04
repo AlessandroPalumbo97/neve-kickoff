@@ -133,6 +133,6 @@
 
 /* Menu link utility for menu items */
 .menu-link {
-  @apply font-davinci-italic block text-[70px] lowercase;
+  @apply font-davinci-italic text-[70px] lowercase;
   line-height: 70px;
 }
