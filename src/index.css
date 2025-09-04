@@ -101,3 +101,8 @@
   font-weight: 700;
   font-style: italic;
 }
+
+/* Shared layout section paddings */
+@utility section-padding {
+  @apply px-[10px] pt-[20px] pb-[60px];
+}

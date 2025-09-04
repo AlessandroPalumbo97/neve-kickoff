@@ -1,6 +1,8 @@
 import './App.css';
 import { type JSX, useEffect, useState } from 'react';
+import { clsx } from 'clsx';
 import { loadLinecheckData } from './utils/loadData';
+import Layout from './components/Layout';
 
 function App(): JSX.Element {
   const [loading, setLoading] = useState(true);
@@ -36,18 +38,23 @@ function App(): JSX.Element {
 
   return (
     <>
-      <div className='bg-accent-contrast flex h-full min-h-screen w-full flex-row items-center justify-center'>
-        <h1 className='text-accent font-davinci text-4xl'>Neve Kickoff</h1>
-      </div>
-
       {overlayVisible && (
         <div
-          className={
-            'bg-accent fixed inset-0 z-50 transition-opacity duration-900 ease-out ' +
-            (overlayFadeOut ? 'opacity-0' : 'opacity-100')
-          }
+          className={clsx(
+            'bg-accent fixed inset-0 z-50 transition-opacity duration-900 ease-out',
+            overlayFadeOut ? 'opacity-0' : 'opacity-100',
+          )}
         />
       )}
+
+      <Layout>
+        <div className='bg-accent-contrast flex min-h-screen w-full flex-row items-center justify-center'>
+          <h1 className='text-accent font-davinci text-4xl'>Neve Kickoff</h1>
+        </div>
+        <div className='bg-accent-contrast flex min-h-screen w-full flex-row items-center justify-center'>
+          <h1 className='text-accent font-davinci text-4xl'>Neve Kickoff</h1>
+        </div>
+      </Layout>
     </>
   );
 }
