@@ -2,13 +2,19 @@ import './App.css';
 import { type JSX, useEffect, useState } from 'react';
 import { clsx } from 'clsx';
 import { loadLinecheckData } from './utils/linecheck';
-import Layout from './components/Layout';
+import Header from './components/Header';
+import Menu from './components/Menu';
 
 function App(): JSX.Element {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState<any>(null);
   const [overlayVisible, setOverlayVisible] = useState(true);
   const [overlayFadeOut, setOverlayFadeOut] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuOpen((prev) => !prev);
+  };
 
   useEffect(() => {
     let alive = true;
@@ -49,14 +55,14 @@ function App(): JSX.Element {
         />
       )}
 
-      <Layout>
-        <div className='bg-accent-contrast flex min-h-screen w-full flex-row items-center justify-center'>
+      <main>
+        <Header onMenuToggle={toggleMenu} menuOpen={menuOpen} />
+        <Menu isOpen={menuOpen} onClose={() => setMenuOpen(false)} />
+
+        <div className='hero-section'>
           <h1 className='text-accent font-davinci text-4xl'>Neve Kickoff</h1>
         </div>
-        <div className='bg-accent-contrast flex min-h-screen w-full flex-row items-center justify-center'>
-          <h1 className='text-accent font-davinci text-4xl'>Neve Kickoff</h1>
-        </div>
-      </Layout>
+      </main>
     </>
   );
 }

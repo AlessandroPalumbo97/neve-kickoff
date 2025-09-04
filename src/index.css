@@ -103,6 +103,36 @@
 }
 
 /* Shared layout section paddings */
-@utility section-padding {
+.hero-section {
+  @apply bg-accent-contrast flex min-h-screen w-full flex-row items-center justify-center px-[10px] pb-[60px];
+}
+
+.section-padding {
   @apply px-[10px] pt-[20px] pb-[60px];
+}
+
+/* Hover underline effect for links */
+.hover-underline {
+  @apply relative;
+}
+
+.hover-underline::after {
+  content: '';
+  @apply bg-accent absolute bottom-0 left-0 h-[1px] w-full opacity-0 transition-all duration-300;
+}
+
+.hover-underline:hover::after {
+  @apply opacity-100;
+}
+
+/* Header link utility for header buttons */
+.header-link {
+  @apply font-arial-narrow-regular text-[20px] uppercase;
+  line-height: 20px;
+}
+
+/* Menu link utility for menu items */
+.menu-link {
+  @apply font-davinci-italic block text-[70px] lowercase;
+  line-height: 70px;
 }
