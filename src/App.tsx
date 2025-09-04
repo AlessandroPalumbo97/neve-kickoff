@@ -1,7 +1,7 @@
 import './App.css';
 import { type JSX, useEffect, useState } from 'react';
 import { clsx } from 'clsx';
-import { loadLinecheckData } from './utils/loadData';
+import { loadLinecheckData } from './utils/linecheck';
 import Layout from './components/Layout';
 
 function App(): JSX.Element {
@@ -35,6 +35,8 @@ function App(): JSX.Element {
       return () => clearTimeout(timeout);
     }
   }, [loading]);
+
+  console.log(data);
 
   return (
     <>
