@@ -64,3 +64,40 @@
     'Arial Narrow', Arial, 'Helvetica Neue', Helvetica, ui-sans-serif,
     system-ui, 'Apple Color Emoji', 'Segoe UI Emoji';
 }
+
+/* Custom utilities to pair font family with weight/style */
+@utility font-davinci-regular {
+  font-family: var(--font-davinci);
+  font-weight: 400;
+  font-style: normal;
+}
+
+@utility font-davinci-italic {
+  font-family: var(--font-davinci);
+  font-weight: 400;
+  font-style: italic;
+}
+
+@utility font-arial-narrow-regular {
+  font-family: var(--font-arial-narrow);
+  font-weight: 400;
+  font-style: normal;
+}
+
+@utility font-arial-narrow-italic {
+  font-family: var(--font-arial-narrow);
+  font-weight: 400;
+  font-style: italic;
+}
+
+@utility font-arial-narrow-bold {
+  font-family: var(--font-arial-narrow);
+  font-weight: 700;
+  font-style: normal;
+}
+
+@utility font-arial-narrow-bold-italic {
+  font-family: var(--font-arial-narrow);
+  font-weight: 700;
+  font-style: italic;
+}
