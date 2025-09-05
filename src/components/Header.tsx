@@ -39,7 +39,7 @@ export default function Header({
         </a>
       </div>
 
-      {/* Logo - Absolutely centered */}
+      {/* Logo */}
       <div className='flex w-full justify-start lg:justify-center'>
         <AnimatedLogo menuOpen={menuOpen} />
       </div>

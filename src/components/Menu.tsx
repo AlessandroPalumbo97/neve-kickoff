@@ -2,50 +2,9 @@ import { type JSX, useState } from 'react';
 import { clsx } from 'clsx';
 import { getHeaderData } from '../utils/linecheck';
 import type { MenuItem } from '../types/linecheck';
-
-// Inline SVG components for plus and minus icons
-const PlusIcon = ({ className }: { className?: string }) => (
-  <svg
-    viewBox='0 0 32 32'
-    fill='none'
-    xmlns='http://www.w3.org/2000/svg'
-    className={className}
-  >
-    <path
-      d='M14.922 26.828v-8.344q0-1.406-1.406-1.406H4.375c-.234 0-.375-.094-.375-.234s0-.282.047-.328l.375-.985c.14-.422.375-.61.75-.61h8.344q1.406 0 1.406-1.405V4.375c0-.234.094-.375.234-.375s.281 0 .328.047l.985.375c.422.14.61.375.61.75v8.344q0 1.406 1.405 1.406h9.141c.234 0 .375.094.375.281 0 0 0 .047-.047.047 0 .094-.047.14-.047.234l-.328 1.032c-.14.375-.375.562-.75.562h-8.344q-1.406 0-1.406 1.406v9.141c0 .234-.094.375-.281.375 0 0-.047 0-.047-.047-.094 0-.14-.047-.234-.047l-1.032-.328c-.375-.14-.562-.375-.562-.75'
-      fill='currentColor'
-    />
-  </svg>
-);
-
-const MinusIcon = ({ className }: { className?: string }) => (
-  <svg
-    viewBox='0 0 32 32'
-    fill='none'
-    xmlns='http://www.w3.org/2000/svg'
-    className={className}
-  >
-    <path
-      d='m4.047 16.478.375-.913c.14-.391.375-.565.75-.565h22.453c.234 0 .375.087.375.26 0 0 0 .044-.047.044 0 .087-.047.13-.047.218l-.328.956c-.14.348-.375.522-.75.522H4.375C4.141 17 4 16.913 4 16.783s0-.261.047-.305'
-      fill='currentColor'
-    />
-  </svg>
-);
-
-// Inline arrow component that can change color
-const ArrowRightIcon = ({ className }: { className?: string }) => (
-  <svg
-    viewBox='0 0 57 25'
-    fill='none'
-    xmlns='http://www.w3.org/2000/svg'
-    className={className}
-  >
-    <path
-      d='M42.43 24.511c-.758.826-1.517.55-1.241-.412.483-1.376 1.241-2.752 2.069-3.99 2.62-4.196-4.414-6.122-21.517-6.053H1.535c-1.38 0-2.621-3.165 0-3.165h19.93c17.103 0 25.103-1.582 22.62-4.815-1.034-1.513-2.068-3.095-2.827-4.746-.759-1.513.138-1.788 1.38-.55 4.068 4.196 8.689 8.598 13.585 11.075 1.035.481.966.825.207 1.238-4.965 2.545-9.586 6.878-14 11.418'
-      fill='currentColor'
-    />
-  </svg>
-);
+import PlusIcon from '../assets/icons/PlusIcon';
+import MinusIcon from '../assets/icons/MinusIcon';
+import ArrowRightIcon from '../assets/icons/ArrowRightIcon';
 
 type MenuProps = {
   isOpen: boolean;
