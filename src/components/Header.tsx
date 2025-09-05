@@ -21,37 +21,41 @@ export default function Header({
   return (
     <header
       className={clsx(
-        'fixed top-0 z-50 flex w-full items-center justify-between p-[10px] transition-colors duration-300',
+        'fixed top-0 z-50 grid w-full grid-cols-2 items-center justify-between p-[10px] transition-colors duration-300 lg:grid-cols-3',
         menuOpen ? 'bg-black' : 'bg-white',
       )}
     >
       {/* CTA Button */}
-      <a
-        href={headerData.cta.url}
-        className={clsx(
-          menuOpen
-            ? 'pointer-events-none text-transparent'
-            : 'header-link hover-underline pointer-events-auto text-black',
-        )}
-      >
-        {headerData.cta.label}
-      </a>
+      <div className='hidden w-full justify-start lg:flex'>
+        <a
+          href={headerData.cta.url}
+          className={clsx(
+            menuOpen
+              ? 'pointer-events-none text-transparent'
+              : 'header-link hover-underline pointer-events-auto hidden text-black lg:block',
+          )}
+        >
+          {headerData.cta.label}
+        </a>
+      </div>
 
       {/* Logo - Absolutely centered */}
-      <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'>
+      <div className='flex w-full justify-start lg:justify-center'>
         <AnimatedLogo menuOpen={menuOpen} />
       </div>
 
       {/* Menu Button */}
-      <button
-        onClick={onMenuToggle}
-        className={clsx(
-          'header-link hover-underline',
-          menuOpen ? 'text-white' : 'text-black',
-        )}
-      >
-        {menuOpen ? 'close menu' : 'menu'}
-      </button>
+      <div className='flex w-full justify-end'>
+        <button
+          onClick={onMenuToggle}
+          className={clsx(
+            'header-link hover-underline',
+            menuOpen ? 'text-white' : 'text-black',
+          )}
+        >
+          {menuOpen ? 'close menu' : 'menu'}
+        </button>
+      </div>
     </header>
   );
 }
