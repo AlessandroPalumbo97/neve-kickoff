@@ -95,7 +95,7 @@ export default function Menu({ isOpen }: MenuProps): JSX.Element {
   return (
     <div
       className={clsx(
-        'fixed top-[40px] right-0 bottom-0 left-0 z-40 bg-black transition-opacity duration-300',
+        'fixed top-[44px] right-0 bottom-0 left-0 z-40 bg-black transition-opacity duration-300',
         isOpen ? 'opacity-100' : 'pointer-events-none opacity-0',
       )}
     >
