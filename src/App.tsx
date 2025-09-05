@@ -4,6 +4,7 @@ import { clsx } from 'clsx';
 import { loadLinecheckData } from './utils/linecheck';
 import Header from './components/Header';
 import Menu from './components/Menu';
+import Hero from './components/Hero';
 
 function App(): JSX.Element {
   const [loading, setLoading] = useState(true);
@@ -58,10 +59,7 @@ function App(): JSX.Element {
       <main>
         <Header onMenuToggle={toggleMenu} menuOpen={menuOpen} />
         <Menu isOpen={menuOpen} onClose={() => setMenuOpen(false)} />
-
-        <div className='hero-section'>
-          <h1 className='text-accent font-davinci text-4xl'>Neve Kickoff</h1>
-        </div>
+        <Hero />
       </main>
     </>
   );
