@@ -11,7 +11,7 @@ export default function Hero(): JSX.Element {
   return (
     <section className='relative h-screen w-full overflow-hidden pt-[44px]'>
       {/* Background Image */}
-      <div className='absolute inset-0 px-[10px] pb-[10px]'>
+      <div className='px-sm pb-sm absolute inset-0'>
         <img
           src={heroData.images.desktop.src}
           srcSet={heroData.images.desktop.srcset.join(', ')}
@@ -21,7 +21,7 @@ export default function Hero(): JSX.Element {
       </div>
 
       {/* Content Overlay */}
-      <div className='relative z-10 flex h-full items-center justify-center px-[10px] pb-[10px]'>
+      <div className='px-sm pb-sm relative z-10 flex h-full items-center justify-center'>
         <div className='text-center text-white'>
           <h1 className='hero-section-title'>{heroData.title}</h1>
           <p className='hero-section-subtitle'>{heroData.subtitle}</p>

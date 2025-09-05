@@ -21,7 +21,7 @@ export default function Header({
   return (
     <header
       className={clsx(
-        'fixed top-0 z-50 grid w-full grid-cols-2 items-center justify-between p-[10px] transition-colors duration-300 lg:grid-cols-3',
+        'p-sm fixed top-0 z-50 grid w-full grid-cols-2 items-center justify-between transition-colors duration-300 lg:grid-cols-3',
         menuOpen ? 'bg-black' : 'bg-white',
       )}
     >

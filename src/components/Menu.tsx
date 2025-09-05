@@ -101,7 +101,7 @@ export default function Menu({ isOpen }: MenuProps): JSX.Element {
     >
       {/* Menu items */}
       <div className='flex h-full items-center justify-center'>
-        <ul className='-mt-[40px] flex flex-col items-center justify-center gap-[10px] text-center lg:gap-0'>
+        <ul className='gap-sm -mt-[40px] flex flex-col items-center justify-center text-center lg:gap-0'>
           {headerData.menu.map((item, index) => {
             const hasChildren = item.children && item.children.length > 0;
             const isOpen = openItems.has(index);
@@ -113,7 +113,7 @@ export default function Menu({ isOpen }: MenuProps): JSX.Element {
                   <div>
                     <button
                       onClick={() => toggleItem(index)}
-                      className='menu-link group items-center gap-4'
+                      className='menu-link group gap-sm items-center'
                     >
                       <span className='group-hover:text-accent-contrast inline-block text-white'>
                         {item.label === 'Meeting&Festival' ? (

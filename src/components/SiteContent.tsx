@@ -1,12 +1,12 @@
 import { type JSX } from 'react';
 import Hero from './Hero';
-import Welcome from './Welcome';
+import WelcomeGallery from './WelcomeGallery';
 
 export default function SiteContent(): JSX.Element {
   return (
     <div>
       <Hero />
-      <Welcome />
+      <WelcomeGallery />
     </div>
   );
 }

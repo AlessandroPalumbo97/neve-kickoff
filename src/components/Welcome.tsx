@@ -13,7 +13,7 @@ export default function Welcome(): JSX.Element {
   }
 
   return (
-    <section className='section-padding flex flex-col gap-[10px]'>
+    <div className='gap-sm flex flex-col'>
       <h2 className='welcome-title'>{welcomeData.title}</h2>
       <div className='welcome-rich-text-container'>
         <div
@@ -35,7 +35,7 @@ export default function Welcome(): JSX.Element {
           )}
         </button>
       </div>
-      <div className='flex flex-col gap-[10px] sm:flex-row'>
+      <div className='gap-sm flex flex-col sm:flex-row'>
         {welcomeData.ctas.map((cta, index) => (
           <a
             key={index}
@@ -48,6 +48,6 @@ export default function Welcome(): JSX.Element {
           </a>
         ))}
       </div>
-    </section>
+    </div>
   );
 }
