@@ -1,6 +1,9 @@
 @import 'tailwindcss';
 
-/* Local font files */
+/* ═══════════════════════════════════════════════════════════════════════════
+   🎨 FONTS & TYPOGRAPHY
+   ═══════════════════════════════════════════════════════════════════════════ */
+
 @font-face {
   font-family: 'TRJNDaVinci';
   src:
@@ -56,7 +59,6 @@
 @theme {
   --color-accent: #ff8c01;
   --color-accent-contrast: #ffcd9b;
-  /* Tailwind v4 font tokens → use with class: font-davinci / font-arial-narrow */
   --font-davinci:
     'TRJNDaVinci', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
     Helvetica, Arial, 'Apple Color Emoji', 'Segoe UI Emoji';
@@ -65,7 +67,6 @@
     system-ui, 'Apple Color Emoji', 'Segoe UI Emoji';
 }
 
-/* Custom utilities to pair font family with weight/style */
 @utility font-davinci-regular {
   font-family: var(--font-davinci);
   font-weight: 400;
@@ -102,16 +103,10 @@
   font-style: italic;
 }
 
-/* Shared layout section paddings */
-.hero-section {
-  @apply bg-accent-contrast flex min-h-screen w-full flex-row items-center justify-center px-[10px] pb-[60px];
-}
+/* ═══════════════════════════════════════════════════════════════════════════
+   🎯 SHARED COMPONENTS
+   ═══════════════════════════════════════════════════════════════════════════ */
 
-.section-padding {
-  @apply px-[10px] pt-[20px] pb-[60px];
-}
-
-/* Hover underline effect for links */
 .hover-underline {
   @apply relative;
 }
@@ -125,13 +120,19 @@
   @apply opacity-100;
 }
 
-/* Header link utility for header buttons */
+/* ═══════════════════════════════════════════════════════════════════════════
+   📱 HEADER COMPONENT
+   ═══════════════════════════════════════════════════════════════════════════ */
+
 .header-link {
   @apply font-arial-narrow-regular text-[20px] uppercase;
   line-height: 20px;
 }
 
-/* Menu link utility for menu items */
+/* ═══════════════════════════════════════════════════════════════════════════
+   🍔 MENU COMPONENT
+   ═══════════════════════════════════════════════════════════════════════════ */
+
 .menu-link {
   @apply font-davinci-italic text-[50px] leading-[45px] tracking-[-1px] lowercase lg:text-[70px] lg:leading-[70px] lg:tracking-[-2px];
 }
@@ -181,4 +182,13 @@
 
 .menu-link-child-disabled {
   @apply pointer-events-none opacity-50;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   🎬 HERO COMPONENT
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.hero-section-title,
+.hero-section-subtitle {
+  @apply font-davinci-italic mb-4 text-[70px] leading-[73.5px] tracking-[-2.8px];
 }
