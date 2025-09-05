@@ -134,7 +134,14 @@ export default function Menu({ isOpen }: MenuProps): JSX.Element {
                     </button>
 
                     {/* Children items */}
-                    {isOpen && <MenuChildren children={item.children!} />}
+                    <div
+                      className={clsx(
+                        'overflow-hidden transition-all duration-300 ease-in-out',
+                        isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0',
+                      )}
+                    >
+                      <MenuChildren children={item.children!} />
+                    </div>
                   </div>
                 ) : (
                   // Regular item with arrow on hover

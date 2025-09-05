@@ -4,7 +4,7 @@ import { clsx } from 'clsx';
 import { loadLinecheckData } from './utils/linecheck';
 import Header from './components/Header';
 import Menu from './components/Menu';
-import Hero from './components/Hero';
+import SiteContent from './components/SiteContent';
 
 function App(): JSX.Element {
   const [loading, setLoading] = useState(true);
@@ -59,7 +59,7 @@ function App(): JSX.Element {
       <main>
         <Header onMenuToggle={toggleMenu} menuOpen={menuOpen} />
         <Menu isOpen={menuOpen} onClose={() => setMenuOpen(false)} />
-        <Hero />
+        <SiteContent />
       </main>
     </>
   );

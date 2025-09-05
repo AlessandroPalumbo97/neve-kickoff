@@ -59,6 +59,8 @@
 @theme {
   --color-accent: #ff8c01;
   --color-accent-contrast: #ffcd9b;
+  --color-accent-focus: #bd4e00;
+  --color-light-gray: #f0f0f0;
   --font-davinci:
     'TRJNDaVinci', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
     Helvetica, Arial, 'Apple Color Emoji', 'Segoe UI Emoji';
@@ -107,17 +109,65 @@
    🎯 SHARED COMPONENTS
    ═══════════════════════════════════════════════════════════════════════════ */
 
-.hover-underline {
+.section-padding {
+  padding: 20px 10px 60px 10px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   🎨 UNDERLINE EFFECTS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.underline-accent {
   @apply relative;
 }
 
-.hover-underline::after {
+.underline-accent::after {
   content: '';
-  @apply bg-accent absolute bottom-0 left-0 h-[1px] w-full opacity-0 transition-all duration-300;
+  @apply bg-accent absolute bottom-0 left-0 h-[1px] w-full;
 }
 
-.hover-underline:hover::after {
-  @apply opacity-100;
+.underline-accent-hover {
+  @apply relative;
+}
+
+.underline-accent-hover:hover::after {
+  content: '';
+  @apply bg-accent absolute bottom-0 left-0 h-[1px] w-full;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   📱 ACCORDION ANIMATIONS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.accordion-container {
+  @apply overflow-hidden transition-all duration-300 ease-in-out;
+}
+
+.accordion-collapsed {
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+.accordion-expanded {
+  max-height: 500px; /* Reduced for better performance */
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.accordion-text-collapsed {
+  @apply overflow-hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  transition: all 0.3s ease-in-out;
+}
+
+.accordion-text-expanded {
+  @apply overflow-visible;
+  display: block;
+  -webkit-line-clamp: unset;
+  transition: all 0.3s ease-in-out;
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
@@ -125,8 +175,12 @@
    ═══════════════════════════════════════════════════════════════════════════ */
 
 .header-link {
-  @apply font-arial-narrow-regular text-[20px] uppercase;
-  line-height: 20px;
+  @apply font-arial-narrow-regular relative text-[20px] leading-[20px] uppercase;
+}
+
+.header-link:hover::after {
+  content: '';
+  @apply bg-accent absolute bottom-0 left-0 h-[1.5px] w-full;
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
@@ -191,4 +245,53 @@
 .hero-section-title,
 .hero-section-subtitle {
   @apply font-davinci-italic mb-4 text-[70px] leading-[73.5px] tracking-[-2.8px];
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   👋 WELCOME COMPONENT
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.welcome-title {
+  @apply font-arial-narrow-regular text-[20px] leading-[18px] tracking-[-0.6px] uppercase;
+}
+
+.welcome-rich-text-container {
+  @apply relative;
+}
+
+.welcome-rich-text {
+  @apply font-davinci-regular text-[35px] leading-[38.5px] tracking-[-1.05px];
+  transition: all 0.3s ease-in-out;
+}
+
+/* Old classes removed - now using shared accordion classes */
+
+.welcome-rich-text strong {
+  @apply relative font-normal;
+}
+
+.welcome-rich-text strong::after {
+  content: '';
+  @apply bg-accent absolute bottom-0 left-0 h-[1.5px] w-full;
+}
+
+.welcome-read-more-btn {
+  @apply font-davinci-regular text-accent-focus relative mt-2 flex items-center text-[35px] leading-[38.5px] tracking-[-1.05px] sm:hidden;
+}
+
+.welcome-read-more-btn:hover::after {
+  content: '';
+  @apply bg-accent absolute bottom-0 left-0 h-[1.5px] w-full;
+}
+
+.welcome-cta-primary {
+  @apply font-arial-narrow-regular hover:bg-accent-contrast flex h-[40px] items-center justify-center bg-black px-[20px] text-[15px] leading-[15px] text-white transition-all duration-300 hover:text-black;
+}
+
+.welcome-cta-secondary {
+  @apply font-arial-narrow-regular bg-accent hover:bg-accent-contrast flex h-[40px] items-center justify-center px-[20px] text-[15px] leading-[15px] text-black transition-all duration-300 hover:text-black;
+}
+
+.welcome-cta-tertiary {
+  @apply font-arial-narrow-regular bg-light-gray hover:bg-accent-contrast flex h-[40px] items-center justify-center px-[20px] text-[15px] leading-[15px] text-black transition-all duration-300 hover:text-black;
 }

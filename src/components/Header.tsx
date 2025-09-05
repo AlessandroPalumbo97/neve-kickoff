@@ -32,7 +32,7 @@ export default function Header({
           className={clsx(
             menuOpen
               ? 'pointer-events-none text-transparent'
-              : 'header-link hover-underline pointer-events-auto hidden text-black lg:block',
+              : 'header-link pointer-events-auto hidden text-black lg:block',
           )}
         >
           {headerData.cta.label}
@@ -49,7 +49,7 @@ export default function Header({
         <button
           onClick={onMenuToggle}
           className={clsx(
-            'header-link hover-underline',
+            'header-link',
             menuOpen ? 'text-white' : 'text-black',
           )}
         >
