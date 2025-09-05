@@ -133,6 +133,52 @@
 
 /* Menu link utility for menu items */
 .menu-link {
-  @apply font-davinci-italic text-[70px] lowercase;
-  line-height: 70px;
+  @apply font-davinci-italic text-[50px] leading-[45px] tracking-[-1px] lowercase lg:text-[70px] lg:leading-[70px] lg:tracking-[-2px];
+}
+
+@utility menu-link-icon {
+  @apply inline-block h-[32px] w-[32px] flex-shrink-0 text-white;
+}
+
+/* Arrow positioned absolutely for non-childed menu items */
+.menu-link-arrow-label {
+  @apply relative;
+}
+
+.menu-link-arrow {
+  top: 50%;
+  width: 36px;
+  height: 16px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* On large screens: arrow appears on hover */
+@media (min-width: 1024px) {
+  .menu-link-arrow {
+    position: absolute;
+    width: 48px;
+    height: 22px;
+    right: -64px;
+  }
+  .group:hover .menu-link-arrow {
+    opacity: 1;
+  }
+}
+
+/* On medium and smaller screens: arrow always visible */
+@media (max-width: 1023px) {
+  .menu-link-arrow {
+    display: inline;
+    opacity: 1;
+    margin-left: 12px;
+  }
+}
+
+.menu-link-child {
+  @apply font-arial-narrow hover:text-accent-contrast text-[20px] leading-[18px] tracking-[-0.6px] text-white uppercase;
+}
+
+.menu-link-child-disabled {
+  @apply pointer-events-none opacity-50;
 }

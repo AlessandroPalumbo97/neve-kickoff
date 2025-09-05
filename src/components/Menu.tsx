@@ -1,6 +1,36 @@
 import { type JSX, useState } from 'react';
 import { clsx } from 'clsx';
 import { getHeaderData } from '../utils/linecheck';
+import type { MenuItem } from '../types/linecheck';
+
+// Inline SVG components for plus and minus icons
+const PlusIcon = ({ className }: { className?: string }) => (
+  <svg
+    viewBox='0 0 32 32'
+    fill='none'
+    xmlns='http://www.w3.org/2000/svg'
+    className={className}
+  >
+    <path
+      d='M14.922 26.828v-8.344q0-1.406-1.406-1.406H4.375c-.234 0-.375-.094-.375-.234s0-.282.047-.328l.375-.985c.14-.422.375-.61.75-.61h8.344q1.406 0 1.406-1.405V4.375c0-.234.094-.375.234-.375s.281 0 .328.047l.985.375c.422.14.61.375.61.75v8.344q0 1.406 1.405 1.406h9.141c.234 0 .375.094.375.281 0 0 0 .047-.047.047 0 .094-.047.14-.047.234l-.328 1.032c-.14.375-.375.562-.75.562h-8.344q-1.406 0-1.406 1.406v9.141c0 .234-.094.375-.281.375 0 0-.047 0-.047-.047-.094 0-.14-.047-.234-.047l-1.032-.328c-.375-.14-.562-.375-.562-.75'
+      fill='currentColor'
+    />
+  </svg>
+);
+
+const MinusIcon = ({ className }: { className?: string }) => (
+  <svg
+    viewBox='0 0 32 32'
+    fill='none'
+    xmlns='http://www.w3.org/2000/svg'
+    className={className}
+  >
+    <path
+      d='m4.047 16.478.375-.913c.14-.391.375-.565.75-.565h22.453c.234 0 .375.087.375.26 0 0 0 .044-.047.044 0 .087-.047.13-.047.218l-.328.956c-.14.348-.375.522-.75.522H4.375C4.141 17 4 16.913 4 16.783s0-.261.047-.305'
+      fill='currentColor'
+    />
+  </svg>
+);
 
 // Inline arrow component that can change color
 const ArrowRightIcon = ({ className }: { className?: string }) => (
@@ -22,7 +52,68 @@ type MenuProps = {
   onClose: () => void;
 };
 
-export default function Menu({ isOpen, onClose }: MenuProps): JSX.Element {
+// Recursive component for handling nested children
+type MenuChildrenProps = {
+  children: MenuItem[];
+  level?: number;
+};
+
+const MenuChildren = ({
+  children,
+  level = 0,
+}: MenuChildrenProps): JSX.Element => {
+  return (
+    <ul className={clsx('space-y-2', level === 0 && 'mt-4')}>
+      {children.map((child, childIndex) => {
+        const hasChildren = child.children && child.children.length > 0;
+
+        return (
+          <li
+            className={clsx(
+              'leading-[18px] tracking-[-0.6px]',
+              level === 1 && 'm-0 grid grid-cols-2',
+            )}
+            key={childIndex}
+          >
+            {hasChildren ? (
+              // Child with its own children - render recursively
+              <div className={clsx(level === 1 && 'col-start-2 text-left')}>
+                <a
+                  href={child.url || '#'}
+                  className={clsx(
+                    'menu-link-child',
+                    child.disabled && 'menu-link-child-disabled',
+                  )}
+                  onClick={
+                    child.disabled ? (e) => e.preventDefault() : undefined
+                  }
+                >
+                  {child.label}
+                </a>
+                <MenuChildren children={child.children!} level={level + 1} />
+              </div>
+            ) : (
+              // Regular child without children
+              <a
+                href={child.url || '#'}
+                className={clsx(
+                  'menu-link-child',
+                  child.disabled && 'menu-link-child-disabled',
+                  level === 1 && 'col-start-2 text-left',
+                )}
+                onClick={child.disabled ? (e) => e.preventDefault() : undefined}
+              >
+                {child.label}
+              </a>
+            )}
+          </li>
+        );
+      })}
+    </ul>
+  );
+};
+
+export default function Menu({ isOpen }: MenuProps): JSX.Element {
   const headerData = getHeaderData();
   const [openItems, setOpenItems] = useState<Set<number>>(new Set());
 
@@ -51,58 +142,54 @@ export default function Menu({ isOpen, onClose }: MenuProps): JSX.Element {
     >
       {/* Menu items */}
       <div className='flex h-full items-center justify-center'>
-        <ul className='text-center'>
+        <ul className='-mt-[40px] flex flex-col items-center justify-center gap-[10px] text-center lg:gap-0'>
           {headerData.menu.map((item, index) => {
             const hasChildren = item.children && item.children.length > 0;
             const isOpen = openItems.has(index);
 
             return (
-              <li key={index} className='mb-8 last:mb-0'>
+              <li key={index} className='mb1 last:mb-0'>
                 {hasChildren ? (
                   // Accordion item with children
                   <div>
                     <button
                       onClick={() => toggleItem(index)}
-                      className='menu-link hover:text-accent-contrast flex items-center justify-center gap-4 text-white'
+                      className='menu-link group items-center gap-4'
                     >
-                      <span>{item.label}</span>
-                      <span className='text-2xl'>{isOpen ? '−' : '+'}</span>
+                      <span className='group-hover:text-accent-contrast inline-block text-white'>
+                        {item.label === 'Meeting&Festival' ? (
+                          <>
+                            Meeting
+                            <br className='sm:hidden' />
+                            &Festival
+                          </>
+                        ) : (
+                          item.label
+                        )}
+                      </span>
+                      {isOpen ? (
+                        <MinusIcon className='group-hover:text-accent-contrast menu-link-icon' />
+                      ) : (
+                        <PlusIcon className='group-hover:text-accent-contrast menu-link-icon' />
+                      )}
                     </button>
 
                     {/* Children items */}
-                    {isOpen && (
-                      <ul className='mt-4 space-y-2'>
-                        {item.children!.map((child, childIndex) => (
-                          <li key={childIndex}>
-                            <a
-                              href={child.url || '#'}
-                              className='menu-link hover:text-accent-contrast text-[50px] text-white'
-                              onClick={
-                                child.disabled
-                                  ? (e) => e.preventDefault()
-                                  : undefined
-                              }
-                            >
-                              {child.label}
-                            </a>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
+                    {isOpen && <MenuChildren children={item.children!} />}
                   </div>
                 ) : (
                   // Regular item with arrow on hover
                   <a
                     href={item.url || '#'}
-                    className='menu-link group items-center gap-4'
+                    className='menu-link group items-center'
                     onClick={
                       item.disabled ? (e) => e.preventDefault() : undefined
                     }
                   >
-                    <span className='group-hover:text-accent-contrast inline-block text-white transition-all duration-300 group-hover:-translate-x-6'>
+                    <span className='group-hover:text-accent-contrast menu-link-arrow-label inline-block translate-x-0 text-white transition-all duration-300 lg:group-hover:-translate-x-6'>
                       {item.label}
+                      <ArrowRightIcon className='group-hover:text-accent-contrast menu-link-arrow' />
                     </span>
-                    <ArrowRightIcon className='group-hover:text-accent-contrast inline-block h-[22px] w-auto flex-shrink-0 opacity-0 transition-all duration-300 group-hover:opacity-100' />
                   </a>
                 )}
               </li>
