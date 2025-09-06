@@ -13,27 +13,29 @@ export default function Welcome(): JSX.Element {
   }
 
   return (
-    <div className='gap-sm flex flex-col'>
-      <h2 className='welcome-title'>{welcomeData.title}</h2>
-      <div className='welcome-rich-text-container'>
-        <div
-          className={`welcome-rich-text sm:!block ${
-            !isExpanded ? 'line-clamp-5' : 'line-clamp-none'
-          }`}
-        >
-          {parse(welcomeData.richText)}
+    <div className='gap-lg flex flex-col'>
+      <div className='gap-sm flex flex-col'>
+        <h2 className='welcome-title'>{welcomeData.title}</h2>
+        <div className='welcome-rich-text-container'>
+          <div
+            className={`welcome-rich-text sm:!block ${
+              !isExpanded ? 'line-clamp-5' : 'line-clamp-none'
+            }`}
+          >
+            {parse(welcomeData.richText)}
+          </div>
+          <button
+            className='welcome-read-more-btn'
+            onClick={() => setIsExpanded(!isExpanded)}
+          >
+            {isExpanded ? 'Read less' : 'Read more'}
+            {isExpanded ? (
+              <MinusIcon className='ml-2 h-[35px] w-auto' />
+            ) : (
+              <PlusIcon className='ml-2 h-[35px] w-auto' />
+            )}
+          </button>
         </div>
-        <button
-          className='welcome-read-more-btn'
-          onClick={() => setIsExpanded(!isExpanded)}
-        >
-          {isExpanded ? 'Read less' : 'Read more'}
-          {isExpanded ? (
-            <MinusIcon className='ml-2 h-[35px] w-auto' />
-          ) : (
-            <PlusIcon className='ml-2 h-[35px] w-auto' />
-          )}
-        </button>
       </div>
       <div className='gap-sm flex flex-col sm:flex-row'>
         {welcomeData.ctas.map((cta, index) => (
