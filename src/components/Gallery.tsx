@@ -187,7 +187,7 @@ export default function Gallery(): JSX.Element {
                     srcSet={item.srcset.join(', ')}
                     sizes='100vw'
                     alt={item.caption || `Gallery image ${index + 1}`}
-                    className='gallery-image'
+                    className='gallery-image aspect-square'
                     draggable={false}
                     onDragStart={(e) => e.preventDefault()}
                   />

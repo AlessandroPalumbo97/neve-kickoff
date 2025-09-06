@@ -13,7 +13,7 @@ export default function Welcome(): JSX.Element {
   }
 
   return (
-    <div className='gap-lg flex flex-col'>
+    <div className='gap-md flex flex-col'>
       <div className='gap-sm flex flex-col'>
         <h2 className='welcome-title'>{welcomeData.title}</h2>
         <div className='welcome-rich-text-container'>

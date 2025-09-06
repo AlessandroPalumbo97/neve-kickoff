@@ -4,7 +4,7 @@ import Gallery from './Gallery';
 
 export default function WelcomeGallery(): JSX.Element {
   return (
-    <section className='section-padding gap-lg flex flex-col'>
+    <section className='section-padding lg:gap-md gap-lg flex flex-col'>
       <Welcome />
       <Gallery />
     </section>
