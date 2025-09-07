@@ -64,8 +64,17 @@ export interface GalleryItem {
   caption: string;
 }
 
+// Gallery section types
 export interface GallerySection {
   items: GalleryItem[];
+}
+
+// Crosslinks section types
+export interface CrosslinksSection {
+  label: string;
+  title: string;
+  url: string;
+  style?: string;
 }
 
 // Manifesto section types
@@ -170,6 +179,7 @@ export type LinecheckSection =
   | HeroSection
   | WelcomeSection
   | GallerySection
+  | CrosslinksSection
   | ManifestoSection
   | TicketsSection
   | FooterSection;
@@ -181,6 +191,7 @@ export interface LinecheckPayload {
   hero: HeroSection;
   welcome: WelcomeSection;
   gallery: GallerySection;
+  crosslinks: CrosslinksSection;
   manifesto: ManifestoSection;
   tickets: TicketsSection;
   footer: FooterSection;

@@ -73,6 +73,14 @@
   --padding-md: 20px;
   --padding-lg: 40px;
   --padding-xl: 60px;
+
+  /* Custom Margin Tokens */
+  --margin-sm: 10px;
+  --margin-md: 20px;
+  --margin-lg: 40px;
+  --margin-xl: 60px;
+
+  /* Custom Font Tokens */
   --font-davinci:
     'TRJNDaVinci', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
     Helvetica, Arial, 'Apple Color Emoji', 'Segoe UI Emoji';
@@ -258,6 +266,25 @@
 .hero-section-title,
 .hero-section-subtitle {
   @apply font-davinci-italic mb-4 text-[70px] leading-[73.5px] tracking-[-2.8px];
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   🔗 CROSSLINKS COMPONENT
+   ═══════════════════════════════════════════════════════════════════════════ */
+.crosslink-block {
+  @apply sm:pt-xl sm:pr-lg sm:pb-md sm:pl-md pt-md pr-sm pb-sm pl-sm;
+}
+
+.crosslink-label {
+  @apply font-arial-narrow-regular text-[15px] leading-[15px] tracking-[0.15px] uppercase sm:text-[20px] sm:leading-[18px] sm:tracking-[-0.6px];
+}
+
+.crosslink-title {
+  @apply font-davinci-regular text-[35px] leading-[38.5px] tracking-[-1.05px] sm:text-[70px] sm:leading-[77px] sm:tracking-[-2.1px];
+}
+
+.crosslink-arrow {
+  @apply sm:my-md sm:mx-sm ml-[15px] h-[13px] w-[30px] sm:h-[25px] sm:w-[57px];
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════

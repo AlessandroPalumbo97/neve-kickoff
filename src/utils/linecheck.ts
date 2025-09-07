@@ -70,6 +70,9 @@ export function getWelcomeData() {
 export function getGalleryData() {
   return getSectionData('gallery');
 }
+export function getCrosslinksData() {
+  return getSectionData('crosslinks');
+}
 export function getManifestoData() {
   return getSectionData('manifesto');
 }
