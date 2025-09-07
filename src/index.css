@@ -303,6 +303,28 @@
 /* ═══════════════════════════════════════════════════════════════════════════
    👋 WELCOME COMPONENT
    ═══════════════════════════════════════════════════════════════════════════ */
+.welcome-animate {
+  @apply transition-all duration-[800ms] ease-out;
+  filter: blur(8px);
+  transform: translateX(-10px);
+}
+
+.welcome-animate.animate-in {
+  filter: blur(0px);
+  transform: translateX(0px);
+}
+
+/* Fallback: if animation doesn't trigger, show content after a delay */
+.welcome-animate:not(.animate-in) {
+  animation: welcome-fallback 0.1s ease-out 1s forwards;
+}
+
+@keyframes welcome-fallback {
+  to {
+    filter: blur(0px);
+    transform: translateX(0px);
+  }
+}
 
 .welcome-title {
   @apply font-arial-narrow-regular text-[20px] leading-[18px] tracking-[-0.6px] uppercase;

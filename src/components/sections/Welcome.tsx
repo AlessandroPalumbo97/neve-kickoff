@@ -1,19 +1,28 @@
 import { type JSX, useState } from 'react';
+import { clsx } from 'clsx';
 import parse from 'html-react-parser';
 import { getWelcomeData } from '@/utils/linecheck';
+import { useAnimateOnView } from '@/hooks/useAnimateOnView';
 import PlusIcon from '@/assets/icons/PlusIcon';
 import MinusIcon from '@/assets/icons/MinusIcon';
 
 export default function Welcome(): JSX.Element {
   const welcomeData = getWelcomeData();
   const [isExpanded, setIsExpanded] = useState(false);
+  const { ref, shouldAnimate } = useAnimateOnView<HTMLDivElement>();
 
   if (!welcomeData) {
     return <></>;
   }
 
   return (
-    <div className='gap-md flex flex-col'>
+    <div
+      ref={ref}
+      className={clsx(
+        'gap-md welcome-animate flex flex-col',
+        shouldAnimate && 'animate-in',
+      )}
+    >
       <div className='gap-sm flex flex-col'>
         <h2 className='welcome-title'>{welcomeData.title}</h2>
         <div className='welcome-rich-text-container'>

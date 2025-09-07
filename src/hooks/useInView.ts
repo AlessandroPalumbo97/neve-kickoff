@@ -22,8 +22,8 @@ export function useInView<T extends HTMLElement>(
       },
       {
         root: null,
-        rootMargin: '0px 0px -12% 0px',
-        threshold: 0.12,
+        rootMargin: '0px 0px 30% 0px',
+        threshold: 0.4,
         ...options,
       },
     );
