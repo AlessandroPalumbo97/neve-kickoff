@@ -1,6 +1,6 @@
 import { type JSX } from 'react';
-import Hero from './Hero';
-import WelcomeGallery from './WelcomeGallery';
+import Hero from '@/components/sections/Hero';
+import WelcomeGallery from '@/components/sections/WelcomeGallery';
 
 export default function SiteContent(): JSX.Element {
   return (

@@ -1,8 +1,8 @@
 import { type JSX, useState } from 'react';
 import parse from 'html-react-parser';
-import { getWelcomeData } from '../utils/linecheck';
-import PlusIcon from '../assets/icons/PlusIcon';
-import MinusIcon from '../assets/icons/MinusIcon';
+import { getWelcomeData } from '@/utils/linecheck';
+import PlusIcon from '@/assets/icons/PlusIcon';
+import MinusIcon from '@/assets/icons/MinusIcon';
 
 export default function Welcome(): JSX.Element {
   const welcomeData = getWelcomeData();

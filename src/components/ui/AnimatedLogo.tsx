@@ -1,7 +1,7 @@
 import { type JSX, useState, useEffect } from 'react';
 import { clsx } from 'clsx';
-import Logotype from '../assets/icons/Logotype';
-import Pictogram from '../assets/icons/Pictogram';
+import Logotype from '@/assets/icons/Logotype';
+import Pictogram from '@/assets/icons/Pictogram';
 
 type AnimatedLogoProps = {
   menuOpen: boolean;

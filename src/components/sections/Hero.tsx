@@ -1,5 +1,5 @@
 import { type JSX } from 'react';
-import { getHeroData } from '../utils/linecheck';
+import { getHeroData } from '@/utils/linecheck';
 
 export default function Hero(): JSX.Element {
   const heroData = getHeroData();

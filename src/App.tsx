@@ -1,10 +1,10 @@
 import './App.css';
 import { type JSX, useEffect, useState } from 'react';
 import { clsx } from 'clsx';
-import { loadLinecheckData } from './utils/linecheck';
-import Header from './components/Header';
-import Menu from './components/Menu';
-import SiteContent from './components/SiteContent';
+import { loadLinecheckData } from '@/utils/linecheck';
+import Header from '@/components/layout/Header';
+import Menu from '@/components/layout/Menu';
+import SiteContent from '@/components/layout/SiteContent';
 
 function App(): JSX.Element {
   const [loading, setLoading] = useState(true);

@@ -2,7 +2,7 @@ import type {
   LinecheckPayload,
   SectionName,
   SectionType,
-} from '../types/linecheck';
+} from '@/types/linecheck';
 
 let cachedPayload: LinecheckPayload | null = null;
 

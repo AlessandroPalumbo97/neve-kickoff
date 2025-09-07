@@ -1,7 +1,7 @@
 import { type JSX } from 'react';
 import { clsx } from 'clsx';
-import { getHeaderData } from '../utils/linecheck';
-import AnimatedLogo from './AnimatedLogo';
+import { getHeaderData } from '@/utils/linecheck';
+import AnimatedLogo from '@/components/ui/AnimatedLogo';
 
 type HeaderProps = {
   onMenuToggle: () => void;

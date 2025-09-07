@@ -1,5 +1,5 @@
 import { type JSX, useState, useRef } from 'react';
-import { getGalleryData } from '../utils/linecheck';
+import { getGalleryData } from '@/utils/linecheck';
 import clsx from 'clsx';
 
 export default function Gallery(): JSX.Element {

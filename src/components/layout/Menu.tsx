@@ -1,10 +1,10 @@
 import { type JSX, useState } from 'react';
 import { clsx } from 'clsx';
-import { getHeaderData } from '../utils/linecheck';
-import type { MenuItem } from '../types/linecheck';
-import PlusIcon from '../assets/icons/PlusIcon';
-import MinusIcon from '../assets/icons/MinusIcon';
-import ArrowRightIcon from '../assets/icons/ArrowRightIcon';
+import { getHeaderData } from '@/utils/linecheck';
+import type { MenuItem } from '@/types/linecheck';
+import PlusIcon from '@/assets/icons/PlusIcon';
+import MinusIcon from '@/assets/icons/MinusIcon';
+import ArrowRightIcon from '@/assets/icons/ArrowRightIcon';
 
 type MenuProps = {
   isOpen: boolean;
