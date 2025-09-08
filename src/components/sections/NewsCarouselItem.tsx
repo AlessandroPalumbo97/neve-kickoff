@@ -1,13 +1,10 @@
 import { type JSX } from 'react';
 import { clsx } from 'clsx';
 import { useAnimateOnView } from '@/hooks/useAnimateOnView';
+import { NewsItem } from '@/types/linecheck';
 
-type NewsCarouselItemProps = {
-  dateLabel: string;
-  categories: string[];
-  title: string;
-  url: string;
-  image: string;
+type NewsCarouselItemProps = NewsItem & {
+  hasDragged?: boolean;
 };
 
 export default function NewsCarouselItem({
@@ -16,19 +13,34 @@ export default function NewsCarouselItem({
   title,
   url,
   image,
+  hasDragged = false,
 }: NewsCarouselItemProps): JSX.Element {
   const categoriesString = categories.join(' ');
   const { ref, shouldAnimate, animationClass } =
     useAnimateOnView<HTMLDivElement>('blur');
 
+  const handleLinkClick = (e: React.MouseEvent) => {
+    if (hasDragged) {
+      e.preventDefault(); // Don't open link if drag occurred
+    }
+  };
+
   return (
-    <a href={url} className='news-carousel-item group gap-md flex flex-col'>
+    <a
+      href={url}
+      className='news-carousel-item group gap-md flex flex-col'
+      onClick={handleLinkClick}
+      onDragStart={(e) => e.preventDefault()}
+      draggable={false}
+    >
       <div className='relative overflow-hidden'>
         {/* Image with black and white filter */}
         <img
           src={image}
           alt={title}
           className='aspect-[4/3] w-full object-cover grayscale filter transition-all duration-300 group-hover:filter-none'
+          draggable={false}
+          onDragStart={(e) => e.preventDefault()}
         />
 
         {/* Date label in upper-left corner */}

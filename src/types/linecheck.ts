@@ -78,18 +78,21 @@ export interface CrosslinksSection {
 }
 
 // News highlights section types
+export interface NewsItem {
+  dateLabel: string;
+  categories: string[];
+  title: string;
+  excerpt?: string;
+  url: string;
+  image: string;
+}
+
+// News highlights section types
 export interface NewsHighlightsSection {
   title: string;
   description: string;
   cta: CTA;
-  items: Array<{
-    dateLabel: string;
-    categories: string[];
-    title: string;
-    excerpt: string;
-    url: string;
-    image: string;
-  }>;
+  items: NewsItem[];
 }
 
 // Manifesto section types
