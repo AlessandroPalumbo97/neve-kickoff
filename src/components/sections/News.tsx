@@ -2,7 +2,7 @@ import { type JSX } from 'react';
 import { clsx } from 'clsx';
 import { getNewsData } from '@/utils/linecheck';
 import { useAnimateOnView } from '@/hooks/useAnimateOnView';
-import NewsCarouselFlickity from './NewsCarouselFlickity';
+import NewsCarousel from './NewsCarousel';
 import ReadMore from '../ui/ReadMore';
 
 export default function News(): JSX.Element {
@@ -32,7 +32,7 @@ export default function News(): JSX.Element {
           />
         </div>
 
-        <NewsCarouselFlickity />
+        <NewsCarousel />
       </div>
     </section>
   );

@@ -3,9 +3,10 @@ import { clsx } from 'clsx';
 import { getNewsData } from '@/utils/linecheck';
 import NewsCarouselItem from './NewsCarouselItem';
 import ArrowRightIcon from '@/assets/icons/ArrowRightIcon';
+// https://www.npmjs.com/package/flickity
 import Flickity from 'flickity';
 
-export default function NewsCarouselFlickity(): JSX.Element {
+export default function NewsCarousel(): JSX.Element {
   const newsData = getNewsData();
   const carouselRef = useRef<HTMLDivElement>(null);
   const flickityRef = useRef<Flickity | null>(null);

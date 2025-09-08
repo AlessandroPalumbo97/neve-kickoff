@@ -10,6 +10,7 @@ This repo holds the codebase for the very first project assigned to me by Neve s
 - **Granular Types**: Section-specific interfaces for building focused components
 - **Error Handling**: Built-in validation and helpful error messages
 - **Component Ready**: Perfect for building individual section components
+- **Flickity Carousel**: Responsive news carousel with 1-item scrolling - [Docs](https://www.npmjs.com/package/flickity)
 
 ## 📁 Project Structure
 
