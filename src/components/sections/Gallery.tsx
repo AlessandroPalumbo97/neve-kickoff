@@ -49,10 +49,6 @@ export default function Gallery(): JSX.Element {
     }
   };
 
-  const goToSlide = (index: number) => {
-    setCurrentIndex(index);
-  };
-
   // Calculate line width and position
   const lineWidth = `calc((100vw - 20px) / ${totalItems})`;
   const linePosition = (currentIndex / (totalItems - 1)) * 100;

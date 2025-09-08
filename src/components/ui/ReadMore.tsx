@@ -21,7 +21,6 @@ export default function ReadMore({
     const checkOverflow = () => {
       const el = textRef.current as HTMLElement;
       if (el) {
-        console.log('ELLLLLL', el.scrollHeight, el.clientHeight);
         // Add 5px tolerance to account for line-height/font-size mismatch
         const hasOverflow = el.scrollHeight > el.clientHeight + 5;
         setIsOverflowing(hasOverflow);
