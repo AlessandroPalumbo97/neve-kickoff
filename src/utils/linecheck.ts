@@ -30,7 +30,6 @@ export async function loadLinecheckData(
 
   const data = await fetchJson(localUrl);
   await Promise.all([minimumDelay, fontsReady]);
-  console.log('[linecheck] Data loaded from local file');
   cachedPayload = data;
   return data;
 }

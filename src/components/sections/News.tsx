@@ -2,7 +2,7 @@ import { type JSX } from 'react';
 import { clsx } from 'clsx';
 import { getNewsData } from '@/utils/linecheck';
 import { useAnimateOnView } from '@/hooks/useAnimateOnView';
-import NewsCarousel from './NewsCarousel';
+import NewsCarouselFlickity from './NewsCarouselFlickity';
 import ReadMore from '../ui/ReadMore';
 
 export default function News(): JSX.Element {
@@ -14,9 +14,8 @@ export default function News(): JSX.Element {
     return <></>;
   }
 
-  // we will need to remove the mb-120 class when we have the carousel
   return (
-    <section className='section-padding mb-120'>
+    <section className='section-padding'>
       <div
         ref={ref}
         className={clsx(
@@ -33,8 +32,7 @@ export default function News(): JSX.Element {
           />
         </div>
 
-        {/* NewsCarousel will be added here later */}
-        <NewsCarousel />
+        <NewsCarouselFlickity />
       </div>
     </section>
   );

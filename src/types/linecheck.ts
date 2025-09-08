@@ -88,7 +88,7 @@ export interface NewsHighlightsSection {
     title: string;
     excerpt: string;
     url: string;
-    image: ImageWithSrcset;
+    image: string;
   }>;
 }
 

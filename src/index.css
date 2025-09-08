@@ -385,15 +385,6 @@
   @apply bg-accent absolute bottom-0 left-0 h-[1px] w-full;
 }
 
-.news-read-more-btn {
-  @apply font-davinci-regular text-accent-focus relative mt-2 flex items-center text-[35px] leading-[38.5px] tracking-[-1.05px] sm:hidden;
-}
-
-.news-read-more-btn:hover::after {
-  content: '';
-  @apply bg-accent absolute bottom-0 left-0 h-[1.5px] w-full;
-}
-
 .welcome-cta-primary {
   @apply font-arial-narrow-regular hover:bg-accent-contrast px-md flex h-[40px] items-center justify-center bg-black text-[15px] leading-[15px] text-white transition-all duration-300 hover:text-black;
 }
@@ -404,4 +395,62 @@
 
 .welcome-cta-tertiary {
   @apply font-arial-narrow-regular bg-light-gray hover:bg-accent-contrast px-md flex h-[40px] items-center justify-center text-[15px] leading-[15px] text-black transition-all duration-300 hover:text-black;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   🎠 NEWS CAROUSEL
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* News carousel - using Flickity */
+@import 'flickity/css/flickity.css';
+
+.news-carousel-flickity {
+  @apply overflow-hidden;
+}
+
+.news-carousel-flickity-item {
+  @apply mr-sm w-full;
+}
+
+.news-carousel-flickity-item:last-child {
+  @apply mr-0;
+}
+
+/* Flickity responsive breakpoints */
+@media (min-width: 1280px) {
+  .news-carousel-flickity-item {
+    @apply mr-sm w-1/4;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .news-carousel-flickity-item {
+    @apply mr-sm w-1/3;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .news-carousel-flickity-item {
+    @apply mr-sm w-1/2;
+  }
+}
+
+@media (max-width: 767px) {
+  .news-carousel-flickity-item {
+    @apply mr-sm w-1/2;
+  }
+}
+
+/* News carousel item styles */
+.news-carousel-item {
+  @apply transition-all duration-300;
+}
+
+.news-carousel-item img {
+  @apply h-auto w-full transition-all duration-300;
+  filter: grayscale(100%);
+}
+
+.news-carousel-item:hover img {
+  filter: grayscale(0%);
 }
