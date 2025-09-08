@@ -2,6 +2,7 @@ import { type JSX } from 'react';
 import { clsx } from 'clsx';
 import { getHeaderData } from '@/utils/linecheck';
 import AnimatedLogo from '@/components/ui/AnimatedLogo';
+import { useAnimateOnView } from '@/hooks/useAnimateOnView';
 
 type HeaderProps = {
   onMenuToggle: () => void;
@@ -13,6 +14,16 @@ export default function Header({
   menuOpen,
 }: HeaderProps): JSX.Element {
   const headerData = getHeaderData();
+  const {
+    ref: ctaRef,
+    shouldAnimate: ctaShouldAnimate,
+    animationClass: ctaAnimationClass,
+  } = useAnimateOnView<HTMLAnchorElement>('blur');
+  const {
+    ref: menuRef,
+    shouldAnimate: menuShouldAnimate,
+    animationClass: menuAnimationClass,
+  } = useAnimateOnView<HTMLButtonElement>('blur');
 
   if (!headerData) {
     return <></>;
@@ -28,11 +39,14 @@ export default function Header({
       {/* CTA Button */}
       <div className='hidden w-full justify-start lg:flex'>
         <a
+          ref={ctaRef}
           href={headerData.cta.url}
           className={clsx(
+            ctaAnimationClass,
             menuOpen
               ? 'pointer-events-none text-transparent'
               : 'header-link pointer-events-auto hidden text-black lg:block',
+            ctaShouldAnimate && 'animate-in',
           )}
         >
           {headerData.cta.label}
@@ -47,10 +61,12 @@ export default function Header({
       {/* Menu Button */}
       <div className='flex w-full justify-end'>
         <button
+          ref={menuRef}
           onClick={onMenuToggle}
           className={clsx(
-            'header-link',
+            `header-link ${menuAnimationClass}`,
             menuOpen ? 'text-white' : 'text-black',
+            menuShouldAnimate && 'animate-in',
           )}
         >
           {menuOpen ? 'close menu' : 'menu'}

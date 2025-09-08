@@ -1,8 +1,15 @@
 import { type JSX } from 'react';
+import { clsx } from 'clsx';
 import { getHeroData } from '@/utils/linecheck';
+import { useAnimateOnView } from '@/hooks/useAnimateOnView';
 
 export default function Hero(): JSX.Element {
   const heroData = getHeroData();
+  const {
+    ref: heroRef,
+    shouldAnimate,
+    animationClass,
+  } = useAnimateOnView<HTMLDivElement>('blur');
 
   if (!heroData) {
     return <></>;
@@ -22,7 +29,13 @@ export default function Hero(): JSX.Element {
 
       {/* Content Overlay */}
       <div className='px-sm pb-sm relative z-10 flex h-full items-center justify-center'>
-        <div className='text-center text-white'>
+        <div
+          ref={heroRef}
+          className={clsx(
+            `text-center text-white ${animationClass}`,
+            shouldAnimate && 'animate-in',
+          )}
+        >
           <h1 className='hero-section-title'>{heroData.title}</h1>
           <p className='hero-section-subtitle'>{heroData.subtitle}</p>
         </div>

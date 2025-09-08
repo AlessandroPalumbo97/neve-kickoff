@@ -1,10 +1,15 @@
 import { useEffect, useState } from 'react';
 import { useInView } from './useInView';
+import { useLoading } from '@/contexts/LoadingContext';
+
+type AnimationType = 'blur' | 'blur-slide';
 
 export function useAnimateOnView<T extends HTMLElement>(
+  animationType: AnimationType = 'blur-slide',
   options?: IntersectionObserverInit,
 ) {
   const [shouldAnimate, setShouldAnimate] = useState(false);
+  const { isOverlayGone } = useLoading();
   const { ref, inView } = useInView<T>({
     threshold: 0.3,
     rootMargin: '0px 0px 20% 0px',
@@ -13,22 +18,24 @@ export function useAnimateOnView<T extends HTMLElement>(
 
   // Check if section is already in view on mount (for scroll position restoration)
   useEffect(() => {
-    if (ref.current) {
+    if (ref.current && isOverlayGone) {
       const rect = ref.current.getBoundingClientRect();
       const isInViewport = rect.top < window.innerHeight && rect.bottom > 0;
       if (isInViewport) {
-        // This is scroll position restoration - animate immediately
+        // This is scroll position restoration - animate immediately after overlay is gone
         setTimeout(() => setShouldAnimate(true), 50);
       }
     }
-  }, []);
+  }, [isOverlayGone]);
 
-  // Trigger animation when useInView detects the section
+  // Trigger animation when useInView detects the section AND overlay is gone
   useEffect(() => {
-    if (inView) {
+    if (inView && isOverlayGone) {
       setShouldAnimate(true);
     }
-  }, [inView]);
+  }, [inView, isOverlayGone]);
 
-  return { ref, shouldAnimate } as const;
+  const animationClass = `animate-${animationType}`;
+
+  return { ref, shouldAnimate, animationClass } as const;
 }

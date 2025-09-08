@@ -301,30 +301,45 @@
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   👋 WELCOME COMPONENT
+   🎭 ANIMATION SYSTEM
    ═══════════════════════════════════════════════════════════════════════════ */
-.welcome-animate {
+
+/* Blur only animation */
+.animate-blur {
+  @apply transition-all duration-[800ms] ease-out;
+  filter: blur(8px);
+}
+
+/* Blur + slide animation */
+.animate-blur-slide {
   @apply transition-all duration-[800ms] ease-out;
   filter: blur(8px);
   transform: translateX(-10px);
 }
 
-.welcome-animate.animate-in {
+/* Animation states */
+.animate-blur.animate-in,
+.animate-blur-slide.animate-in {
   filter: blur(0px);
   transform: translateX(0px);
 }
 
 /* Fallback: if animation doesn't trigger, show content after a delay */
-.welcome-animate:not(.animate-in) {
-  animation: welcome-fallback 0.1s ease-out 1s forwards;
+.animate-blur:not(.animate-in),
+.animate-blur-slide:not(.animate-in) {
+  animation: animation-fallback 0.1s ease-out 1s forwards;
 }
 
-@keyframes welcome-fallback {
+@keyframes animation-fallback {
   to {
     filter: blur(0px);
     transform: translateX(0px);
   }
 }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   👋 WELCOME COMPONENT
+   ═══════════════════════════════════════════════════════════════════════════ */
 
 .welcome-title {
   @apply font-arial-narrow-regular text-[20px] leading-[18px] tracking-[-0.6px] uppercase;

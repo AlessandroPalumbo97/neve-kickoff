@@ -9,7 +9,8 @@ import MinusIcon from '@/assets/icons/MinusIcon';
 export default function Welcome(): JSX.Element {
   const welcomeData = getWelcomeData();
   const [isExpanded, setIsExpanded] = useState(false);
-  const { ref, shouldAnimate } = useAnimateOnView<HTMLDivElement>();
+  const { ref, shouldAnimate, animationClass } =
+    useAnimateOnView<HTMLDivElement>('blur-slide');
 
   if (!welcomeData) {
     return <></>;
@@ -19,7 +20,7 @@ export default function Welcome(): JSX.Element {
     <div
       ref={ref}
       className={clsx(
-        'gap-md welcome-animate flex flex-col',
+        `gap-md flex flex-col ${animationClass}`,
         shouldAnimate && 'animate-in',
       )}
     >

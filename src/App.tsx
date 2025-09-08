@@ -5,6 +5,7 @@ import { loadLinecheckData } from '@/utils/linecheck';
 import Header from '@/components/layout/Header';
 import Menu from '@/components/layout/Menu';
 import SiteContent from '@/components/layout/SiteContent';
+import { LoadingProvider } from '@/contexts/LoadingContext';
 
 function App(): JSX.Element {
   const [loading, setLoading] = useState(true);
@@ -64,22 +65,27 @@ function App(): JSX.Element {
   console.log(data);
 
   return (
-    <>
-      {overlayVisible && (
-        <div
-          className={clsx(
-            'bg-accent fixed inset-0 z-50 transition-opacity duration-900 ease-out',
-            overlayFadeOut ? 'opacity-0' : 'opacity-100',
-          )}
-        />
-      )}
+    <LoadingProvider
+      overlayVisible={overlayVisible}
+      overlayFadeOut={overlayFadeOut}
+    >
+      <>
+        {overlayVisible && (
+          <div
+            className={clsx(
+              'bg-accent fixed inset-0 z-50 transition-opacity duration-900 ease-out',
+              overlayFadeOut ? 'opacity-0' : 'opacity-100',
+            )}
+          />
+        )}
 
-      <main>
-        <Header onMenuToggle={toggleMenu} menuOpen={menuOpen} />
-        <Menu isOpen={menuOpen} onClose={() => setMenuOpen(false)} />
-        <SiteContent />
-      </main>
-    </>
+        <main>
+          <Header onMenuToggle={toggleMenu} menuOpen={menuOpen} />
+          <Menu isOpen={menuOpen} onClose={() => setMenuOpen(false)} />
+          <SiteContent />
+        </main>
+      </>
+    </LoadingProvider>
   );
 }
 
