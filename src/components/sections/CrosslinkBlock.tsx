@@ -2,6 +2,7 @@ import { type JSX } from 'react';
 import { clsx } from 'clsx';
 import type { CrosslinksSection } from '@/types/linecheck';
 import ArrowRightIcon from '@/assets/icons/ArrowRightIcon';
+import { useAnimateOnView } from '@/hooks/useAnimateOnView';
 
 type CrosslinkBlockProps = {
   crosslink: CrosslinksSection;
@@ -11,6 +12,8 @@ export default function CrosslinkBlock({
   crosslink,
 }: CrosslinkBlockProps): JSX.Element {
   const isTicketsBlock = crosslink.url.includes('/tickets/');
+  const { ref, shouldAnimate, animationClass } =
+    useAnimateOnView<HTMLDivElement>('blur-slide');
 
   return (
     <a
@@ -22,7 +25,13 @@ export default function CrosslinkBlock({
           : 'hover:bg-accent-contrast bg-black text-white hover:text-black',
       )}
     >
-      <div className='gap-md flex flex-col items-start justify-start'>
+      <div
+        ref={ref}
+        className={clsx(
+          `gap-md flex flex-col items-start justify-start ${animationClass}`,
+          shouldAnimate && 'animate-in',
+        )}
+      >
         <span className='crosslink-label font-arial-narrow-regular text-[15px] leading-[15px] uppercase'>
           {crosslink.label}
         </span>

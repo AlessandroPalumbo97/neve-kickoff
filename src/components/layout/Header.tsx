@@ -14,16 +14,8 @@ export default function Header({
   menuOpen,
 }: HeaderProps): JSX.Element {
   const headerData = getHeaderData();
-  const {
-    ref: ctaRef,
-    shouldAnimate: ctaShouldAnimate,
-    animationClass: ctaAnimationClass,
-  } = useAnimateOnView<HTMLAnchorElement>('blur');
-  const {
-    ref: menuRef,
-    shouldAnimate: menuShouldAnimate,
-    animationClass: menuAnimationClass,
-  } = useAnimateOnView<HTMLButtonElement>('blur');
+  const { ref, shouldAnimate, animationClass } =
+    useAnimateOnView<HTMLDivElement>('blur');
 
   if (!headerData) {
     return <></>;
@@ -32,45 +24,49 @@ export default function Header({
   return (
     <header
       className={clsx(
-        'p-sm fixed top-0 z-50 grid w-full grid-cols-2 items-center justify-between transition-colors duration-300 lg:grid-cols-3',
+        'p-sm fixed top-0 z-50 w-full transition-colors duration-300',
         menuOpen ? 'bg-black' : 'bg-white',
       )}
     >
-      {/* CTA Button */}
-      <div className='hidden w-full justify-start lg:flex'>
-        <a
-          ref={ctaRef}
-          href={headerData.cta.url}
-          className={clsx(
-            ctaAnimationClass,
-            menuOpen
-              ? 'pointer-events-none text-transparent'
-              : 'header-link pointer-events-auto hidden text-black lg:block',
-            ctaShouldAnimate && 'animate-in',
-          )}
-        >
-          {headerData.cta.label}
-        </a>
-      </div>
+      {/* Animated Content Wrapper */}
+      <div
+        ref={ref}
+        className={clsx(
+          `grid w-full grid-cols-2 items-center justify-between lg:grid-cols-3 ${animationClass}`,
+          shouldAnimate && 'animate-in',
+        )}
+      >
+        {/* CTA Button */}
+        <div className='hidden w-full justify-start lg:flex'>
+          <a
+            href={headerData.cta.url}
+            className={clsx(
+              menuOpen
+                ? 'pointer-events-none text-transparent'
+                : 'header-link pointer-events-auto hidden text-black lg:block',
+            )}
+          >
+            {headerData.cta.label}
+          </a>
+        </div>
 
-      {/* Logo */}
-      <div className='flex w-full justify-start lg:justify-center'>
-        <AnimatedLogo menuOpen={menuOpen} />
-      </div>
+        {/* Logo */}
+        <div className='flex w-full justify-start lg:justify-center'>
+          <AnimatedLogo menuOpen={menuOpen} />
+        </div>
 
-      {/* Menu Button */}
-      <div className='flex w-full justify-end'>
-        <button
-          ref={menuRef}
-          onClick={onMenuToggle}
-          className={clsx(
-            `header-link ${menuAnimationClass}`,
-            menuOpen ? 'text-white' : 'text-black',
-            menuShouldAnimate && 'animate-in',
-          )}
-        >
-          {menuOpen ? 'close menu' : 'menu'}
-        </button>
+        {/* Menu Button */}
+        <div className='flex w-full justify-end'>
+          <button
+            onClick={onMenuToggle}
+            className={clsx(
+              'header-link',
+              menuOpen ? 'text-white' : 'text-black',
+            )}
+          >
+            {menuOpen ? 'close menu' : 'menu'}
+          </button>
+        </div>
       </div>
     </header>
   );

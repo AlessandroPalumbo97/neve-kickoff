@@ -2,7 +2,6 @@ import { type JSX, useState, useEffect } from 'react';
 import { clsx } from 'clsx';
 import Logotype from '@/assets/icons/Logotype';
 import Pictogram from '@/assets/icons/Pictogram';
-import { useAnimateOnView } from '@/hooks/useAnimateOnView';
 
 type AnimatedLogoProps = {
   menuOpen: boolean;
@@ -12,11 +11,6 @@ export default function AnimatedLogo({
   menuOpen,
 }: AnimatedLogoProps): JSX.Element {
   const [showLogotype, setShowLogotype] = useState(true);
-  const {
-    ref: logoRef,
-    shouldAnimate,
-    animationClass,
-  } = useAnimateOnView<HTMLElement>('blur-slide');
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -27,13 +21,7 @@ export default function AnimatedLogo({
   }, []);
 
   return (
-    <figure
-      ref={logoRef}
-      className={clsx(
-        `relative flex h-6 w-20 items-center justify-center ${animationClass}`,
-        shouldAnimate && 'animate-in',
-      )}
-    >
+    <figure className='relative flex h-6 w-20 items-center justify-center'>
       {/* Logotype */}
       <div
         className={clsx(

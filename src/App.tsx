@@ -1,4 +1,3 @@
-import './App.css';
 import { type JSX, useEffect, useState } from 'react';
 import { clsx } from 'clsx';
 import { loadLinecheckData } from '@/utils/linecheck';
@@ -61,8 +60,6 @@ function App(): JSX.Element {
       return () => clearTimeout(timeout);
     }
   }, [loading]);
-
-  console.log(data);
 
   return (
     <LoadingProvider

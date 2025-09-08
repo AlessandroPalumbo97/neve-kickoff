@@ -11,8 +11,8 @@ export function useAnimateOnView<T extends HTMLElement>(
   const [shouldAnimate, setShouldAnimate] = useState(false);
   const { isOverlayGone } = useLoading();
   const { ref, inView } = useInView<T>({
-    threshold: 0.3,
-    rootMargin: '0px 0px 20% 0px',
+    threshold: 0.1, // Only need 10% of element visible
+    rootMargin: '0px 0px -20% 0px', // Element must be 20% inside viewport
     ...options,
   });
 
@@ -20,7 +20,9 @@ export function useAnimateOnView<T extends HTMLElement>(
   useEffect(() => {
     if (ref.current && isOverlayGone) {
       const rect = ref.current.getBoundingClientRect();
-      const isInViewport = rect.top < window.innerHeight && rect.bottom > 0;
+      // More conservative: element must be actually visible in viewport
+      const isInViewport =
+        rect.top >= 0 && rect.top < window.innerHeight && rect.bottom > 0;
       if (isInViewport) {
         // This is scroll position restoration - animate immediately after overlay is gone
         setTimeout(() => setShouldAnimate(true), 50);

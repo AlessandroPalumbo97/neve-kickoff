@@ -265,7 +265,7 @@
 
 .hero-section-title,
 .hero-section-subtitle {
-  @apply font-davinci-italic mb-4 text-[70px] leading-[73.5px] tracking-[-2.8px];
+  @apply font-davinci-italic mb-4 text-[70px] leading-[73.5px] tracking-[-2.8px] lg:text-[150px] lg:leading-[157.5px] lg:tracking-[-6px];
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
@@ -322,19 +322,6 @@
 .animate-blur-slide.animate-in {
   filter: blur(0px);
   transform: translateX(0px);
-}
-
-/* Fallback: if animation doesn't trigger, show content after a delay */
-.animate-blur:not(.animate-in),
-.animate-blur-slide:not(.animate-in) {
-  animation: animation-fallback 0.1s ease-out 1s forwards;
-}
-
-@keyframes animation-fallback {
-  to {
-    filter: blur(0px);
-    transform: translateX(0px);
-  }
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
