@@ -28,9 +28,10 @@ export default function Welcome(): JSX.Element {
         <h2 className='welcome-title'>{welcomeData.title}</h2>
         <div className='welcome-rich-text-container'>
           <div
-            className={`welcome-rich-text sm:!block ${
-              !isExpanded ? 'line-clamp-5' : 'line-clamp-none'
-            }`}
+            className={clsx(
+              'welcome-rich-text pb-[3px] sm:!block',
+              !isExpanded ? 'line-clamp-5' : 'line-clamp-none',
+            )}
           >
             {parse(welcomeData.richText)}
           </div>
