@@ -35,13 +35,13 @@ export default function CrosslinkBlock({
         <span className='crosslink-label font-arial-narrow-regular text-[15px] leading-[15px] uppercase'>
           {crosslink.label}
         </span>
-        <div className='gap-sm flex flex-row items-center justify-start sm:flex-col sm:items-start'>
+        <div className='gap-sm flex flex-row items-center justify-start sm:flex-col sm:items-start lg:flex-row lg:items-end'>
           <h3 className='crosslink-title font-davinci-italic text-[35px] leading-[38.5px] tracking-[-1.05px]'>
             {crosslink.title}
           </h3>
           <ArrowRightIcon
             className={clsx(
-              'crosslink-arrow translate-x-0 transition-all duration-500',
+              'crosslink-arrow mt-2 translate-x-0 transition-all duration-500 sm:mt-0',
               isTicketsBlock
                 ? 'text-black sm:group-hover:translate-x-[30px]'
                 : 'text-accent-contrast group-hover:text-black sm:group-hover:translate-x-[30px]',
