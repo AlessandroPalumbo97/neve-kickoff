@@ -12,7 +12,7 @@ export function useAnimateOnView<T extends HTMLElement>(
   const { isOverlayGone } = useLoading();
   const { ref, inView } = useInView<T>({
     threshold: 0.1, // Only need 10% of element visible
-    rootMargin: '0px 0px -20% 0px', // Element must be 20% inside viewport
+    rootMargin: '0px', // Element must be exactly inside viewport
     ...options,
   });
 
