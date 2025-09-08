@@ -73,6 +73,9 @@ export function getGalleryData() {
 export function getCrosslinksData() {
   return getSectionData('crosslinks');
 }
+export function getNewsData() {
+  return getSectionData('newsHighlights');
+}
 export function getManifestoData() {
   return getSectionData('manifesto');
 }

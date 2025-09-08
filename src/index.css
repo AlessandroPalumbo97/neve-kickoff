@@ -359,6 +359,41 @@
   @apply bg-accent absolute bottom-0 left-0 h-[1.5px] w-full;
 }
 
+/* ═══════════════════════════════════════════════════════════════════════════
+   📰 NEWS COMPONENT
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.news-title {
+  @apply font-arial-narrow-regular text-[20px] leading-[18px] tracking-[-0.6px] uppercase;
+}
+
+.news-rich-text-container {
+  @apply relative;
+}
+
+.news-rich-text {
+  @apply font-davinci-regular text-[35px] leading-[38.5px] tracking-[-1.05px];
+  transition: all 0.3s ease-in-out;
+}
+
+.news-rich-text strong {
+  @apply relative font-normal;
+}
+
+.news-rich-text strong::after {
+  content: '';
+  @apply bg-accent absolute bottom-0 left-0 h-[1px] w-full;
+}
+
+.news-read-more-btn {
+  @apply font-davinci-regular text-accent-focus relative mt-2 flex items-center text-[35px] leading-[38.5px] tracking-[-1.05px] sm:hidden;
+}
+
+.news-read-more-btn:hover::after {
+  content: '';
+  @apply bg-accent absolute bottom-0 left-0 h-[1.5px] w-full;
+}
+
 .welcome-cta-primary {
   @apply font-arial-narrow-regular hover:bg-accent-contrast px-md flex h-[40px] items-center justify-center bg-black text-[15px] leading-[15px] text-white transition-all duration-300 hover:text-black;
 }

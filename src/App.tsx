@@ -61,6 +61,8 @@ function App(): JSX.Element {
     }
   }, [loading]);
 
+  console.log(data);
+
   return (
     <LoadingProvider
       overlayVisible={overlayVisible}

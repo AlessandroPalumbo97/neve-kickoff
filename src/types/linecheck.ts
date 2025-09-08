@@ -77,6 +77,21 @@ export interface CrosslinksSection {
   style?: string;
 }
 
+// News highlights section types
+export interface NewsHighlightsSection {
+  title: string;
+  description: string;
+  cta: CTA;
+  items: Array<{
+    dateLabel: string;
+    categories: string[];
+    title: string;
+    excerpt: string;
+    url: string;
+    image: ImageWithSrcset;
+  }>;
+}
+
 // Manifesto section types
 export interface ManifestoSection {
   image: ImageWithSrcset;
@@ -180,6 +195,7 @@ export type LinecheckSection =
   | WelcomeSection
   | GallerySection
   | CrosslinksSection
+  | NewsHighlightsSection
   | ManifestoSection
   | TicketsSection
   | FooterSection;
@@ -192,6 +208,7 @@ export interface LinecheckPayload {
   welcome: WelcomeSection;
   gallery: GallerySection;
   crosslinks: CrosslinksSection;
+  newsHighlights: NewsHighlightsSection;
   manifesto: ManifestoSection;
   tickets: TicketsSection;
   footer: FooterSection;
