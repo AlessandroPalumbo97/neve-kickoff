@@ -1,14 +1,12 @@
-import { type JSX, useState } from 'react';
+import { type JSX } from 'react';
 import { clsx } from 'clsx';
 import parse from 'html-react-parser';
 import { getWelcomeData } from '@/utils/linecheck';
 import { useAnimateOnView } from '@/hooks/useAnimateOnView';
-import PlusIcon from '@/assets/icons/PlusIcon';
-import MinusIcon from '@/assets/icons/MinusIcon';
+import ReadMore from '@/components/ui/ReadMore';
 
 export default function Welcome(): JSX.Element {
   const welcomeData = getWelcomeData();
-  const [isExpanded, setIsExpanded] = useState(false);
   const { ref, shouldAnimate, animationClass } =
     useAnimateOnView<HTMLDivElement>('blur-slide');
 
@@ -27,25 +25,11 @@ export default function Welcome(): JSX.Element {
       <div className='gap-sm flex flex-col'>
         <h2 className='welcome-title'>{welcomeData.title}</h2>
         <div className='welcome-rich-text-container'>
-          <div
-            className={clsx(
-              'welcome-rich-text pb-[3px] sm:!block',
-              !isExpanded ? 'line-clamp-5' : 'line-clamp-none',
-            )}
-          >
-            {parse(welcomeData.richText)}
-          </div>
-          <button
-            className='welcome-read-more-btn'
-            onClick={() => setIsExpanded(!isExpanded)}
-          >
-            {isExpanded ? 'Read less' : 'Read more'}
-            {isExpanded ? (
-              <MinusIcon className='ml-2 h-[35px] w-auto' />
-            ) : (
-              <PlusIcon className='ml-2 h-[35px] w-auto' />
-            )}
-          </button>
+          <ReadMore
+            text={parse(welcomeData.richText)}
+            textClass='welcome-rich-text pb-[3px]'
+            maxLines={5}
+          />
         </div>
       </div>
       <div className='gap-sm flex flex-col sm:flex-row'>

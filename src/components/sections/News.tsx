@@ -1,9 +1,9 @@
 import { type JSX } from 'react';
 import { clsx } from 'clsx';
-import parse from 'html-react-parser';
 import { getNewsData } from '@/utils/linecheck';
 import { useAnimateOnView } from '@/hooks/useAnimateOnView';
 import NewsCarousel from './NewsCarousel';
+import ReadMore from '../ui/ReadMore';
 
 export default function News(): JSX.Element {
   const newsData = getNewsData();
@@ -26,9 +26,11 @@ export default function News(): JSX.Element {
       >
         <div className='gap-sm flex flex-col'>
           <h2 className='news-title'>{newsData.title}</h2>
-          <div className='news-rich-text-container'>
-            <div className='news-rich-text'>{parse(newsData.description)}</div>
-          </div>
+          <ReadMore
+            text={newsData.description}
+            textClass='news-rich-text pb-[6px]'
+            maxLines={5}
+          />
         </div>
 
         {/* NewsCarousel will be added here later */}
