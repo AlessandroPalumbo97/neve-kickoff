@@ -459,3 +459,9 @@
 .news-carousel-item:hover img {
   filter: grayscale(0%);
 }
+
+/* Footer Newsletter inline arrow */
+.footer-newsletter-cta-arrow {
+  display: inline !important;
+  vertical-align: baseline !important;
+}

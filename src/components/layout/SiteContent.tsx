@@ -5,6 +5,7 @@ import Crosslinks from '@/components/sections/Crosslinks';
 import News from '@/components/sections/News';
 import Manifesto from '@/components/sections/Manifesto';
 import Tickets from '@/components/sections/Tickets';
+import Footer from '@/components/sections/Footer';
 
 export default function SiteContent(): JSX.Element {
   return (
@@ -15,6 +16,7 @@ export default function SiteContent(): JSX.Element {
       <News />
       <Manifesto />
       <Tickets />
+      <Footer />
     </div>
   );
 }
