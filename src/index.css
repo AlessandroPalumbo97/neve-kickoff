@@ -61,6 +61,7 @@
   --color-accent-contrast: #ffcd9b;
   --color-accent-focus: #bd4e00;
   --color-light-gray: #f0f0f0;
+  --color-tooltip-bg: #333333;
 
   /* Custom Spacing Tokens */
   --spacing-sm: 10px;

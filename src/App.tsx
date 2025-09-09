@@ -8,7 +8,7 @@ import { LoadingProvider } from '@/contexts/LoadingContext';
 
 function App(): JSX.Element {
   const [loading, setLoading] = useState(true);
-  const [, setData] = useState<any>(null);
+  const [data, setData] = useState<any>(null);
   const [overlayVisible, setOverlayVisible] = useState(true);
   const [overlayFadeOut, setOverlayFadeOut] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -60,6 +60,8 @@ function App(): JSX.Element {
       return () => clearTimeout(timeout);
     }
   }, [loading]);
+
+  console.log(data);
 
   return (
     <LoadingProvider
