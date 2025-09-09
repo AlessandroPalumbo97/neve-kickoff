@@ -3,6 +3,7 @@ import Hero from '@/components/sections/Hero';
 import WelcomeGallery from '@/components/sections/WelcomeGallery';
 import Crosslinks from '@/components/sections/Crosslinks';
 import News from '@/components/sections/News';
+import Manifesto from '@/components/sections/Manifesto';
 
 export default function SiteContent(): JSX.Element {
   return (
@@ -11,6 +12,7 @@ export default function SiteContent(): JSX.Element {
       <WelcomeGallery />
       <Crosslinks />
       <News />
+      <Manifesto />
     </div>
   );
 }
