@@ -24,6 +24,8 @@ export default function ReadMore({
         // Add 5px tolerance to account for line-height/font-size mismatch
         const hasOverflow = el.scrollHeight > el.clientHeight + 5;
         setIsOverflowing(hasOverflow);
+        // Reset expanded state on resize to allow re-evaluation
+        setExpanded(false);
       }
     };
 
