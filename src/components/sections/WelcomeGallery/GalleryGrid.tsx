@@ -4,9 +4,13 @@ import clsx from 'clsx';
 
 type GalleryGridProps = {
   items: GalleryItem[];
+  onImageClick: (index: number) => void;
 };
 
-export default function GalleryGrid({ items }: GalleryGridProps): JSX.Element {
+export default function GalleryGrid({
+  items,
+  onImageClick,
+}: GalleryGridProps): JSX.Element {
   if (!items || items.length === 0) {
     return <></>;
   }
@@ -33,7 +37,8 @@ export default function GalleryGrid({ items }: GalleryGridProps): JSX.Element {
               srcSet={item.srcset.join(', ')}
               sizes='(max-width: 1024px) 50vw, 33vw'
               alt={item.caption || `Gallery image ${index + 1}`}
-              className='gallery-image'
+              className='gallery-image cursor-pointer'
+              onClick={() => onImageClick(index)}
             />
           </div>
         );

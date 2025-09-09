@@ -447,6 +447,15 @@
   filter: grayscale(100%);
 }
 
+/* Gallery Lightbox Flickity Styles */
+.gallery-lightbox-flickity {
+  @apply h-full overflow-hidden;
+}
+
+.gallery-lightbox-flickity-item {
+  @apply flex h-full w-full items-center justify-center;
+}
+
 .news-carousel-item:hover img {
   filter: grayscale(0%);
 }
