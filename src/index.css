@@ -342,12 +342,7 @@
 }
 
 .welcome-rich-text strong {
-  @apply relative font-normal;
-}
-
-.welcome-rich-text strong::after {
-  content: '';
-  @apply bg-accent absolute bottom-0 left-0 h-[1px] w-full;
+  @apply decoration-accent relative font-normal underline decoration-[1px] underline-offset-[5px];
 }
 
 .welcome-read-more-btn {
