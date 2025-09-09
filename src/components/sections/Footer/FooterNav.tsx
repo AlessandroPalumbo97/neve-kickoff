@@ -4,6 +4,8 @@ import type {
   SocialLink,
 } from '@/types/linecheck';
 import { FaFacebook, FaInstagram, FaLinkedin, FaTiktok } from 'react-icons/fa';
+import { useAnimateOnView } from '@/hooks/useAnimateOnView';
+import { clsx } from 'clsx';
 
 type FooterNavProps = {
   menus: FooterMenusType;
@@ -14,11 +16,24 @@ export default function FooterNav({
   menus,
   social,
 }: FooterNavProps): JSX.Element {
+  const primaryRef = useAnimateOnView<HTMLDivElement>('blur-slide');
+  const meetingRef = useAnimateOnView<HTMLDivElement>('blur-slide');
+  const infoRef = useAnimateOnView<HTMLDivElement>('blur-slide');
+  const legalRef = useAnimateOnView<HTMLDivElement>('blur-slide');
+  const socialRef = useAnimateOnView<HTMLDivElement>('blur-slide');
+
   return (
     <section className='footer-menus pt-lg pb-md lg:pb-xl'>
       <div className='gap-lg lg:gap-sm grid grid-cols-1 sm:grid-cols-4 sm:gap-y-[120px] lg:grid-cols-6'>
         {/* Primary Menu */}
-        <div className='gap-md flex flex-col'>
+        <div
+          ref={primaryRef.ref}
+          className={clsx(
+            'gap-md flex flex-col',
+            primaryRef.animationClass,
+            primaryRef.shouldAnimate && 'animate-in',
+          )}
+        >
           <nav className='gap-md flex flex-col'>
             {menus.primary.map((item, index) =>
               item.disabled ? (
@@ -44,7 +59,14 @@ export default function FooterNav({
         </div>
 
         {/* Meeting & Festival Menu */}
-        <div className='gap-md flex flex-col'>
+        <div
+          ref={meetingRef.ref}
+          className={clsx(
+            'gap-md flex flex-col',
+            meetingRef.animationClass,
+            meetingRef.shouldAnimate && 'animate-in',
+          )}
+        >
           <h4 className='footer-nav-style-a footer-nav-label-gray'>
             {menus.meetingFestival.label}
           </h4>
@@ -95,7 +117,14 @@ export default function FooterNav({
         </div>
 
         {/* Info Menu */}
-        <div className='gap-md flex flex-col'>
+        <div
+          ref={infoRef.ref}
+          className={clsx(
+            'gap-md flex flex-col',
+            infoRef.animationClass,
+            infoRef.shouldAnimate && 'animate-in',
+          )}
+        >
           <h4 className='footer-nav-style-a footer-nav-label-gray'>
             {menus.info.label}
           </h4>
@@ -115,7 +144,14 @@ export default function FooterNav({
         </div>
 
         {/* Legal Menu */}
-        <div className='gap-md flex flex-col'>
+        <div
+          ref={legalRef.ref}
+          className={clsx(
+            'gap-md flex flex-col',
+            legalRef.animationClass,
+            legalRef.shouldAnimate && 'animate-in',
+          )}
+        >
           <h4 className='footer-nav-style-a footer-nav-label-gray'>
             {menus.legal.label}
           </h4>
@@ -147,7 +183,14 @@ export default function FooterNav({
         <div className='hidden lg:block'></div>
 
         {/* Social Links */}
-        <div className='gap-md flex w-full flex-col sm:col-span-4 lg:col-span-1'>
+        <div
+          ref={socialRef.ref}
+          className={clsx(
+            'gap-md flex w-full flex-col sm:col-span-4 lg:col-span-1',
+            socialRef.animationClass,
+            socialRef.shouldAnimate && 'animate-in',
+          )}
+        >
           <h4 className='font-arial-narrow-regular text-[20px] leading-[18px] tracking-[-0.6px] text-white uppercase'>
             Follow us
           </h4>

@@ -1,6 +1,8 @@
 import { type JSX } from 'react';
 import type { FooterNewsletter as FooterNewsletterType } from '@/types/linecheck';
 import ArrowRightIcon from '@/assets/icons/ArrowRightIcon';
+import { useAnimateOnView } from '@/hooks/useAnimateOnView';
+import { clsx } from 'clsx';
 
 type FooterNewsletterProps = {
   newsletter: FooterNewsletterType;
@@ -9,9 +11,19 @@ type FooterNewsletterProps = {
 export default function FooterNewsletter({
   newsletter,
 }: FooterNewsletterProps): JSX.Element {
+  const { ref, shouldAnimate, animationClass } =
+    useAnimateOnView<HTMLDivElement>('blur-slide');
+
   return (
     <section className='footer-newsletter border-accent lg:pt-xl pt-lg pb-lg border-b'>
-      <div className='gap-md flex flex-col'>
+      <div
+        ref={ref}
+        className={clsx(
+          'gap-md flex flex-col',
+          animationClass,
+          shouldAnimate && 'animate-in',
+        )}
+      >
         <h3 className='font-arial-narrow-regular text-[20px] leading-[18px] tracking-[-0.6px] text-white uppercase'>
           {newsletter.label}
         </h3>
