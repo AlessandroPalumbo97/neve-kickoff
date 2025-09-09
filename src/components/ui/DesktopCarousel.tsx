@@ -1,29 +1,28 @@
 import { useEffect, useRef, forwardRef, useImperativeHandle } from 'react';
-import { getNewsData } from '@/utils/linecheck';
-import NewsCarouselItem from './NewsCarouselItem';
 // https://www.npmjs.com/package/flickity
 import Flickity from 'flickity';
 
-type NewsCarouselProps = {
+type DesktopCarouselProps = {
+  children: React.ReactNode;
   onScrollStateChange?: (
     canScrollLeft: boolean,
     canScrollRight: boolean,
   ) => void;
+  className?: string;
+  itemClassName?: string;
 };
 
-export type NewsCarouselRef = {
+export type DesktopCarouselRef = {
   scrollCarousel: (direction: 'left' | 'right') => void;
 };
 
-const NewsCarousel = forwardRef<NewsCarouselRef, NewsCarouselProps>(
-  ({ onScrollStateChange }, ref) => {
-    const newsData = getNewsData();
+const DesktopCarousel = forwardRef<DesktopCarouselRef, DesktopCarouselProps>(
+  (
+    { children, onScrollStateChange, className = '', itemClassName = '' },
+    ref,
+  ) => {
     const carouselRef = useRef<HTMLDivElement>(null);
     const flickityRef = useRef<Flickity | null>(null);
-
-    if (!newsData) {
-      return <></>;
-    }
 
     useEffect(() => {
       // Get current screen width to determine visible items
@@ -108,24 +107,22 @@ const NewsCarousel = forwardRef<NewsCarouselRef, NewsCarouselProps>(
     return (
       <div>
         {/* Flickity Carousel */}
-        <div ref={carouselRef} className='news-carousel-flickity'>
-          {newsData.items.map((item, index) => (
-            <div key={index} className='news-carousel-flickity-item'>
-              <NewsCarouselItem
-                dateLabel={item.dateLabel}
-                categories={item.categories}
-                title={item.title}
-                url={item.url}
-                image={item.image}
-              />
-            </div>
-          ))}
+        <div ref={carouselRef} className={className}>
+          {Array.isArray(children) ? (
+            children.map((child, index) => (
+              <div key={index} className={itemClassName}>
+                {child}
+              </div>
+            ))
+          ) : (
+            <div className={itemClassName}>{children}</div>
+          )}
         </div>
       </div>
     );
   },
 );
 
-NewsCarousel.displayName = 'NewsCarousel';
+DesktopCarousel.displayName = 'DesktopCarousel';
 
-export default NewsCarousel;
+export default DesktopCarousel;

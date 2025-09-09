@@ -2,7 +2,9 @@ import { type JSX, useState, useRef } from 'react';
 import { clsx } from 'clsx';
 import { getNewsData } from '@/utils/linecheck';
 import { useAnimateOnView } from '@/hooks/useAnimateOnView';
-import NewsCarousel, { type NewsCarouselRef } from './NewsCarousel';
+import DesktopCarousel, {
+  type DesktopCarouselRef,
+} from '../ui/DesktopCarousel';
 import NewsCarouselItem from './NewsCarouselItem';
 import MobileCarousel from '../ui/MobileCarousel';
 import ReadMore from '../ui/ReadMore';
@@ -15,7 +17,7 @@ export default function News(): JSX.Element {
   const [hasDragged, setHasDragged] = useState(false);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
-  const newsCarouselRef = useRef<NewsCarouselRef>(null);
+  const desktopCarouselRef = useRef<DesktopCarouselRef>(null);
 
   if (!newsData) {
     return <></>;
@@ -30,7 +32,7 @@ export default function News(): JSX.Element {
   };
 
   const scrollCarousel = (direction: 'left' | 'right') => {
-    newsCarouselRef.current?.scrollCarousel(direction);
+    desktopCarouselRef.current?.scrollCarousel(direction);
   };
 
   return (
@@ -88,10 +90,23 @@ export default function News(): JSX.Element {
 
         {/* Desktop/Tablet Carousel - Hidden on XS */}
         <div className='hidden sm:block'>
-          <NewsCarousel
-            ref={newsCarouselRef}
+          <DesktopCarousel
+            ref={desktopCarouselRef}
             onScrollStateChange={handleScrollStateChange}
-          />
+            className='news-carousel-flickity'
+            itemClassName='news-carousel-flickity-item'
+          >
+            {newsData.items.map((item, index) => (
+              <NewsCarouselItem
+                key={index}
+                dateLabel={item.dateLabel}
+                categories={item.categories}
+                title={item.title}
+                url={item.url}
+                image={item.image}
+              />
+            ))}
+          </DesktopCarousel>
         </div>
 
         {/* Mobile Carousel - Only on XS */}
