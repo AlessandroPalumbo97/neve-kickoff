@@ -32,7 +32,7 @@ export default function Hero(): JSX.Element {
         <div
           ref={heroRef}
           className={clsx(
-            `text-center text-white ${animationClass}`,
+            `px-md text-center text-white ${animationClass}`,
             shouldAnimate && 'animate-in',
           )}
         >
