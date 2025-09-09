@@ -5,3 +5,4 @@ export { default as ArrowRightIcon } from './ArrowRightIcon';
 export { default as InfoIcon } from './InfoIcon';
 export { default as Logotype } from './Logotype';
 export { default as Pictogram } from './Pictogram';
+export { default as MusicInnovationHubIcon } from './MusicInnovationHubIcon';

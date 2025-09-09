@@ -23,7 +23,6 @@ export default function Footer(): JSX.Element {
         {/* Credits Section */}
         <FooterCredits
           credits={footerData.credits}
-          social={footerData.social}
           partnersLogo={footerData.partnersLogo}
         />
       </div>

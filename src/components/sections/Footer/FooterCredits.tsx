@@ -1,70 +1,64 @@
 import { type JSX } from 'react';
 import type {
   FooterCredits as FooterCreditsType,
-  SocialLink,
   FooterPartnersLogo,
 } from '@/types/linecheck';
+import { useAnimateOnView } from '@/hooks/useAnimateOnView';
+import { clsx } from 'clsx';
+import MusicInnovationHubIcon from '@/assets/icons/MusicInnovationHubIcon';
 
 type FooterCreditsProps = {
   credits: FooterCreditsType;
-  social: SocialLink[];
   partnersLogo: FooterPartnersLogo;
 };
 
 export default function FooterCredits({
   credits,
-  social,
   partnersLogo,
 }: FooterCreditsProps): JSX.Element {
-  return (
-    <section className='footer-credits'>
-      <div className='gap-md flex flex-col'>
-        {/* Social Links */}
-        <div className='gap-sm flex flex-col'>
-          <h4 className='font-arial-narrow-regular text-[15px] leading-[15px] tracking-[-0.15px] text-white uppercase'>
-            Follow us
-          </h4>
-          <nav className='gap-sm flex flex-wrap'>
-            {social.map((item, index) => (
-              <a
-                key={index}
-                href={item.url}
-                className='hover:text-accent text-white transition-colors'
-                target='_blank'
-                rel='noopener noreferrer'
-              >
-                {item.label}
-              </a>
-            ))}
-          </nav>
-        </div>
+  const partnersRef = useAnimateOnView<HTMLDivElement>('blur-slide');
+  const creditsRef = useAnimateOnView<HTMLDivElement>('blur-slide');
 
-        {/* Partners Logo */}
-        <div className='gap-sm flex flex-col'>
-          <h4 className='font-arial-narrow-regular text-[15px] leading-[15px] tracking-[-0.15px] text-white uppercase'>
+  return (
+    <section className='footer-credits pt-md pb-xl sm:pt-lg'>
+      <div className='gap-lg grid grid-cols-1 sm:grid-cols-2'>
+        {/* Partners Logo Column */}
+        <div
+          ref={partnersRef.ref}
+          className={clsx(
+            'gap-md flex flex-col',
+            partnersRef.animationClass,
+            partnersRef.shouldAnimate && 'animate-in',
+          )}
+        >
+          <h4 className='footer-nav-style-b text-white'>
             {partnersLogo.label}
           </h4>
           <a
             href={partnersLogo.url}
-            className='inline-block'
+            className='group hover:text-accent-contrast inline-block text-white transition-colors duration-300'
             target='_blank'
             rel='noopener noreferrer'
           >
-            <img
-              src={partnersLogo.logoSvg}
-              alt='Music Innovation Hub'
-              className='h-8 w-auto'
-            />
+            <MusicInnovationHubIcon className='h-8 w-auto' />
           </a>
         </div>
 
-        {/* Copyright and Credits */}
-        <div className='gap-sm flex flex-col'>
-          <p className='text-sm text-white'>{credits.copyright}</p>
-          <p className='text-sm text-white'>
+        {/* Credits Column */}
+        <div
+          ref={creditsRef.ref}
+          className={clsx(
+            'gap-sm flex flex-col',
+            creditsRef.animationClass,
+            creditsRef.shouldAnimate && 'animate-in',
+          )}
+        >
+          {/* Copyright and Byline Row */}
+          <p className='footer-nav-style-b text-white'>
+            {credits.copyright}{' '}
             <a
               href={credits.bylineUrl}
-              className='hover:text-accent transition-colors'
+              className='hover:text-accent-contrast underline transition-colors'
               target='_blank'
               rel='noopener noreferrer'
             >
@@ -72,32 +66,32 @@ export default function FooterCredits({
             </a>
           </p>
 
-          {/* Design Credit */}
-          <p className='text-sm text-white'>
+          {/* Design and Code Row */}
+          <p className='footer-nav-style-b text-white'>
             <a
               href={credits.design.url}
-              className='hover:text-accent transition-colors'
+              className='hover:text-accent-contrast underline transition-colors'
               target='_blank'
               rel='noopener noreferrer'
             >
               {credits.design.label}
             </a>
-          </p>
-
-          {/* Code Credits */}
-          <div className='gap-sm flex flex-wrap'>
+            {'. '}
+            Code by{' '}
             {credits.code.map((item, index) => (
-              <a
-                key={index}
-                href={item.url}
-                className='hover:text-accent text-sm text-white transition-colors'
-                target='_blank'
-                rel='noopener noreferrer'
-              >
-                {item.label}
-              </a>
+              <span key={index}>
+                <a
+                  href={item.url}
+                  className='hover:text-accent-contrast underline transition-colors'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                >
+                  {item.label}
+                </a>
+                {index < credits.code.length - 1 && ' + '}
+              </span>
             ))}
-          </div>
+          </p>
         </div>
       </div>
     </section>
