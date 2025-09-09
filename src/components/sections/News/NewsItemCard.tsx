@@ -3,18 +3,18 @@ import { clsx } from 'clsx';
 import { useAnimateOnView } from '@/hooks/useAnimateOnView';
 import { NewsItem } from '@/types/linecheck';
 
-type NewsCarouselItemProps = NewsItem & {
+type NewsItemCardProps = NewsItem & {
   hasDragged?: boolean;
 };
 
-export default function NewsCarouselItem({
+export default function NewsItemCard({
   dateLabel,
   categories,
   title,
   url,
   image,
   hasDragged = false,
-}: NewsCarouselItemProps): JSX.Element {
+}: NewsItemCardProps): JSX.Element {
   const categoriesString = categories.join(' ');
   const { ref, shouldAnimate, animationClass } =
     useAnimateOnView<HTMLDivElement>('blur');

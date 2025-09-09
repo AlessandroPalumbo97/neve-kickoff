@@ -17,7 +17,6 @@ export default function MobileCarousel({
   const [mouseEnd, setMouseEnd] = useState<number | null>(null);
   const [isDragging, setIsDragging] = useState(false);
   const [isSliderDragging, setIsSliderDragging] = useState(false);
-  const [hasDragged, setHasDragged] = useState(false);
   const carouselRef = useRef<HTMLDivElement>(null);
   const sliderRef = useRef<HTMLDivElement>(null);
 
@@ -62,13 +61,11 @@ export default function MobileCarousel({
     setIsDragging(true);
     setMouseEnd(null);
     setMouseStart(e.clientX);
-    setHasDragged(false); // Reset for new interaction
   };
 
   const handleMouseMove = (e: React.MouseEvent) => {
     if (!isDragging) return;
     setMouseEnd(e.clientX);
-    setHasDragged(true); // Mark that drag occurred
     onDragStateChange?.(true); // Notify parent
   };
 
@@ -92,7 +89,6 @@ export default function MobileCarousel({
     setIsDragging(false);
     // Reset drag state after a short delay to allow link clicks
     setTimeout(() => {
-      setHasDragged(false);
       onDragStateChange?.(false);
     }, 100);
   };

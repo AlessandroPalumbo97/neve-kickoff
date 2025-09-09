@@ -1,7 +1,7 @@
 import { type JSX } from 'react';
 import { getGalleryData } from '@/utils/linecheck';
 import GalleryGrid from './GalleryGrid';
-import MobileCarousel from '../ui/MobileCarousel';
+import MobileCarousel from '../../ui/MobileCarousel';
 
 export default function Gallery(): JSX.Element {
   const galleryData = getGalleryData();

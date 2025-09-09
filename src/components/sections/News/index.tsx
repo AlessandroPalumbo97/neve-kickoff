@@ -4,10 +4,10 @@ import { getNewsData } from '@/utils/linecheck';
 import { useAnimateOnView } from '@/hooks/useAnimateOnView';
 import DesktopCarousel, {
   type DesktopCarouselRef,
-} from '../ui/DesktopCarousel';
-import NewsCarouselItem from './NewsCarouselItem';
-import MobileCarousel from '../ui/MobileCarousel';
-import ReadMore from '../ui/ReadMore';
+} from '../../ui/DesktopCarousel';
+import NewsItemCard from './NewsItemCard';
+import MobileCarousel from '../../ui/MobileCarousel';
+import ReadMore from '../../ui/ReadMore';
 import ArrowRightIcon from '@/assets/icons/ArrowRightIcon';
 
 export default function News(): JSX.Element {
@@ -97,7 +97,7 @@ export default function News(): JSX.Element {
             itemClassName='news-carousel-flickity-item'
           >
             {newsData.items.map((item, index) => (
-              <NewsCarouselItem
+              <NewsItemCard
                 key={index}
                 dateLabel={item.dateLabel}
                 categories={item.categories}
@@ -113,7 +113,7 @@ export default function News(): JSX.Element {
         <div className='block sm:hidden'>
           <MobileCarousel onDragStateChange={setHasDragged}>
             {newsData.items.map((item, index) => (
-              <NewsCarouselItem
+              <NewsItemCard
                 key={index}
                 dateLabel={item.dateLabel}
                 categories={item.categories}
