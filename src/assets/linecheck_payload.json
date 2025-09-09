@@ -322,7 +322,7 @@
   },
   "tickets": {
     "title": "Secure Your Spot",
-    "description": "Ready to join us? Discover all available ticket types and passes now on sale. Take advantage of the best release deals and experience both the conference and the festival at the most convenient price.",
+    "description": "<strong>Ready to join us?</strong> Discover all available ticket types and passes now on sale. Take advantage of the best release deals and experience both the conference and the festival at the most convenient price.",
     "items": [
       {
         "venue": "BASE Milano",
