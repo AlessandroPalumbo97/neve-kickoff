@@ -465,3 +465,16 @@
   display: inline !important;
   vertical-align: baseline !important;
 }
+
+/* Footer Navigation Styles */
+.footer-nav-style-a {
+  @apply font-arial-narrow-regular text-[20px] leading-[18px] tracking-[-0.6px] uppercase;
+}
+
+.footer-nav-style-b {
+  @apply font-arial-narrow-regular text-[15px] leading-[15px] tracking-[0.15px] capitalize;
+}
+
+.footer-nav-label-gray {
+  color: #5c5c5c;
+}

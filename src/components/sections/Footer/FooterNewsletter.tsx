@@ -10,7 +10,7 @@ export default function FooterNewsletter({
   newsletter,
 }: FooterNewsletterProps): JSX.Element {
   return (
-    <section className='footer-newsletter border-accent pt-xl pb-lg border-b'>
+    <section className='footer-newsletter border-accent lg:pt-xl pt-lg pb-lg border-b'>
       <div className='gap-md flex flex-col'>
         <h3 className='font-arial-narrow-regular text-[20px] leading-[18px] tracking-[-0.6px] text-white uppercase'>
           {newsletter.label}

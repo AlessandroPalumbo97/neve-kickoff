@@ -18,7 +18,7 @@ export default function Footer(): JSX.Element {
         <FooterNewsletter newsletter={footerData.newsletter} />
 
         {/* Navigation Section */}
-        <FooterNav menus={footerData.menus} />
+        <FooterNav menus={footerData.menus} social={footerData.social} />
 
         {/* Credits Section */}
         <FooterCredits
