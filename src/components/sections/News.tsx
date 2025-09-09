@@ -69,7 +69,7 @@ export default function News(): JSX.Element {
               onClick={() => scrollCarousel('left')}
               disabled={!canScrollLeft}
               className={clsx(
-                'welcome-cta-primary flex items-center justify-center p-0 disabled:pointer-events-none disabled:opacity-50',
+                'welcome-cta-primary flex cursor-pointer items-center justify-center p-0 disabled:pointer-events-none disabled:cursor-default disabled:opacity-50',
               )}
             >
               <ArrowRightIcon className='h-[16px] w-[35px] rotate-180' />
@@ -78,7 +78,7 @@ export default function News(): JSX.Element {
               onClick={() => scrollCarousel('right')}
               disabled={!canScrollRight}
               className={clsx(
-                'welcome-cta-primary flex items-center justify-center p-0 disabled:pointer-events-none disabled:opacity-50',
+                'welcome-cta-primary flex cursor-pointer items-center justify-center p-0 disabled:pointer-events-none disabled:cursor-default disabled:opacity-50',
               )}
             >
               <ArrowRightIcon className='h-[16px] w-[35px]' />

@@ -1,15 +1,6 @@
-import {
-  type JSX,
-  useEffect,
-  useRef,
-  useState,
-  forwardRef,
-  useImperativeHandle,
-} from 'react';
-import { clsx } from 'clsx';
+import { useEffect, useRef, forwardRef, useImperativeHandle } from 'react';
 import { getNewsData } from '@/utils/linecheck';
 import NewsCarouselItem from './NewsCarouselItem';
-import ArrowRightIcon from '@/assets/icons/ArrowRightIcon';
 // https://www.npmjs.com/package/flickity
 import Flickity from 'flickity';
 
@@ -29,8 +20,6 @@ const NewsCarousel = forwardRef<NewsCarouselRef, NewsCarouselProps>(
     const newsData = getNewsData();
     const carouselRef = useRef<HTMLDivElement>(null);
     const flickityRef = useRef<Flickity | null>(null);
-    const [canScrollLeft, setCanScrollLeft] = useState(false);
-    const [canScrollRight, setCanScrollRight] = useState(true);
 
     if (!newsData) {
       return <></>;
@@ -55,9 +44,6 @@ const NewsCarousel = forwardRef<NewsCarouselRef, NewsCarouselProps>(
 
           const newCanScrollLeft = currentIndex > 0;
           const newCanScrollRight = currentIndex < totalItems - visibleItems;
-
-          setCanScrollLeft(newCanScrollLeft);
-          setCanScrollRight(newCanScrollRight);
 
           // Notify parent component
           onScrollStateChange?.(newCanScrollLeft, newCanScrollRight);
