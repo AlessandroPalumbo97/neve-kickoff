@@ -8,140 +8,14 @@
    🎨 TYPOGRAPHY UTILITY CLASSES
    ═══════════════════════════════════════════════════════════════════════════ */
 
-/* Section Titles (Style A) */
-.text-section-title {
-  @apply text-[20px] leading-[18px] tracking-[-0.6px];
-}
-
 /* Body Text (Style B) */
 .text-body-sm {
   @apply text-[15px] leading-[15px] tracking-[0.15px];
 }
 
-/* Rich Text Content */
-.text-rich-text-xs {
-  @apply text-[35px] leading-[38.5px] tracking-[-1.05px];
-}
-
-.text-rich-text-sm {
-  @apply text-[70px] leading-[77px] tracking-[-2.1px];
-}
-
-/* Hero Titles */
-.text-hero-xs {
-  @apply text-[70px] leading-[73.5px] tracking-[-2.8px];
-}
-
-.text-hero-sm {
-  @apply text-[150px] leading-[157.5px] tracking-[-6px];
-}
-
-/* Menu Links */
-.text-menu-xs {
-  @apply text-[50px] leading-[45px] tracking-[-1px];
-}
-
-.text-menu-sm {
-  @apply text-[70px] leading-[70px] tracking-[-2px];
-}
-
-/* Footer CTA */
-.text-footer-cta-xs {
-  @apply text-[35px] leading-[38.5px] tracking-[-1.05px];
-}
-
-.text-footer-cta-sm {
-  @apply text-[70px] leading-[77px] tracking-[-2.1px];
-}
-
 /* Ticket Price */
 .text-ticket-price {
   @apply text-[20px] leading-[22px] tracking-[-0.6px];
-}
-
-/* ═══════════════════════════════════════════════════════════════════════════
-   🎨 ICON SIZE UTILITY CLASSES
-   ═══════════════════════════════════════════════════════════════════════════ */
-
-/* Arrow Icons */
-.icon-arrow {
-  @apply h-[16px] w-[35px];
-}
-
-.icon-arrow-sm {
-  @apply h-[16px] w-[35px];
-}
-
-/* Info Icons */
-.icon-info {
-  @apply h-[20px] w-[20px];
-}
-
-/* Menu Icons */
-.icon-menu {
-  @apply h-[32px] w-[32px];
-}
-
-/* Plus/Minus Icons */
-.icon-plus-minus {
-  @apply h-[35px] w-auto;
-}
-
-/* Newsletter Icons */
-.icon-newsletter-xs {
-  @apply h-[13px] w-[30px];
-}
-
-.icon-newsletter-sm {
-  @apply h-[25px] w-[57px];
-}
-
-/* ═══════════════════════════════════════════════════════════════════════════
-   🎨 SPACING UTILITY CLASSES
-   ═══════════════════════════════════════════════════════════════════════════ */
-
-.spacing-1px {
-  @apply gap-[1px];
-}
-
-.spacing-5px {
-  @apply gap-[5px];
-}
-
-.spacing-6px {
-  @apply py-[6px];
-}
-
-.spacing-15px {
-  @apply ml-[15px];
-}
-
-.spacing-20px {
-  @apply -top-[20px];
-}
-
-.spacing-24px {
-  @apply border-r-[24px] border-b-[20px] border-l-[24px];
-}
-
-.spacing-35px {
-  @apply h-[35px];
-}
-
-.spacing-40px {
-  @apply h-[40px];
-}
-
-.spacing-48px {
-  @apply h-[22px] w-[48px];
-}
-
-.spacing-64px {
-  @apply right-[-64px];
-}
-
-.spacing-90p {
-  @apply w-[90%];
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
@@ -280,63 +154,6 @@
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   🎨 UNDERLINE EFFECTS
-   ═══════════════════════════════════════════════════════════════════════════ */
-
-.underline-accent {
-  @apply relative;
-}
-
-.underline-accent::after {
-  content: '';
-  @apply bg-accent absolute bottom-0 left-0 h-[1px] w-full;
-}
-
-.underline-accent-hover {
-  @apply relative;
-}
-
-.underline-accent-hover:hover::after {
-  content: '';
-  @apply bg-accent absolute bottom-0 left-0 h-[1px] w-full;
-}
-
-/* ═══════════════════════════════════════════════════════════════════════════
-   📱 ACCORDION ANIMATIONS
-   ═══════════════════════════════════════════════════════════════════════════ */
-
-.accordion-container {
-  @apply overflow-hidden transition-all duration-300 ease-in-out;
-}
-
-.accordion-collapsed {
-  max-height: 0;
-  opacity: 0;
-  transform: translateY(-10px);
-}
-
-.accordion-expanded {
-  max-height: 500px; /* Reduced for better performance */
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.accordion-text-collapsed {
-  @apply overflow-hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 5;
-  -webkit-box-orient: vertical;
-  transition: all 0.3s ease-in-out;
-}
-
-.accordion-text-expanded {
-  @apply overflow-visible;
-  display: block;
-  -webkit-line-clamp: unset;
-  transition: all 0.3s ease-in-out;
-}
-
-/* ═══════════════════════════════════════════════════════════════════════════
    📱 HEADER COMPONENT
    ═══════════════════════════════════════════════════════════════════════════ */
 
@@ -390,12 +207,14 @@
   }
 }
 
-/* On medium and smaller screens: arrow always visible */
+/* On medium and smaller screens: arrow always visible and inline */
 @media (max-width: 1023px) {
   .menu-link-arrow {
+    position: static;
     display: inline;
     opacity: 1;
     margin-left: 12px;
+    transform: none;
   }
 }
 
@@ -530,14 +349,6 @@
 
 .welcome-cta-primary {
   @apply font-arial-narrow-regular hover:bg-accent-contrast px-md flex h-[40px] items-center justify-center bg-black text-[15px] leading-[15px] text-white transition-all duration-300 hover:text-black;
-}
-
-.welcome-cta-secondary {
-  @apply font-arial-narrow-regular bg-accent hover:bg-accent-contrast px-md flex h-[40px] items-center justify-center text-[15px] leading-[15px] text-black transition-all duration-300 hover:text-black;
-}
-
-.welcome-cta-tertiary {
-  @apply font-arial-narrow-regular bg-light-gray hover:bg-accent-contrast px-md flex h-[40px] items-center justify-center text-[15px] leading-[15px] text-black transition-all duration-300 hover:text-black;
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
