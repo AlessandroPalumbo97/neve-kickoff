@@ -47,7 +47,6 @@ export function getSectionData<T extends SectionName>(
   sectionName: T,
 ): SectionType<T> | null {
   if (!cachedPayload) {
-    console.warn('getSectionData called before data load; returning null');
     return null;
   }
   const section = (cachedPayload as any)[sectionName];
