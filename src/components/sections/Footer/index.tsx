@@ -12,7 +12,7 @@ export default function Footer(): JSX.Element {
   }
 
   return (
-    <footer className='bg-black px-[10px]'>
+    <footer className='px-sm bg-black'>
       <div className='gap-md flex flex-col'>
         {/* Newsletter Section */}
         <FooterNewsletter newsletter={footerData.newsletter} />
