@@ -1,5 +1,6 @@
-import { type JSX, useState } from 'react';
+import { type JSX } from 'react';
 import { clsx } from 'clsx';
+import { Tooltip } from 'react-tooltip';
 import { useAnimateOnView } from '@/hooks/useAnimateOnView';
 import InfoIcon from '@/assets/icons/InfoIcon';
 import type { TicketItem } from '@/types/linecheck';
@@ -11,12 +12,12 @@ type TicketItemCardProps = TicketItem & {
 export default function TicketItemCard({
   venue,
   date,
+  dateRange,
   title,
   tooltip,
   prices,
   buyUrl,
 }: TicketItemCardProps): JSX.Element {
-  const [showTooltip, setShowTooltip] = useState(false);
   const { ref, shouldAnimate, animationClass } =
     useAnimateOnView<HTMLDivElement>('blur');
 
@@ -27,6 +28,22 @@ export default function TicketItemCard({
     const day = date.getDate().toString().padStart(2, '0');
     const month = (date.getMonth() + 1).toString().padStart(2, '0');
     return `${day}.${month}`;
+  };
+
+  // Format date range or single date
+  const formatDateDisplay = (): string => {
+    if (dateRange && dateRange.length > 0) {
+      if (dateRange.length === 1) {
+        return formatDate(dateRange[0]);
+      } else {
+        const startDate = formatDate(dateRange[0]);
+        const endDate = formatDate(dateRange[dateRange.length - 1]);
+        return `${startDate} - ${endDate}`;
+      }
+    } else if (date) {
+      return formatDate(date);
+    }
+    return '';
   };
 
   // Convert currency code to symbol
@@ -55,32 +72,23 @@ export default function TicketItemCard({
     >
       <div className='gap-sm flex flex-col'>
         {/* Top Row: Venue | Date | Info Icon */}
-        <div className='gap-md flex items-center'>
-          <span className='font-arial-narrow-regular text-[15px] leading-[15px] tracking-[-0.15px] uppercase'>
+        <div className='gap-md relative flex items-center'>
+          <span className='font-arial-narrow-regular text-body-sm uppercase'>
             {venue}
           </span>
           <span className='text-accent text-lg'>|</span>
-          <span className='font-arial-narrow-regular text-[15px] leading-[15px] tracking-[-0.15px] uppercase'>
-            {formatDate(date || '')}
+          <span className='font-arial-narrow-regular text-body-sm uppercase'>
+            {formatDateDisplay()}
           </span>
           <span className='text-accent text-lg'>|</span>
-          <div className='relative'>
-            <button
-              type='button'
-              className='flex items-center justify-center'
-              onMouseEnter={() => setShowTooltip(true)}
-              onMouseLeave={() => setShowTooltip(false)}
-            >
-              <InfoIcon className='h-[20px] w-[20px] cursor-pointer text-black' />
-            </button>
-            {showTooltip && (
-              <div className='absolute top-10 left-1/2 z-10 w-64 -translate-x-1/2 bg-[var(--color-tooltip-bg)] p-3 shadow-lg'>
-                {/* Triangle pointer */}
-                <div className='absolute -top-[20px] left-1/2 h-0 w-0 -translate-x-1/2 border-r-[24px] border-b-[20px] border-l-[24px] border-r-transparent border-b-[var(--color-tooltip-bg)] border-l-transparent' />
-                <p className='text-sm text-white'>{tooltip}</p>
-              </div>
-            )}
-          </div>
+          <button
+            type='button'
+            className='flex items-center justify-center'
+            data-tooltip-id={`tooltip-${venue}-${title}`}
+            data-tooltip-content={tooltip}
+          >
+            <InfoIcon className='h-[20px] w-[20px] cursor-pointer text-black' />
+          </button>
         </div>
 
         {/* Title */}
@@ -90,13 +98,13 @@ export default function TicketItemCard({
       {/* Pricing Section */}
       <div className='gap-md flex flex-col'>
         {prices.map((price, index) => (
-          <div key={index} className='flex w-full flex-col gap-[5px]'>
-            <div className='font-arial-narrow-regular py-[6px] text-[15px] leading-[15px] tracking-[-0.15px] uppercase'>
+          <div key={index} className='gap-5px flex w-full flex-col'>
+            <div className='font-arial-narrow-regular py-6px text-body-sm uppercase'>
               <span className={clsx(price.soldOut && 'opacity-50')}>
                 {price.release}
               </span>
               {price.soldOut && (
-                <span className='bg-accent px-sm font-arial-narrow-regular ml-2 py-[5px] text-[15px] leading-[15px] tracking-[-0.15px] text-black uppercase'>
+                <span className='bg-accent px-sm font-arial-narrow-regular ticket-sold-out-label text-body-sm ml-2 text-black uppercase'>
                   SOLD OUT
                 </span>
               )}
@@ -107,13 +115,13 @@ export default function TicketItemCard({
                 price.soldOut && 'opacity-50',
               )}
             >
-              <span className='font-arial-narrow-regular text-[15px] leading-[15px] tracking-[-0.15px] uppercase'>
+              <span className='font-arial-narrow-regular text-body-sm uppercase'>
                 {getCurrencySymbol(price.currency)}
               </span>
               <span
                 className={clsx(
                   price.soldOut
-                    ? 'font-davinci-regular text-[20px] leading-[22px] tracking-[-0.6px]'
+                    ? 'font-davinci-regular text-ticket-price'
                     : 'welcome-rich-text',
                 )}
               >
@@ -133,6 +141,27 @@ export default function TicketItemCard({
       >
         Get tickets
       </a>
+
+      {/* Tooltip */}
+      <Tooltip
+        id={`tooltip-${venue}-${title}`}
+        place='top'
+        style={{
+          backgroundColor: 'var(--color-tooltip-bg)',
+          color: 'white',
+          fontSize: '15px',
+          fontFamily: 'Arial Narrow, sans-serif',
+          lineHeight: '15px',
+          letterSpacing: '-0.6px',
+          padding: '12px',
+          borderRadius: '0px',
+          maxWidth: '35vw',
+          zIndex: 50,
+        }}
+        opacity={1}
+        border='none'
+        offset={10}
+      />
     </div>
   );
 }
