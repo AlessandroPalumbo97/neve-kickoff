@@ -132,7 +132,7 @@ export default function TicketItemCard({
       {/* CTA Button */}
       <a
         href={buyUrl}
-        className='welcome-cta-primary w-full tracking-[0.15px]'
+        className='cta-btn-primary w-full tracking-[0.15px]'
         target='_blank'
         rel='noopener noreferrer'
       >

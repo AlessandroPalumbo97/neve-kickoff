@@ -55,7 +55,7 @@ export default function Manifesto(): JSX.Element {
           {/* CTA Button */}
           <a
             href={manifestoData.cta.url}
-            className='welcome-cta-primary w-full sm:w-fit'
+            className='cta-btn-primary w-full sm:w-fit'
             target='_blank'
             rel='noopener noreferrer'
           >

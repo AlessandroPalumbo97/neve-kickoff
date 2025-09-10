@@ -37,7 +37,7 @@ export default function Welcome(): JSX.Element {
           <a
             key={index}
             href={cta.url}
-            className={`welcome-cta-${cta.style}`}
+            className={`cta-btn-${cta.style}`}
             target='_blank'
             rel='noopener noreferrer'
           >

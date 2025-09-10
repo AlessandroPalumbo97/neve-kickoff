@@ -153,6 +153,18 @@
     var(--padding-sm);
 }
 
+.cta-btn-primary {
+  @apply font-arial-narrow-regular hover:bg-accent-contrast px-md flex h-[40px] items-center justify-center bg-black text-[15px] leading-[15px] text-white transition-all duration-300 hover:text-black;
+}
+
+.cta-btn-secondary {
+  @apply font-arial-narrow-regular hover:bg-accent-contrast px-md bg-accent flex h-[40px] items-center justify-center text-[15px] leading-[15px] text-black transition-all duration-300;
+}
+
+.cta-btn-tertiary {
+  @apply font-arial-narrow-regular hover:bg-accent-contrast px-md bg-light-gray flex h-[40px] items-center justify-center text-[15px] leading-[15px] text-black transition-all duration-300;
+}
+
 /* ═══════════════════════════════════════════════════════════════════════════
    📱 HEADER COMPONENT
    ═══════════════════════════════════════════════════════════════════════════ */
@@ -347,56 +359,6 @@
   @apply bg-accent absolute bottom-0 left-0 h-[1px] w-full;
 }
 
-.welcome-cta-primary {
-  @apply font-arial-narrow-regular hover:bg-accent-contrast px-md flex h-[40px] items-center justify-center bg-black text-[15px] leading-[15px] text-white transition-all duration-300 hover:text-black;
-}
-
-/* ═══════════════════════════════════════════════════════════════════════════
-   🎠 NEWS CAROUSEL
-   ═══════════════════════════════════════════════════════════════════════════ */
-
-/* News carousel - using Flickity */
-@import 'flickity/css/flickity.css';
-
-.news-carousel-flickity {
-  @apply overflow-hidden;
-  /* Prevent stacking context creation that affects tooltips */
-  isolation: auto;
-}
-
-.news-carousel-flickity-item {
-  @apply mr-sm w-full;
-}
-
-.news-carousel-flickity-item:last-child {
-  @apply mr-0;
-}
-
-/* Flickity responsive breakpoints */
-@media (min-width: 1280px) {
-  .news-carousel-flickity-item {
-    @apply mr-sm w-1/4;
-  }
-}
-
-@media (min-width: 1024px) and (max-width: 1279px) {
-  .news-carousel-flickity-item {
-    @apply mr-sm w-1/3;
-  }
-}
-
-@media (min-width: 768px) and (max-width: 1023px) {
-  .news-carousel-flickity-item {
-    @apply mr-sm w-1/2;
-  }
-}
-
-@media (max-width: 767px) {
-  .news-carousel-flickity-item {
-    @apply mr-sm w-1/2;
-  }
-}
-
 /* News carousel item styles */
 .news-carousel-item {
   @apply transition-all duration-300;
@@ -405,6 +367,60 @@
 .news-carousel-item img {
   @apply h-auto w-full transition-all duration-300;
   filter: grayscale(100%);
+}
+
+.news-carousel-item:hover img {
+  filter: grayscale(0%);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   🎠 CAROUSEL
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* News carousel - using Flickity */
+@import 'flickity/css/flickity.css';
+
+.carousel-control-arrow {
+  @apply h-[16px] w-[35px];
+}
+
+.carousel-flickity {
+  @apply overflow-hidden;
+  /* Prevent stacking context creation that affects tooltips */
+  isolation: auto;
+}
+
+.carousel-flickity-item {
+  @apply mr-sm w-full;
+}
+
+.carousel-flickity-item:last-child {
+  @apply mr-0;
+}
+
+/* Flickity responsive breakpoints */
+@media (min-width: 1280px) {
+  .carousel-flickity-item {
+    @apply mr-sm w-1/4;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .carousel-flickity-item {
+    @apply mr-sm w-1/3;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .carousel-flickity-item {
+    @apply mr-sm w-1/2;
+  }
+}
+
+@media (max-width: 767px) {
+  .carousel-flickity-item {
+    @apply mr-sm w-1/2;
+  }
 }
 
 /* Gallery Lightbox Flickity Styles */
@@ -416,9 +432,17 @@
   @apply flex h-full w-full items-center justify-center;
 }
 
-.news-carousel-item:hover img {
-  filter: grayscale(0%);
+/* ═══════════════════════════════════════════════════════════════════════════
+   🎫 TICKET COMPONENT UTILITY CLASSES
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.ticket-sold-out-label {
+  @apply py-[5px];
 }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   👋 FOOTER COMPONENT
+   ═══════════════════════════════════════════════════════════════════════════ */
 
 /* Footer Newsletter inline arrow */
 .footer-newsletter-cta-arrow {
@@ -437,12 +461,4 @@
 
 .footer-nav-label-gray {
   color: #5c5c5c;
-}
-
-/* ═══════════════════════════════════════════════════════════════════════════
-   🎫 TICKET COMPONENT UTILITY CLASSES
-   ═══════════════════════════════════════════════════════════════════════════ */
-
-.ticket-sold-out-label {
-  @apply py-[5px];
 }

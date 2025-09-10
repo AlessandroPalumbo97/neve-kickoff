@@ -58,7 +58,7 @@ export default function News(): JSX.Element {
           {/* CTA Button */}
           <a
             href={newsData.cta.url}
-            className='welcome-cta-primary w-full sm:w-auto'
+            className='cta-btn-primary w-full sm:w-auto'
             target='_blank'
             rel='noopener noreferrer'
           >
@@ -71,19 +71,19 @@ export default function News(): JSX.Element {
               onClick={() => scrollCarousel('left')}
               disabled={!canScrollLeft}
               className={clsx(
-                'welcome-cta-primary flex cursor-pointer items-center justify-center p-0 disabled:pointer-events-none disabled:cursor-default disabled:opacity-50',
+                'cta-btn-primary flex cursor-pointer items-center justify-center p-0 disabled:pointer-events-none disabled:cursor-default disabled:opacity-50',
               )}
             >
-              <ArrowRightIcon className='h-[16px] w-[35px] rotate-180' />
+              <ArrowRightIcon className='carousel-control-arrow rotate-180' />
             </button>
             <button
               onClick={() => scrollCarousel('right')}
               disabled={!canScrollRight}
               className={clsx(
-                'welcome-cta-primary flex cursor-pointer items-center justify-center p-0 disabled:pointer-events-none disabled:cursor-default disabled:opacity-50',
+                'cta-btn-primary flex cursor-pointer items-center justify-center p-0 disabled:pointer-events-none disabled:cursor-default disabled:opacity-50',
               )}
             >
-              <ArrowRightIcon className='h-[16px] w-[35px]' />
+              <ArrowRightIcon className='carousel-control-arrow' />
             </button>
           </div>
         </div>
@@ -93,8 +93,8 @@ export default function News(): JSX.Element {
           <DesktopCarousel
             ref={desktopCarouselRef}
             onScrollStateChange={handleScrollStateChange}
-            className='news-carousel-flickity'
-            itemClassName='news-carousel-flickity-item'
+            className='carousel-flickity'
+            itemClassName='carousel-flickity-item'
           >
             {newsData.items.map((item, index) => (
               <NewsItemCard
