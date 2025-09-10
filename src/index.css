@@ -402,25 +402,25 @@
 /* Flickity responsive breakpoints */
 @media (min-width: 1280px) {
   .carousel-flickity-item {
-    @apply mr-sm w-1/4;
+    @apply mr-sm w-[calc(25%-7.5px)];
   }
 }
 
 @media (min-width: 1024px) and (max-width: 1279px) {
   .carousel-flickity-item {
-    @apply mr-sm w-1/3;
+    @apply mr-sm w-[calc(33.333%-5.5px)];
   }
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
   .carousel-flickity-item {
-    @apply mr-sm w-1/2;
+    @apply mr-sm w-[calc(50%-3.5px)];
   }
 }
 
 @media (max-width: 767px) {
   .carousel-flickity-item {
-    @apply mr-sm w-1/2;
+    @apply mr-sm w-[calc(50%-3.5px)];
   }
 }
 
