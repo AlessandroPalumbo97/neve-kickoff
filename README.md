@@ -1,313 +1,293 @@
-# Linecheck Data Utility (TypeScript) | Neve Kickoff Project
+# Linecheck 2025 - Festival Kickoff Website
 
-This repo holds the codebase for the very first project assigned to me by Neve studio. It provides functions to easily access data from the `linecheck_payload.json` file with full TypeScript support and type safety.
+A modern, responsive website for the Linecheck 2025 music festival, built with React and Vite. This project showcases a professional approach to festival web development with custom animations, interactive components, and optimized performance.
 
-## 🚀 Features
+## 🚀 Quick Start
 
-- **Full TypeScript Support**: All functions are fully typed with granular interfaces
-- **Type Safety**: Compile-time checking for section names and data structures
-- **IntelliSense**: Full autocomplete and type hints in your IDE
-- **Granular Types**: Section-specific interfaces for building focused components
-- **Error Handling**: Built-in validation and helpful error messages
-- **Component Ready**: Perfect for building individual section components
-- **Flickity Carousel**: Responsive news carousel with 1-item scrolling - [Docs](https://www.npmjs.com/package/flickity)
+### Prerequisites
+
+- **Node.js** 18+
+- **npm** or **yarn**
+
+### Installation & Development
+
+```bash
+# Clone the repository
+git clone <repository-url>
+cd neve-kickoff
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
+
+# Run linting
+npm run lint
+```
+
+The development server will start at `http://localhost:5173`
+
+## 🛠️ Tech Stack
+
+### Core Technologies
+
+- **React 19.1.1** - Modern React with latest features
+- **TypeScript 5.9.2** - Type-safe development
+- **Vite 7.1.2** - Lightning-fast build tool and dev server
+
+### Styling & UI
+
+- **Tailwind CSS 4.1.12** - Utility-first CSS framework
+- **Custom CSS Utilities** - Tailored design system with custom tokens
+- **Responsive Design** - Mobile-first approach with breakpoint optimization
+
+### Key Libraries
+
+- **Flickity 3.0.0** - Touch-friendly carousel functionality
+- **React Icons 5.5.0** - Comprehensive icon library
+- **html-react-parser 5.2.6** - Safe HTML parsing for dynamic content
+- **clsx 2.1.1** - Conditional className utility
+
+### Development Tools
+
+- **ESLint** - Code linting with React and accessibility rules
+- **Prettier** - Code formatting with Tailwind CSS plugin
+- **TypeScript** - Static type checking
 
 ## 📁 Project Structure
 
 ```
 src/
-├── types/
-│   └── linecheck.ts          # All type definitions
-├── utils/
-│   └── linecheckData.ts      # Utility functions
-└── examples/
-    ├── linecheckDataExample.tsx    # Basic usage example
-    └── componentExamples.tsx       # Component building examples
+├── components/
+│   ├── layout/           # Header, Menu, SiteContent
+│   ├── sections/         # Main page sections
+│   │   ├── Hero/         # Landing hero section
+│   │   ├── WelcomeGallery/ # Image gallery with lightbox
+│   │   ├── Manifesto/    # Festival manifesto
+│   │   ├── News/         # News carousel
+│   │   ├── Tickets/      # Ticket cards with tooltips
+│   │   ├── Crosslinks/   # Navigation blocks
+│   │   └── Footer/       # Footer components
+│   └── ui/              # Reusable UI components
+│       ├── PortalTooltip.tsx    # Custom tooltip system
+│       ├── DesktopCarousel.tsx  # Desktop carousel
+│       ├── MobileCarousel.tsx   # Mobile carousel
+│       ├── GalleryLightbox.tsx  # Image lightbox
+│       └── ReadMore.tsx         # Expandable text
+├── contexts/            # React contexts
+│   └── LoadingContext.tsx # Loading overlay management
+├── hooks/               # Custom React hooks
+│   ├── useAnimateOnView.ts # Intersection Observer animations
+│   └── useInView.ts        # Viewport detection
+├── utils/               # Utility functions
+│   └── linecheck.ts        # Data loading and processing
+├── types/               # TypeScript type definitions
+│   └── linecheck.ts        # Data structure types
+├── assets/              # Static assets
+│   ├── fonts/              # Custom fonts (TRJNDaVinci, Arial Narrow)
+│   ├── icons/              # SVG icon components
+│   └── linecheck_payload.json # Content data
+└── index.css            # Global styles and design system
 ```
 
-## 🔧 Functions
+## 🎨 Site Sections
 
-### `getSectionData<T extends SectionName>(sectionName: T)`
+### Header & Menu
 
-Retrieves data for a specific section with full type safety and generic return types.
+- **Responsive navigation** with mobile hamburger menu
+- **Dynamic menu structure** from JSON configuration
+- **Nested dropdown menus** with smooth animations
+- **CTA button** integration in header
+- **Logo animation** with custom SVG rendering
+- **Mobile-optimized** arrow positioning for proper text alignment
 
-**Parameters:**
+### Hero Section
 
-- `sectionName` (SectionName): The name of the section to retrieve (type-safe)
+- **Animated logo** with custom SVG integration
+- **Dynamic content** from JSON payload
+- **Responsive typography** with custom font scaling
+- **Background image** with overlay effects
 
-**Returns:**
+### Welcome Gallery
 
-- `SectionType<T> | null`: The section data with exact typing or null if section doesn't exist
+- **Interactive image grid** with hover effects
+- **Lightbox functionality** with Flickity carousel
+- **Grayscale to color** transitions
+- **Responsive grid** layout (2-6 columns based on screen size)
 
-**Example:**
+### Manifesto
+
+- **Rich text content** with HTML parsing
+- **Read more/less** functionality for mobile
+- **Custom typography** with accent underlines
+- **Smooth animations** on scroll
+
+### News Section
+
+- **Horizontal carousel** with custom controls
+- **Responsive breakpoints** (1-4 items visible)
+- **Touch/swipe support** for mobile
+- **News item cards** with image and metadata
+
+### Tickets Section
+
+- **Interactive ticket cards** with hover effects
+- **Custom tooltip system** with portal rendering
+- **Price display** with currency formatting
+- **Sold out states** with visual indicators
+- **Responsive carousel** layout
+
+### Crosslinks
+
+- **Navigation blocks** with hover animations
+- **Custom arrow animations** on hover
+- **Color-coded sections** (accent/black themes)
+- **Responsive typography** scaling
+
+### Footer
+
+- **Multi-column layout** with navigation
+- **Newsletter signup** with animated arrow
+- **Social links** and credits
+- **Responsive design** with mobile optimization
+
+## 📊 Data Loading & Management
+
+### Content Structure
+
+All content is managed through a centralized JSON file (`linecheck_payload.json`) containing:
+
+- **Site configuration** (name, base URL, theme)
+- **Header data** (logo, menu structure, CTA)
+- **Section content** (hero, welcome, manifesto, news, tickets)
+- **Footer data** (navigation, newsletter, credits)
+
+### Data Loading System
 
 ```typescript
-import { getSectionData } from './utils/linecheckData';
+// Centralized data loading
+import { getHeaderData, getTicketsData, getNewsData } from '@/utils/linecheck';
 
-// Get hero section data (fully typed)
-const heroData = getSectionData('hero');
-if (heroData) {
-  // TypeScript knows this is HeroSection
-  console.log(heroData.title); // string
-  console.log(heroData.subtitle); // string
-  console.log(heroData.images.desktop.srcset); // string[]
-}
-
-// Get tickets section data
-const ticketsData = getSectionData('tickets');
-if (ticketsData) {
-  // TypeScript knows this is TicketsSection
-  console.log(ticketsData.items[0].prices[0].price); // number
-  console.log(ticketsData.items[0].dateRange); // string[] | undefined
-}
+// Type-safe data access
+const headerData = getHeaderData();
+const ticketsData = getTicketsData();
 ```
 
-### `getAvailableSections()`
+### Key Features
 
-Returns an array of all available section names with proper typing.
+- **Type-safe data access** with TypeScript interfaces
+- **Centralized content management** through JSON
+- **Error handling** for missing data
+- **Performance optimization** with selective data loading
 
-**Returns:**
+## ✨ Key Features & Notable Implementations
 
-- `SectionName[]`: Array of available section names (type-safe)
+### Custom Tooltip System
 
-**Example:**
+- **Portal-based rendering** to escape stacking contexts
+- **Smart positioning** with viewport boundary detection
+- **Hover interactions** with smooth transitions
+- **Accessible design** with proper ARIA attributes
 
-```typescript
-import { getAvailableSections } from './utils/linecheckData';
+### Loading Overlay Effect
 
-const sections = getAvailableSections();
-// sections is typed as: ("site" | "header" | "hero" | "welcome" | "gallery" | "manifesto" | "tickets" | "footer")[]
+- **Smooth fade transitions** (700ms duration)
+- **Context-based state management** for animation timing
+- **Scroll position restoration** after loading
+- **Performance optimization** with proper cleanup
 
-sections.forEach((section) => {
-  // TypeScript knows section is a valid section name
-  const data = getSectionData(section); // This will always work!
-});
+### Animation System
+
+- **Intersection Observer** based animations
+- **Blur and slide effects** on scroll
+- **Custom timing** and easing functions
+- **Performance optimized** with CSS transforms
+
+### Responsive Design
+
+- **Mobile-first approach** with progressive enhancement
+- **Custom breakpoints** optimized for content
+- **Flexible grid systems** with CSS Grid and Flexbox
+- **Touch-friendly interactions** for mobile devices
+
+### Performance Optimizations
+
+- **Code splitting** with dynamic imports
+- **Image optimization** with proper sizing
+- **CSS optimization** with unused class removal
+- **Bundle size optimization** (CSS: 29.94 kB, JS: 319.42 kB)
+
+### SEO & Accessibility
+
+- **Semantic HTML** structure
+- **Proper heading hierarchy** (h1-h6)
+- **Alt text** for all images
+- **ARIA labels** for interactive elements
+- **Keyboard navigation** support
+
+## 🎯 Development Guidelines
+
+### Code Style
+
+- **TypeScript** for type safety
+- **ESLint** configuration with React and accessibility rules
+- **Prettier** for consistent formatting
+- **Component-based architecture** with clear separation of concerns
+
+### CSS Organization
+
+- **Design system** with custom CSS variables
+- **Utility-first approach** with Tailwind CSS
+- **Component-specific styles** in dedicated sections
+- **Responsive design** with mobile-first breakpoints
+
+### Component Naming
+
+- **PascalCase** for components (`TicketItemCard.tsx`)
+- **camelCase** for utilities (`useAnimateOnView.ts`)
+- **kebab-case** for CSS classes (`.menu-link-arrow`)
+
+## 🚀 Deployment
+
+### Build Process
+
+```bash
+# Production build
+npm run build
+
+# Output directory: dist/
+# Optimized assets with hashed filenames
+# Minified CSS and JavaScript
 ```
 
-### Section-Specific Getters
+### Environment Considerations
 
-For convenience, we provide type-safe getters for each section:
+- **Static site** - can be deployed to any static hosting
+- **No environment variables** required
+- **CDN-friendly** with proper cache headers
+- **HTTPS recommended** for production
 
-```typescript
-import {
-  getSiteData,
-  getHeaderData,
-  getHeroData,
-  getWelcomeData,
-  getGalleryData,
-  getManifestoData,
-  getTicketsData,
-  getFooterData,
-} from './utils/linecheckData';
+### Performance Metrics
 
-// Each returns the properly typed section data
-const heroData = getHeroData(); // HeroSection | null
-const ticketsData = getTicketsData(); // TicketsSection | null
-```
+- **Lighthouse Score**: Optimized for performance
+- **Bundle Size**: CSS 29.94 kB, JS 319.42 kB
+- **Load Time**: Optimized with Vite's build system
+- **Mobile Performance**: Touch-optimized interactions
 
-## 🎯 Granular Types
+## 🔧 Browser Support
 
-The utility includes comprehensive, section-specific interfaces that match your exact JSON structure:
+- **Modern browsers** (Chrome, Firefox, Safari, Edge)
+- **ES2020+** features with Vite's polyfill system
+- **CSS Grid** and **Flexbox** support required
+- **Touch events** for mobile interactions
 
-### Base Types
+---
 
-```typescript
-interface ImageWithSrcset {
-  src?: string;
-  srcset: string[];
-}
-
-interface CTA {
-  label: string;
-  url: string;
-  style?: string;
-}
-
-interface MenuItem {
-  label: string;
-  url?: string;
-  disabled?: boolean;
-  children?: MenuItem[];
-}
-```
-
-### Section-Specific Types
-
-```typescript
-interface HeroSection {
-  title: string;
-  subtitle: string;
-  images: {
-    desktop: ImageWithSrcset;
-    mobile: ImageWithSrcset;
-  };
-}
-
-interface TicketsSection {
-  title: string;
-  description: string;
-  items: TicketItem[];
-}
-
-interface TicketItem {
-  venue: string;
-  date?: string;
-  dateRange?: string[]; // Handles both single dates and date ranges
-  title: string;
-  tooltip: string;
-  prices: TicketPrice[];
-  buyUrl: string;
-}
-```
-
-## 🏗️ Building Components
-
-The granular types make building components incredibly easy and type-safe:
-
-### Hero Component Example
-
-```typescript
-import { getHeroData } from '../utils/linecheckData';
-import type { HeroSection } from '../types/linecheck';
-
-function HeroComponent(): React.JSX.Element {
-  const heroData = getHeroData();
-
-  if (!heroData) {
-    return <div>Hero section not found</div>;
-  }
-
-  // TypeScript provides full autocomplete and type checking
-  return (
-    <section className="hero">
-      <h1>{heroData.title}</h1>
-      <p>{heroData.subtitle}</p>
-
-      <div className="hero-images">
-        <picture>
-          <source
-            media="(min-width: 768px)"
-            srcSet={heroData.images.desktop.srcset.join(', ')}
-          />
-          <img
-            src={heroData.images.mobile.srcset[0]}
-            alt={heroData.title}
-          />
-        </picture>
-      </div>
-    </section>
-  );
-}
-```
-
-### Tickets Component Example
-
-```typescript
-import { getTicketsData } from '../utils/linecheckData';
-import type { TicketItem } from '../types/linecheck';
-
-function TicketsComponent(): React.JSX.Element {
-  const ticketsData = getTicketsData();
-
-  if (!ticketsData) {
-    return <div>Tickets section not found</div>;
-  }
-
-  return (
-    <section className="tickets">
-      <h2>{ticketsData.title}</h2>
-      <p>{ticketsData.description}</p>
-
-      <div className="ticket-items">
-        {ticketsData.items.map((ticket: TicketItem, index: number) => (
-          <div key={index} className="ticket-item">
-            <h3>{ticket.title}</h3>
-            <p className="venue">{ticket.venue}</p>
-
-            {/* Handle both date and dateRange properties safely */}
-            <p className="date">
-              {ticket.date && `Date: ${ticket.date}`}
-              {ticket.dateRange && `Date Range: ${ticket.dateRange.join(' - ')}`}
-            </p>
-
-            <div className="prices">
-              {ticket.prices.map((price, priceIndex) => (
-                <div key={priceIndex} className={`price ${price.soldOut ? 'sold-out' : ''}`}>
-                  <span className="release">{price.release}</span>
-                  <span className="amount">
-                    {price.price} {price.currency}
-                  </span>
-                  {price.soldOut && <span className="status">Sold Out</span>}
-                </div>
-              ))}
-            </div>
-          </div>
-        ))}
-      </div>
-    </section>
-  );
-}
-```
-
-## 🎨 Available Sections
-
-The following sections are available (all fully typed):
-
-- **site**: Site configuration and metadata
-- **header**: Navigation menu and header elements
-- **hero**: Main hero section with title, subtitle, and images
-- **welcome**: Welcome message and call-to-action buttons
-- **gallery**: Image gallery items
-- **manifesto**: Festival manifesto information
-- **tickets**: Ticket information and pricing
-- **footer**: Footer links, social media, and credits
-
-## ✅ Benefits of Granular Types
-
-1. **Component Focus**: Each component only imports the types it needs
-2. **Type Safety**: Compile-time checking for exact data structures
-3. **IntelliSense**: Full autocomplete for section-specific properties
-4. **Refactoring Safety**: Easy to rename properties without breaking code
-5. **Team Collaboration**: Clear contracts for each section's data
-6. **Maintainability**: Changes to one section don't affect others
-7. **Performance**: Only load the types you actually use
-
-## 🔍 Error Handling
-
-The functions include built-in error handling with TypeScript:
-
-- Invalid section names will return `null` and log a warning
-- Non-string parameters will return `null` and log a warning
-- The console will show available sections when an invalid section is requested
-- TypeScript will catch most errors at compile time
-
-## 📚 Complete Examples
-
-Check out the example files for full working examples:
-
-- `linecheckDataExample.tsx` - Basic usage and data exploration
-- `componentExamples.tsx` - Real-world component building examples
-
-## 🚀 Getting Started
-
-```typescript
-import { getHeroData } from './utils/linecheckData';
-import type { HeroSection } from './types/linecheck';
-
-function MyHeroComponent(): React.JSX.Element {
-  const heroData = getHeroData();
-
-  if (!heroData) {
-    return <div>Hero section not found</div>;
-  }
-
-  return (
-    <div>
-      <h1>{heroData.title}</h1>
-      <p>{heroData.subtitle}</p>
-    </div>
-  );
-}
-```
-
-Your TypeScript setup is now complete with granular, component-ready types! 🎯
+**Built with ❤️ for the Linecheck 2025 Festival**
