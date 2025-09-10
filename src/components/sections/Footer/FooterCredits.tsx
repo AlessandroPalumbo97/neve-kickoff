@@ -31,12 +31,10 @@ export default function FooterCredits({
             partnersRef.shouldAnimate && 'animate-in',
           )}
         >
-          <h4 className='footer-nav-style-b text-white'>
-            {partnersLogo.label}
-          </h4>
+          <h4 className='footer-label-sm text-white'>{partnersLogo.label}</h4>
           <a
             href={partnersLogo.url}
-            className='group hover:text-accent-contrast inline-block text-white transition-colors duration-300'
+            className='group hover:text-accent-contrast w-fit text-white transition-colors duration-300'
             target='_blank'
             rel='noopener noreferrer'
           >
@@ -54,7 +52,7 @@ export default function FooterCredits({
           )}
         >
           {/* Copyright and Byline Row */}
-          <p className='footer-nav-style-b text-white'>
+          <p className='footer-label-sm text-white'>
             {credits.copyright}{' '}
             <a
               href={credits.bylineUrl}
@@ -67,7 +65,7 @@ export default function FooterCredits({
           </p>
 
           {/* Design and Code Row */}
-          <p className='footer-nav-style-b text-white'>
+          <p className='footer-label-sm text-white'>
             <a
               href={credits.design.url}
               className='hover:text-accent-contrast underline transition-colors'

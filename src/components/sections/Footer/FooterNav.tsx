@@ -39,7 +39,7 @@ export default function FooterNav({
               item.disabled ? (
                 <span
                   key={index}
-                  className='footer-nav-style-a footer-nav-label-gray'
+                  className='footer-label footer-nav-label-gray'
                 >
                   {item.label}
                 </span>
@@ -47,7 +47,7 @@ export default function FooterNav({
                 <a
                   key={index}
                   href={item.url}
-                  className='hover:text-accent-contrast footer-nav-style-a text-white transition-colors'
+                  className='hover:text-accent-contrast footer-label text-white transition-colors'
                   target='_blank'
                   rel='noopener noreferrer'
                 >
@@ -67,20 +67,20 @@ export default function FooterNav({
             meetingRef.shouldAnimate && 'animate-in',
           )}
         >
-          <h4 className='footer-nav-style-a footer-nav-label-gray'>
+          <h4 className='footer-label footer-nav-label-gray'>
             {menus.meetingFestival.label}
           </h4>
           <nav className='gap-md flex flex-col'>
             {menus.meetingFestival.items.map((item, index) => (
               <div key={index} className='gap-sm flex flex-col'>
                 {item.disabled ? (
-                  <span className='footer-nav-style-a footer-nav-label-gray'>
+                  <span className='footer-label footer-nav-label-gray'>
                     {item.label}
                   </span>
                 ) : (
                   <a
                     href={item.url}
-                    className='hover:text-accent-contrast footer-nav-style-a text-white transition-colors'
+                    className='hover:text-accent-contrast footer-label text-white transition-colors'
                     target='_blank'
                     rel='noopener noreferrer'
                   >
@@ -93,7 +93,7 @@ export default function FooterNav({
                       child.disabled ? (
                         <span
                           key={childIndex}
-                          className='footer-nav-style-b footer-nav-label-gray'
+                          className='footer-label-sm footer-nav-label-gray'
                         >
                           {child.label}
                         </span>
@@ -101,7 +101,7 @@ export default function FooterNav({
                         <a
                           key={childIndex}
                           href={child.url}
-                          className='hover:text-accent-contrast footer-nav-style-b text-white transition-colors'
+                          className='hover:text-accent-contrast footer-label-sm text-white transition-colors'
                           target='_blank'
                           rel='noopener noreferrer'
                         >
@@ -125,7 +125,7 @@ export default function FooterNav({
             infoRef.shouldAnimate && 'animate-in',
           )}
         >
-          <h4 className='footer-nav-style-a footer-nav-label-gray'>
+          <h4 className='footer-label footer-nav-label-gray'>
             {menus.info.label}
           </h4>
           <nav className='gap-sm flex flex-col'>
@@ -133,7 +133,7 @@ export default function FooterNav({
               <a
                 key={index}
                 href={item.url}
-                className='hover:text-accent-contrast footer-nav-style-b text-white transition-colors'
+                className='hover:text-accent-contrast footer-label-sm text-white transition-colors'
                 target='_blank'
                 rel='noopener noreferrer'
               >
@@ -152,7 +152,7 @@ export default function FooterNav({
             legalRef.shouldAnimate && 'animate-in',
           )}
         >
-          <h4 className='footer-nav-style-a footer-nav-label-gray'>
+          <h4 className='footer-label footer-nav-label-gray'>
             {menus.legal.label}
           </h4>
           <nav className='gap-sm flex flex-col'>
@@ -160,7 +160,7 @@ export default function FooterNav({
               item.disabled ? (
                 <span
                   key={index}
-                  className='footer-nav-style-b footer-nav-label-gray'
+                  className='footer-label-sm footer-nav-label-gray'
                 >
                   {item.label}
                 </span>
@@ -168,7 +168,7 @@ export default function FooterNav({
                 <a
                   key={index}
                   href={item.url}
-                  className='hover:text-accent-contrast footer-nav-style-b text-white transition-colors'
+                  className='hover:text-accent-contrast footer-label-sm text-white transition-colors'
                   target={item.target || '_blank'}
                   rel='noopener noreferrer'
                 >
