@@ -1,6 +1,10 @@
 # Linecheck 2025 - Festival Kickoff Website
 
-A modern, responsive website for the Linecheck 2025 music festival, built with React and Vite. This project showcases a professional approach to festival web development with custom animations, interactive components, and optimized performance.
+_✨ A fully responsive, interactive festival experience with custom animations, tooltips, and smooth transitions_
+
+## 🌟 Live Demo
+
+[❄️ **neve-kickoff.netlify.app**](https://neve-kickoff.netlify.app/)
 
 ## 🚀 Quick Start
 
