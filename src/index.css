@@ -549,6 +549,8 @@
 
 .news-carousel-flickity {
   @apply overflow-hidden;
+  /* Prevent stacking context creation that affects tooltips */
+  isolation: auto;
 }
 
 .news-carousel-flickity-item {

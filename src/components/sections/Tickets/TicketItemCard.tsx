@@ -1,8 +1,8 @@
 import { type JSX } from 'react';
 import { clsx } from 'clsx';
-import { Tooltip } from 'react-tooltip';
 import { useAnimateOnView } from '@/hooks/useAnimateOnView';
 import InfoIcon from '@/assets/icons/InfoIcon';
+import PortalTooltip from '@/components/ui/PortalTooltip';
 import type { TicketItem } from '@/types/linecheck';
 
 type TicketItemCardProps = TicketItem & {
@@ -81,14 +81,11 @@ export default function TicketItemCard({
             {formatDateDisplay()}
           </span>
           <span className='text-accent text-lg'>|</span>
-          <button
-            type='button'
-            className='flex items-center justify-center'
-            data-tooltip-id={`tooltip-${venue}-${title}`}
-            data-tooltip-content={tooltip}
-          >
-            <InfoIcon className='h-[20px] w-[20px] cursor-pointer text-black' />
-          </button>
+          <PortalTooltip content={tooltip} place='bottom'>
+            <button type='button' className='flex items-center justify-center'>
+              <InfoIcon className='h-[20px] w-[20px] cursor-pointer text-black' />
+            </button>
+          </PortalTooltip>
         </div>
 
         {/* Title */}
@@ -141,27 +138,6 @@ export default function TicketItemCard({
       >
         Get tickets
       </a>
-
-      {/* Tooltip */}
-      <Tooltip
-        id={`tooltip-${venue}-${title}`}
-        place='top'
-        style={{
-          backgroundColor: 'var(--color-tooltip-bg)',
-          color: 'white',
-          fontSize: '15px',
-          fontFamily: 'Arial Narrow, sans-serif',
-          lineHeight: '15px',
-          letterSpacing: '-0.6px',
-          padding: '12px',
-          borderRadius: '0px',
-          maxWidth: '35vw',
-          zIndex: 50,
-        }}
-        opacity={1}
-        border='none'
-        offset={10}
-      />
     </div>
   );
 }
