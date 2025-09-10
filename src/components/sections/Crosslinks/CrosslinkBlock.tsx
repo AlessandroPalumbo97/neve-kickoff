@@ -43,8 +43,8 @@ export default function CrosslinkBlock({
             className={clsx(
               'crosslink-arrow mt-2 translate-x-0 transition-all duration-500 sm:mt-0',
               isTicketsBlock
-                ? 'text-black sm:group-hover:translate-x-[30px]'
-                : 'text-accent-contrast group-hover:text-black sm:group-hover:translate-x-[30px]',
+                ? 'text-black group-hover:translate-x-[30px]'
+                : 'text-accent-contrast group-hover:translate-x-[30px] group-hover:text-black',
             )}
           />
         </div>

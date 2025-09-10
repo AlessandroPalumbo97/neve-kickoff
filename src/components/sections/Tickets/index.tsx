@@ -97,6 +97,7 @@ export default function Tickets(): JSX.Element {
                 key={index}
                 venue={item.venue}
                 date={item.date}
+                dateRange={item.dateRange}
                 title={item.title}
                 tooltip={item.tooltip}
                 prices={item.prices}
@@ -114,6 +115,7 @@ export default function Tickets(): JSX.Element {
                 key={index}
                 venue={item.venue}
                 date={item.date}
+                dateRange={item.dateRange}
                 title={item.title}
                 tooltip={item.tooltip}
                 prices={item.prices}

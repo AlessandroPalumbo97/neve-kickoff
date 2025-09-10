@@ -152,7 +152,7 @@ export default function Menu({ isOpen }: MenuProps): JSX.Element {
                       item.disabled ? (e) => e.preventDefault() : undefined
                     }
                   >
-                    <span className='group-hover:text-accent-contrast menu-link-arrow-label inline-block translate-x-0 text-white transition-all duration-300 lg:group-hover:-translate-x-6'>
+                    <span className='group-hover:text-accent-contrast menu-link-arrow-label inline-block translate-x-0 text-white transition-all duration-500 lg:group-hover:-translate-x-6'>
                       {item.label}
                       <ArrowRightIcon className='group-hover:text-accent-contrast menu-link-arrow' />
                     </span>
