@@ -72,7 +72,7 @@ export default function TicketItemCard({
     >
       <div className='gap-sm flex flex-col'>
         {/* Top Row: Venue | Date | Info Icon */}
-        <div className='gap-md relative flex flex-wrap items-center'>
+        <div className='gap-sm sm:gap-md relative flex flex-wrap items-center'>
           <span className='font-arial-narrow-regular text-body-sm uppercase'>
             {venue}
           </span>
