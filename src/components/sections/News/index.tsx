@@ -46,11 +46,13 @@ export default function News(): JSX.Element {
       >
         <div className='gap-sm flex flex-col'>
           <h2 className='news-title'>{newsData.title}</h2>
-          <ReadMore
-            text={newsData.description}
-            textClass='rich-text'
-            maxLines={5}
-          />
+          <div className='rich-text-container'>
+            <ReadMore
+              text={newsData.description}
+              textClass='rich-text'
+              maxLines={5}
+            />
+          </div>
         </div>
 
         {/* CTA Button and Arrows */}
