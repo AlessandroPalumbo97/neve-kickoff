@@ -463,3 +463,52 @@
 .footer-nav-label-gray {
   color: var(--color-gray);
 }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   🍎 SAFARI ANIMATION SHADOW FIX
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Force hardware acceleration without shadows */
+.animate-blur,
+.animate-blur-slide {
+  -webkit-backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  text-shadow: none !important;
+  -webkit-text-shadow: none !important;
+}
+
+/* Fix animation states */
+.animate-blur.animate-in,
+.animate-blur-slide.animate-in {
+  -webkit-backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  text-shadow: none !important;
+  -webkit-text-shadow: none !important;
+}
+
+/* Global Safari shadow fix for all elements */
+* {
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  text-shadow: none !important;
+  -webkit-text-shadow: none !important;
+}
+
+/* Apply hardware acceleration only to specific elements, not globally */
+.animate-blur,
+.animate-blur-slide,
+.animate-blur.animate-in,
+.animate-blur-slide.animate-in,
+footer,
+footer * {
+  -webkit-backface-visibility: hidden;
+  -webkit-perspective: 1000;
+}
