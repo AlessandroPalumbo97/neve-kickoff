@@ -1,4 +1,4 @@
-# Linecheck 2025 - Festival Kickoff Website
+# Linecheck 2025 - Neve Kickoff Project
 
 _✨ A fully responsive, interactive festival experience with custom animations, tooltips, and smooth transitions_
 
