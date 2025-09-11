@@ -300,6 +300,35 @@ The original, professional website was designed and developed by **[neve studio]
 
 **Note:** This is not the official Linecheck 2025 website, but rather a tribute project showcasing React development skills and modern web practices.
 
+## 📄 License
+
+**Code License**: This project's source code is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+**Content License**: The content, design assets, and data used in this project are NOT covered by this license. They remain the exclusive property of the commissioning party and are protected under applicable copyright, intellectual property, and trade secret laws.
+
+**Important**: This is a kickoff project inspired by the official Linecheck 2025 website designed by [neve studio](https://www.neve.dev/). The original design, content, and branding belong to neve studio and Linecheck. This project is for educational purposes only.
+
+### What you can do with the CODE:
+
+- ✅ Use this **source code** for learning and educational purposes
+- ✅ Modify and experiment with the **code**
+- ✅ Share the **code** with others for learning
+- ✅ Use the **code** as a reference for your own projects
+- ✅ Study the **technical implementation** and patterns
+
+### What you CANNOT do:
+
+- ❌ Use any **content, data, or assets** from this project
+- ❌ Redistribute the **JSON payload** or design assets
+- ❌ Use the **Linecheck branding/design** commercially
+- ❌ Claim any **content** as your own original work
+- ❌ Use any **materials** provided in the original Notion file
+- ❌ Reproduce or distribute any **confidential materials**
+
+### Legal Notice:
+
+All materials provided (including, but not limited to, designs, assets, links, credentials, and project briefs) are the exclusive property of the commissioning party and are protected under applicable copyright, intellectual property, and trade secret laws. Any reproduction, disclosure, distribution, or use outside the scope of this educational project is strictly prohibited.
+
 ---
 
 **Built with ❤️ for the Linecheck 2025 Festival**
