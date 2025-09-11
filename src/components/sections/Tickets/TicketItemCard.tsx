@@ -72,7 +72,7 @@ export default function TicketItemCard({
     >
       <div className='gap-sm flex flex-col'>
         {/* Top Row: Venue | Date | Info Icon */}
-        <div className='gap-md relative flex items-center'>
+        <div className='gap-md relative flex flex-wrap items-center'>
           <span className='font-arial-narrow-regular text-body-sm uppercase'>
             {venue}
           </span>
@@ -96,12 +96,17 @@ export default function TicketItemCard({
       <div className='gap-md flex flex-col'>
         {prices.map((price, index) => (
           <div key={index} className='gap-5px flex w-full flex-col'>
-            <div className='font-arial-narrow-regular py-6px text-body-sm uppercase'>
+            {price.soldOut && (
+              <span className='bg-accent px-sm font-arial-narrow-regular ticket-sold-out-label text-body-sm mb-sm block w-fit text-black uppercase sm:hidden'>
+                SOLD OUT
+              </span>
+            )}
+            <div className='font-arial-narrow-regular text-body-sm uppercase'>
               <span className={clsx(price.soldOut && 'opacity-50')}>
                 {price.release}
               </span>
               {price.soldOut && (
-                <span className='bg-accent px-sm font-arial-narrow-regular ticket-sold-out-label text-body-sm ml-2 text-black uppercase'>
+                <span className='bg-accent px-sm font-arial-narrow-regular ticket-sold-out-label text-body-sm ml-2 hidden text-black uppercase sm:inline-block'>
                   SOLD OUT
                 </span>
               )}

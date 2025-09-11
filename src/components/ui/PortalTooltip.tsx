@@ -161,7 +161,7 @@ export default function PortalTooltip({
             ref={tooltipRef}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
-            className="bg-tooltip-body fixed z-[9999] w-[35vw] max-w-[300px] rounded-none p-3 font-['Arial_Narrow',sans-serif] text-[15px] leading-[15px] tracking-[-0.6px] text-white"
+            className="bg-tooltip-body fixed z-[9999] w-[35vw] max-w-[300px] min-w-[200px] rounded-none p-3 font-['Arial_Narrow',sans-serif] text-[15px] leading-[15px] tracking-[-0.6px] text-white"
             style={{
               top: position.top,
               left: position.left,
