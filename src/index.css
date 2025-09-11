@@ -332,6 +332,7 @@
 
 .welcome-read-more-btn {
   @apply font-davinci-regular text-accent-focus relative mt-2 flex cursor-pointer items-center text-[35px] leading-[38.5px] tracking-[-1.05px] sm:hidden;
+  display: inline-flex !important;
 }
 
 .welcome-read-more-btn:hover::after {

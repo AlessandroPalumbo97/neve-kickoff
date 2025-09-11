@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import PlusIcon from '@/assets/icons/PlusIcon';
 import MinusIcon from '@/assets/icons/MinusIcon';
 
@@ -13,33 +13,29 @@ export default function ReadMore({
   textClass,
   maxLines = 3,
 }: ReadMoreProps) {
-  const textRef = useRef<HTMLDivElement>(null);
   const [expanded, setExpanded] = useState(false);
-  const [isOverflowing, setIsOverflowing] = useState(false);
+  const [showButton, setShowButton] = useState(false);
+  const textRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const checkOverflow = () => {
-      const el = textRef.current as HTMLElement;
-      if (el) {
-        // Add 5px tolerance to account for line-height/font-size mismatch
-        const hasOverflow = el.scrollHeight > el.clientHeight + 5;
-        setIsOverflowing(hasOverflow);
-        // Reset expanded state on resize to allow re-evaluation
-        setExpanded(false);
+      if (textRef.current) {
+        // Check if text overflows by comparing scroll height to client height
+        const hasOverflow =
+          textRef.current.scrollHeight > textRef.current.clientHeight;
+        setShowButton(hasOverflow);
       }
     };
 
-    // Check on mount and when text/maxLines change
-    checkOverflow();
+    // Check overflow after component mounts
+    const timeout = setTimeout(checkOverflow, 100);
 
-    // Add resize listener
-    window.addEventListener('resize', checkOverflow);
-
-    // Cleanup
-    return () => {
-      window.removeEventListener('resize', checkOverflow);
-    };
+    return () => clearTimeout(timeout);
   }, [text, maxLines]);
+
+  const toggleExpanded = () => {
+    setExpanded(!expanded);
+  };
 
   return (
     <>
@@ -53,7 +49,7 @@ export default function ReadMore({
           ref={textRef}
           className={textClass}
           style={{
-            display: '-webkit-box',
+            display: expanded ? 'block' : '-webkit-box',
             WebkitLineClamp: expanded ? 'unset' : maxLines,
             WebkitBoxOrient: 'vertical',
             overflow: 'hidden',
@@ -61,11 +57,18 @@ export default function ReadMore({
         >
           {text}
         </div>
-        {isOverflowing && (
+        {showButton && (
           <button
             className='welcome-read-more-btn'
             type='button'
-            onClick={() => setExpanded(!expanded)}
+            onClick={toggleExpanded}
+            onTouchStart={(e) => e.stopPropagation()}
+            style={{
+              touchAction: 'manipulation',
+              WebkitTouchCallout: 'none',
+              WebkitUserSelect: 'none',
+              userSelect: 'none',
+            }}
           >
             {expanded ? 'Read less' : 'Read more'}
             {expanded ? (
