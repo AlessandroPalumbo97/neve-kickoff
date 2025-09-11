@@ -292,6 +292,14 @@ npm run build
 - **CSS Grid** and **Flexbox** support required
 - **Touch events** for mobile interactions
 
+## 🎭 About This Project
+
+This is a **kickoff project** - a development prototype and learning exercise inspired by the official Linecheck 2025 festival website.
+
+The original, professional website was designed and developed by **[neve studio](https://www.neve.dev/)** - a Milan-based design agency. This kickoff project serves as a technical exploration and educational resource, implementing similar functionality and design patterns using modern web technologies.
+
+**Note:** This is not the official Linecheck 2025 website, but rather a tribute project showcasing React development skills and modern web practices.
+
 ---
 
 **Built with ❤️ for the Linecheck 2025 Festival**
