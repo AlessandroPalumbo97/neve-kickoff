@@ -52,10 +52,10 @@ export default function Tickets(): JSX.Element {
             </h2>
 
             {/* Description with ReadMore */}
-            <div className='welcome-rich-text-container'>
+            <div className='rich-text-container'>
               <ReadMore
                 text={parse(ticketsData.description)}
-                textClass='welcome-rich-text pb-[3px]'
+                textClass='rich-text'
                 maxLines={5}
               />
             </div>

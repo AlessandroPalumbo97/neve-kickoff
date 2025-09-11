@@ -48,7 +48,7 @@ export default function News(): JSX.Element {
           <h2 className='news-title'>{newsData.title}</h2>
           <ReadMore
             text={newsData.description}
-            textClass='news-rich-text pb-[6px]'
+            textClass='rich-text'
             maxLines={5}
           />
         </div>

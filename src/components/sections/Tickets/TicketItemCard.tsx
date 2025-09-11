@@ -89,7 +89,7 @@ export default function TicketItemCard({
         </div>
 
         {/* Title */}
-        <h3 className='welcome-rich-text'>{title}</h3>
+        <h3 className='rich-text'>{title}</h3>
       </div>
 
       {/* Pricing Section */}
@@ -124,7 +124,7 @@ export default function TicketItemCard({
                 className={clsx(
                   price.soldOut
                     ? 'font-davinci-regular text-ticket-price'
-                    : 'welcome-rich-text',
+                    : 'rich-text',
                 )}
               >
                 {formatPrice(price.price)}

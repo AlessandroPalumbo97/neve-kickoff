@@ -312,17 +312,22 @@
   @apply font-arial-narrow-regular text-[20px] leading-[18px] tracking-[-0.6px] uppercase;
 }
 
-.welcome-rich-text-container {
+.rich-text-container {
   @apply relative;
 }
 
-.welcome-rich-text {
+.rich-text {
   @apply font-davinci-regular text-[35px] leading-[38.5px] tracking-[-1.05px];
   transition: all 0.3s ease-in-out;
 }
 
-.welcome-rich-text strong {
+.rich-text strong {
   @apply decoration-accent relative font-normal underline decoration-[1px] underline-offset-[5px];
+}
+
+.rich-text strong::after {
+  content: '';
+  @apply bg-accent absolute bottom-0 left-0 h-[1px] w-full;
 }
 
 .welcome-read-more-btn {
@@ -340,24 +345,6 @@
 
 .news-title {
   @apply font-arial-narrow-regular text-[20px] leading-[18px] tracking-[-0.6px] uppercase;
-}
-
-.news-rich-text-container {
-  @apply relative;
-}
-
-.news-rich-text {
-  @apply font-davinci-regular text-[35px] leading-[38.5px] tracking-[-1.05px];
-  transition: all 0.3s ease-in-out;
-}
-
-.news-rich-text strong {
-  @apply relative font-normal;
-}
-
-.news-rich-text strong::after {
-  content: '';
-  @apply bg-accent absolute bottom-0 left-0 h-[1px] w-full;
 }
 
 /* News carousel item styles */

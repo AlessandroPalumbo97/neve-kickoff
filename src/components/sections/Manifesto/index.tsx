@@ -32,7 +32,7 @@ export default function Manifesto(): JSX.Element {
         {/* Right Column - Content */}
         <div
           ref={ref}
-          className={`gap-md flex w-full flex-col ${animationClass} ${
+          className={`gap-lg sm:gap-md flex w-full flex-col ${animationClass} ${
             shouldAnimate && 'animate-in'
           }`}
         >
@@ -43,10 +43,10 @@ export default function Manifesto(): JSX.Element {
             </h2>
 
             {/* Excerpt with ReadMore */}
-            <div className='welcome-rich-text-container'>
+            <div className='rich-text-container'>
               <ReadMore
                 text={parse(manifestoData.excerpt)}
-                textClass='welcome-rich-text pb-[3px]'
+                textClass='rich-text'
                 maxLines={5}
               />
             </div>

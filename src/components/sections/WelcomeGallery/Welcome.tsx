@@ -24,10 +24,10 @@ export default function Welcome(): JSX.Element {
     >
       <div className='gap-sm flex flex-col'>
         <h2 className='welcome-title'>{welcomeData.title}</h2>
-        <div className='welcome-rich-text-container'>
+        <div className='rich-text-container'>
           <ReadMore
             text={parse(welcomeData.richText)}
-            textClass='welcome-rich-text pb-[3px]'
+            textClass='rich-text'
             maxLines={5}
           />
         </div>
