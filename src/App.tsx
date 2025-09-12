@@ -1,4 +1,4 @@
-import { type JSX, useEffect, useState } from 'react';
+import { type JSX, useEffect, useState, useRef } from 'react';
 import { clsx } from 'clsx';
 import { loadLinecheckData } from '@/utils/linecheck';
 import Header from '@/components/layout/Header';
@@ -8,10 +8,10 @@ import { LoadingProvider } from '@/contexts/LoadingContext';
 
 function App(): JSX.Element {
   const [loading, setLoading] = useState(true);
-  const [data, setData] = useState<any>(null);
   const [overlayVisible, setOverlayVisible] = useState(true);
   const [overlayFadeOut, setOverlayFadeOut] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const savedScrollPosition = useRef<number>(0);
 
   const toggleMenu = () => {
     setMenuOpen((prev) => !prev);
@@ -20,9 +20,8 @@ function App(): JSX.Element {
   useEffect(() => {
     let alive = true;
     loadLinecheckData()
-      .then((d) => {
+      .then(() => {
         if (!alive) return;
-        setData(d);
         setLoading(false);
       })
       .catch(() => {
@@ -60,6 +59,34 @@ function App(): JSX.Element {
       return () => clearTimeout(timeout);
     }
   }, [loading]);
+
+  // Block scroll when menu is open
+  useEffect(() => {
+    if (menuOpen) {
+      // Save current scroll position
+      savedScrollPosition.current = window.scrollY;
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${savedScrollPosition.current}px`;
+      document.body.style.width = '100%';
+    } else {
+      // Restore scroll position
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+
+      // Use requestAnimationFrame to ensure DOM has updated before restoring scroll
+      requestAnimationFrame(() => {
+        window.scrollTo(0, savedScrollPosition.current);
+      });
+    }
+
+    // Cleanup function to ensure styles are reset if component unmounts
+    return () => {
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+    };
+  }, [menuOpen]);
 
   return (
     <LoadingProvider
