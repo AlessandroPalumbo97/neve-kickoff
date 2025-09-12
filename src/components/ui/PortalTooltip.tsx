@@ -124,14 +124,29 @@ export default function PortalTooltip({
     if (isOpen) {
       updatePosition();
       const handleResize = () => updatePosition();
-      const handleScroll = () => updatePosition();
+      const handleScroll = () => {
+        updatePosition();
+        // Close tooltip on scroll
+        setIsOpen(false);
+      };
+
+      // Close tooltip on various events that might indicate carousel movement
+      const handleTouchStart = () => setIsOpen(false);
+      const handleTouchMove = () => setIsOpen(false);
+      const handleMouseDown = () => setIsOpen(false);
 
       window.addEventListener('resize', handleResize);
       window.addEventListener('scroll', handleScroll);
+      window.addEventListener('touchstart', handleTouchStart);
+      window.addEventListener('touchmove', handleTouchMove);
+      window.addEventListener('mousedown', handleMouseDown);
 
       return () => {
         window.removeEventListener('resize', handleResize);
         window.removeEventListener('scroll', handleScroll);
+        window.removeEventListener('touchstart', handleTouchStart);
+        window.removeEventListener('touchmove', handleTouchMove);
+        window.removeEventListener('mousedown', handleMouseDown);
       };
     }
   }, [isOpen, place]);
@@ -144,12 +159,18 @@ export default function PortalTooltip({
     setIsOpen(false);
   };
 
+  const handleClick = () => {
+    // For mobile devices, toggle tooltip on click
+    setIsOpen(!isOpen);
+  };
+
   return (
     <>
       <div
         ref={triggerRef}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
+        onClick={handleClick}
         className={clsx('cursor-pointer', className)}
       >
         {children}
